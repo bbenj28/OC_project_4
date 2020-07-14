@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,10 +31,10 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Layout1" translatesAutoresizingMaskIntoConstraints="NO" id="IkV-kW-bmU">
-                                <rect key="frame" x="27.5" y="306.5" width="54" height="54"/>
+                                <rect key="frame" x="89.5" y="441.5" width="54" height="54"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="57R-9E-JYM"/>
-                                    <constraint firstAttribute="width" constant="54" id="b6h-pW-Hg8"/>
+                                    <constraint firstAttribute="width" constant="54" id="K4t-eR-rA8"/>
+                                    <constraint firstAttribute="height" constant="54" id="hKW-vP-Wdh"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Layout2" translatesAutoresizingMaskIntoConstraints="NO" id="5ep-62-0Qh">
@@ -44,10 +45,10 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Layout3" translatesAutoresizingMaskIntoConstraints="NO" id="S8v-i9-Ef2">
-                                <rect key="frame" x="293.5" y="306.5" width="54" height="54"/>
+                                <rect key="frame" x="231.5" y="441.5" width="54" height="54"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="Vqp-nQ-BwF"/>
-                                    <constraint firstAttribute="width" constant="54" id="xq5-vL-Hqv"/>
+                                    <constraint firstAttribute="width" constant="54" id="axp-M3-FjW"/>
+                                    <constraint firstAttribute="height" constant="54" id="ntf-5Y-SjR"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -56,15 +57,17 @@
                         <constraints>
                             <constraint firstItem="YdV-xz-rfn" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="01w-p5-IWW"/>
                             <constraint firstItem="YdV-xz-rfn" firstAttribute="top" secondItem="Tbc-Jx-Pe7" secondAttribute="bottom" constant="8" id="4Mo-Nc-Yrk"/>
-                            <constraint firstItem="S8v-i9-Ef2" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="65Z-2p-4jX"/>
                             <constraint firstItem="Tbc-Jx-Pe7" firstAttribute="width" secondItem="YdV-xz-rfn" secondAttribute="width" id="ELZ-fv-pYG"/>
-                            <constraint firstItem="S8v-i9-Ef2" firstAttribute="leading" secondItem="YdV-xz-rfn" secondAttribute="trailing" constant="8" id="FlG-Y3-N0l"/>
-                            <constraint firstItem="YdV-xz-rfn" firstAttribute="leading" secondItem="IkV-kW-bmU" secondAttribute="trailing" constant="8" id="SGE-jT-mkA"/>
+                            <constraint firstItem="IkV-kW-bmU" firstAttribute="leading" secondItem="YdV-xz-rfn" secondAttribute="leading" id="Gb8-eF-k0T"/>
                             <constraint firstItem="5ep-62-0Qh" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Uni-e1-Pk6"/>
+                            <constraint firstItem="5ep-62-0Qh" firstAttribute="top" secondItem="IkV-kW-bmU" secondAttribute="top" id="Vag-ft-d9s"/>
                             <constraint firstItem="5ep-62-0Qh" firstAttribute="top" secondItem="YdV-xz-rfn" secondAttribute="bottom" constant="8" id="VvH-WV-R8N"/>
-                            <constraint firstItem="IkV-kW-bmU" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="bag-CF-sxi"/>
                             <constraint firstItem="Tbc-Jx-Pe7" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="e9a-G1-amN"/>
                             <constraint firstItem="YdV-xz-rfn" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="rfg-Hv-Gfl"/>
+                            <constraint firstItem="5ep-62-0Qh" firstAttribute="bottom" secondItem="IkV-kW-bmU" secondAttribute="bottom" id="u1Q-K0-1bQ"/>
+                            <constraint firstItem="S8v-i9-Ef2" firstAttribute="bottom" secondItem="5ep-62-0Qh" secondAttribute="bottom" id="wTA-mF-Z8B"/>
+                            <constraint firstItem="S8v-i9-Ef2" firstAttribute="trailing" secondItem="YdV-xz-rfn" secondAttribute="trailing" id="x4v-Sb-JIn"/>
+                            <constraint firstItem="S8v-i9-Ef2" firstAttribute="top" secondItem="5ep-62-0Qh" secondAttribute="top" id="yrO-h6-tFn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

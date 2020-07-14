@@ -8,7 +8,7 @@
 
 import Foundation
 class PicSquare {
-    var picturePath: String?
+    var pictureIsSelected: Bool = false
     var isHidden: Bool
     var width: Float {
         switch disposition {

@@ -9,14 +9,17 @@
 import Foundation
 class PicDisposition {
     let picSquares: [PicSquare] = [TopLeftPicSquare(), TopRightPicSquare(), BottomLeftPicSquare(), BottomRightPicSquare()]
-    let selectedLayout: SelectedLayout
-    init(layoutsPosition: [[String:Float]]) {
-        selectedLayout = SelectedLayout(layoutsPosition: layoutsPosition)
-        changeDisposition(1)
+    var selectedLayout: Int = 1
+    var selectedSquare: Int?
+    init() {
+        changeDisposition(0)
     }
-    func changeDisposition(_ index: Int) {
-        selectedLayout.index = index
-        switch index {
+    func changeDisposition(_ index: Int?) {
+        if let indexOk = index {
+            selectedLayout = indexOk
+        }
+        selectedSquare = nil
+        switch selectedLayout {
         case 0:
             firstDisposition()
         case 1:

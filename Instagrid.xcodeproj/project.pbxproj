@@ -16,7 +16,8 @@
 		03A93EED24B9A4FF000567B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03A93EEB24B9A4FF000567B4 /* LaunchScreen.storyboard */; };
 		03A93EF924B9A6AE000567B4 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 03A93EF824B9A6AE000567B4 /* Delm-Medium.otf */; };
 		03A93EFB24B9A6EE000567B4 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 03A93EFA24B9A6EE000567B4 /* ThirstySoftRegular.otf */; };
-		03BA527924BD8A92004D75DF /* SelectedLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA527824BD8A92004D75DF /* SelectedLayout.swift */; };
+		03BA527B24BD8EFF004D75DF /* PickPicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA527A24BD8EFF004D75DF /* PickPicViewController.swift */; };
+		03BA528124BD95C6004D75DF /* PicSquaresViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA528024BD95C6004D75DF /* PicSquaresViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +32,8 @@
 		03A93EEE24B9A4FF000567B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03A93EF824B9A6AE000567B4 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
 		03A93EFA24B9A6EE000567B4 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
-		03BA527824BD8A92004D75DF /* SelectedLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedLayout.swift; sourceTree = "<group>"; };
+		03BA527A24BD8EFF004D75DF /* PickPicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickPicViewController.swift; sourceTree = "<group>"; };
+		03BA528024BD95C6004D75DF /* PicSquaresViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicSquaresViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +81,6 @@
 			children = (
 				0380DD2C24BCE14A00589571 /* PicSquare.swift */,
 				0380DD2E24BCE3FA00589571 /* PicDisposition.swift */,
-				03BA527824BD8A92004D75DF /* SelectedLayout.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -96,6 +97,8 @@
 		03A93EF624B9A51D000567B4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				03BA527A24BD8EFF004D75DF /* PickPicViewController.swift */,
+				03BA528024BD95C6004D75DF /* PicSquaresViews.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -184,10 +187,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03BA528124BD95C6004D75DF /* PicSquaresViews.swift in Sources */,
 				0380DD2F24BCE3FA00589571 /* PicDisposition.swift in Sources */,
 				0380DD2D24BCE14A00589571 /* PicSquare.swift in Sources */,
-				03BA527924BD8A92004D75DF /* SelectedLayout.swift in Sources */,
 				03A93EE124B9A4FD000567B4 /* AppDelegate.swift in Sources */,
+				03BA527B24BD8EFF004D75DF /* PickPicViewController.swift in Sources */,
 				03A93EE324B9A4FD000567B4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
