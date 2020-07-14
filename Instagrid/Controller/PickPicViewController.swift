@@ -11,6 +11,7 @@ import UIKit
 class PickPicViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     
+    @IBOutlet weak var gridView: GridView!
     @IBOutlet var picSquares: [PicSquaresViews]!
     @IBOutlet var layoutsButtons: [UIImageView]!
     @IBOutlet var layoutsSelectedViews: [UIImageView]!
@@ -23,7 +24,63 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
         changeDisposition(0)
         // Do any additional setup after loading the view.
     }
+    @IBAction func swipeGestureRecognized(_ sender: UISwipeGestureRecognizer) {
+        
+        if sender.state == .ended {
+            moveGridAnimation()
+            generateAndSharePicture()
+        }
+
+    }
+    private func returnDeletedGridAnimation() {
+        picDisposition.delete()
+        changeDisposition(nil)
+        returnGridAnimation()
+    }
+    private func returnGridAnimation() {
+        gridAnimation(.identity)
+    }
+    private func gridAnimation(_ transform: CGAffineTransform) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.gridView.transform = transform
+        })
+    }
     
+    private func generateAndSharePicture() {
+        let image = generatePicture()
+        let ac = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        ac.completionWithItemsHandler = { (activity, success, items, error) in
+            if success {
+                self.returnDeletedGridAnimation()
+            } else {
+                self.returnGridAnimation()
+            }
+             //print(success ? "SUCCESS!" : "FAILURE")
+        }
+
+        present(ac, animated: true)
+    }
+    private func generatePicture() -> UIImage {
+        return gridView.asImage()
+    }
+    private func moveGridAnimation() {
+        gridAnimation(moveGrid())
+    }
+    private func moveGrid() -> CGAffineTransform {
+        var translationX: CGFloat
+        var translationY: CGFloat
+        if UIDevice.current.orientation.isPortrait {
+            let height = UIScreen.main.bounds.height
+            translationY = -height
+            translationX = 0
+        } else {
+            let width = UIScreen.main.bounds.width
+            translationX = -width
+            translationY = 0
+        }
+        let translation = CGAffineTransform(translationX: translationX, y: translationY)
+        return translation
+    }
     private func changeDisposition(_ index: Int?) {
         picDisposition.changeDisposition(index)
         for i in 0...2 {

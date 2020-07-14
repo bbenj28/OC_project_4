@@ -3,9 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>To add a picture in your photo library, the application needs an authorization.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>To add a picture, the application needs to access to your photo library.</string>
+	<string>The application needs your authorization to add pictures in your library.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

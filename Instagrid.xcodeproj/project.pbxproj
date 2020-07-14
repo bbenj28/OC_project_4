@@ -18,6 +18,7 @@
 		03A93EFB24B9A6EE000567B4 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 03A93EFA24B9A6EE000567B4 /* ThirstySoftRegular.otf */; };
 		03BA527B24BD8EFF004D75DF /* PickPicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA527A24BD8EFF004D75DF /* PickPicViewController.swift */; };
 		03BA528124BD95C6004D75DF /* PicSquaresViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA528024BD95C6004D75DF /* PicSquaresViews.swift */; };
+		03BA528324BE0609004D75DF /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA528224BE0609004D75DF /* GridView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		03A93EFA24B9A6EE000567B4 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 		03BA527A24BD8EFF004D75DF /* PickPicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickPicViewController.swift; sourceTree = "<group>"; };
 		03BA528024BD95C6004D75DF /* PicSquaresViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicSquaresViews.swift; sourceTree = "<group>"; };
+		03BA528224BE0609004D75DF /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				03BA527A24BD8EFF004D75DF /* PickPicViewController.swift */,
 				03BA528024BD95C6004D75DF /* PicSquaresViews.swift */,
+				03BA528224BE0609004D75DF /* GridView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				03BA528124BD95C6004D75DF /* PicSquaresViews.swift in Sources */,
 				0380DD2F24BCE3FA00589571 /* PicDisposition.swift in Sources */,
 				0380DD2D24BCE14A00589571 /* PicSquare.swift in Sources */,
+				03BA528324BE0609004D75DF /* GridView.swift in Sources */,
 				03A93EE124B9A4FD000567B4 /* AppDelegate.swift in Sources */,
 				03BA527B24BD8EFF004D75DF /* PickPicViewController.swift in Sources */,
 				03A93EE324B9A4FD000567B4 /* SceneDelegate.swift in Sources */,

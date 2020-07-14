@@ -48,4 +48,9 @@ class PicDisposition {
         picSquares[2].disposition = .bottomLeft
         picSquares[3].isHidden = false
     }
+    func delete() {
+        for i in 0...3 {
+            picSquares[i].pictureIsSelected = false
+        }
+    }
 }

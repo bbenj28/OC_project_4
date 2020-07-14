@@ -24,12 +24,6 @@
                                     <constraint firstAttribute="height" constant="200" id="xHh-YK-sRF"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Instagrid" translatesAutoresizingMaskIntoConstraints="NO" id="Tbc-Jx-Pe7">
-                                <rect key="frame" x="89.5" y="171.5" width="196" height="54"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="suB-0G-td4"/>
-                                </constraints>
-                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Layout1" translatesAutoresizingMaskIntoConstraints="NO" id="IkV-kW-bmU">
                                 <rect key="frame" x="89.5" y="441.5" width="54" height="54"/>
                                 <constraints>
@@ -51,18 +45,24 @@
                                     <constraint firstAttribute="height" constant="54" id="ntf-5Y-SjR"/>
                                 </constraints>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Instagrid" translatesAutoresizingMaskIntoConstraints="NO" id="OgW-Kn-yid">
+                                <rect key="frame" x="137.5" y="205" width="100" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="8WW-9R-ceq"/>
+                                    <constraint firstAttribute="height" constant="29" id="n30-iH-Cn1"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="YdV-xz-rfn" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="01w-p5-IWW"/>
-                            <constraint firstItem="YdV-xz-rfn" firstAttribute="top" secondItem="Tbc-Jx-Pe7" secondAttribute="bottom" constant="8" id="4Mo-Nc-Yrk"/>
-                            <constraint firstItem="Tbc-Jx-Pe7" firstAttribute="width" secondItem="YdV-xz-rfn" secondAttribute="width" id="ELZ-fv-pYG"/>
                             <constraint firstItem="IkV-kW-bmU" firstAttribute="leading" secondItem="YdV-xz-rfn" secondAttribute="leading" id="Gb8-eF-k0T"/>
+                            <constraint firstItem="OgW-Kn-yid" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="RCe-eq-a32"/>
                             <constraint firstItem="5ep-62-0Qh" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Uni-e1-Pk6"/>
                             <constraint firstItem="5ep-62-0Qh" firstAttribute="top" secondItem="IkV-kW-bmU" secondAttribute="top" id="Vag-ft-d9s"/>
                             <constraint firstItem="5ep-62-0Qh" firstAttribute="top" secondItem="YdV-xz-rfn" secondAttribute="bottom" constant="8" id="VvH-WV-R8N"/>
-                            <constraint firstItem="Tbc-Jx-Pe7" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="e9a-G1-amN"/>
+                            <constraint firstItem="IkV-kW-bmU" firstAttribute="top" secondItem="OgW-Kn-yid" secondAttribute="bottom" constant="207.5" id="WsC-Lv-oey"/>
                             <constraint firstItem="YdV-xz-rfn" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="rfg-Hv-Gfl"/>
                             <constraint firstItem="5ep-62-0Qh" firstAttribute="bottom" secondItem="IkV-kW-bmU" secondAttribute="bottom" id="u1Q-K0-1bQ"/>
                             <constraint firstItem="S8v-i9-Ef2" firstAttribute="bottom" secondItem="5ep-62-0Qh" secondAttribute="bottom" id="wTA-mF-Z8B"/>
@@ -74,7 +74,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52.173913043478265" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
     <resources>
