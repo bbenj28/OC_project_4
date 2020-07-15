@@ -16,6 +16,7 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
     let grid = Grid()
     
         // MARK: Outlets
+    @IBOutlet weak var swipeInstructionsLabel: UILabel!
     @IBOutlet weak var gridView: GridView!
     @IBOutlet var picSquares: [PicSquaresViews]!
     @IBOutlet var layoutsButtons: [UIImageView]!
@@ -25,7 +26,29 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         updateLayoutAndSquares(0)
+        
         // Do any additional setup after loading the view.
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        swipeInstructionsLabel.text = swipeInstructionsText()
+    }
+}
+
+extension PickPicViewController {
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        swipeInstructionsLabel.text = swipeInstructionsText()
+    }
+    func swipeInstructionsText() -> String {
+        switch UIDevice.current.orientation {
+        case .portrait, .portraitUpsideDown:
+            return "Swipe up to share"
+        case .landscapeLeft, .landscapeRight :
+            return "Swipe left to share"
+        default:
+            return ""
+        }
     }
 }
 
