@@ -51,7 +51,10 @@ class PicSquaresViews: UIView {
         checkPictureSize()
     }
     private func checkPictureSize() {
-        picture.frame = CGRect(origin: .zero, size: frame.size)
+        // adjust picture size to frame size and to avoid white margins : change origin point to (-1, -1) and add 1 point on each picture's side 
+        let origin = CGPoint(x: -1, y: -1)
+        let size = CGSize(width: frame.size.width + 2, height: frame.size.height + 2)
+        picture.frame = CGRect(origin: origin, size: size)
     }
 
 }
