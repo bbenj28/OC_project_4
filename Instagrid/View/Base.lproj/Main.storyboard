@@ -319,7 +319,7 @@
                 </tapGestureRecognizer>
                 <swipeGestureRecognizer direction="up" id="Y4H-uM-tEe">
                     <connections>
-                        <action selector="swipeGestureRecognized:" destination="BYZ-38-t0r" id="tB4-JE-s2k"/>
+                        <action selector="swipeUpGestureRecognized:" destination="BYZ-38-t0r" id="tB4-JE-s2k"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>

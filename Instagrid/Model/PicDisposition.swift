@@ -11,6 +11,31 @@ class PicDisposition {
     let picSquares: [PicSquare] = [TopLeftPicSquare(), TopRightPicSquare(), BottomLeftPicSquare(), BottomRightPicSquare()]
     var selectedLayout: Int = 1
     var selectedSquare: Int?
+    var picSquaresToFill: [Int] {
+        switch selectedLayout {
+        case 0:
+            return [0, 2, 3]
+        case 1:
+            return [0, 1, 2]
+        case 2:
+            return [0, 1, 2, 3]
+        default:
+            return []
+        }
+    }
+    var gridIsReadyToShare: Bool {
+        if picSquaresToFill.count > 0 {
+            for i in 0...picSquaresToFill.count - 1 {
+                let index = picSquaresToFill[i]
+                if picSquares[index].pictureIsSelected == false {
+                    return false
+                }
+            }
+            return true
+        } else {
+            return false
+        }
+    }
     init() {
         changeDisposition(0)
     }
