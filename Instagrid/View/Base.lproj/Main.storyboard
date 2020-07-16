@@ -112,6 +112,67 @@
                                 <rect key="frame" x="211.5" y="475" width="68" height="68"/>
                                 <color key="tintColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sO4-AW-hsK">
+                                <rect key="frame" x="32" y="28" width="256" height="33.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="sO4-AW-hsK" secondAttribute="height" multiplier="100:13" id="1fl-jO-lA7"/>
+                                    <constraint firstAttribute="width" secondItem="sO4-AW-hsK" secondAttribute="height" multiplier="5:1" id="MkV-sl-YY0"/>
+                                    <constraint firstAttribute="height" constant="44" id="ZhT-YU-juz"/>
+                                    <constraint firstAttribute="width" constant="195" id="e54-VI-ces"/>
+                                    <constraint firstAttribute="width" secondItem="sO4-AW-hsK" secondAttribute="height" multiplier="15:2" id="hFi-OX-u7I"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="MkV-sl-YY0"/>
+                                        <exclude reference="ZhT-YU-juz"/>
+                                        <exclude reference="e54-VI-ces"/>
+                                        <exclude reference="hFi-OX-u7I"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="1fl-jO-lA7"/>
+                                        <exclude reference="MkV-sl-YY0"/>
+                                        <exclude reference="ZhT-YU-juz"/>
+                                        <exclude reference="e54-VI-ces"/>
+                                        <include reference="hFi-OX-u7I"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="ArrowUp" translatesAutoresizingMaskIntoConstraints="NO" id="VXM-Te-3ZM">
+                                <rect key="frame" x="156" y="101" width="8" height="11"/>
+                                <color key="tintColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="VXM-Te-3ZM" secondAttribute="height" multiplier="9:13" id="qaR-0T-lv1"/>
+                                </constraints>
+                                <variation key="heightClass=compact" image="ArrowLeft"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe left to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M2h-vO-Z25">
+                                <rect key="frame" x="-0.5" y="182" width="168" height="28"/>
+                                <color key="tintColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="M2h-vO-Z25" secondAttribute="height" multiplier="197:33" id="M7a-bm-7fv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="M7a-bm-7fv"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="M7a-bm-7fv"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="24"/>
+                                </variation>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pds-FJ-qSn" userLabel="Grid" customClass="GridView" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="32" y="156" width="256" height="256"/>
                                 <subviews>
@@ -254,67 +315,6 @@
                                     <constraint firstItem="aob-ZP-WWS" firstAttribute="height" secondItem="Pds-FJ-qSn" secondAttribute="height" multiplier="0.425" id="ym7-8J-pA1"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sO4-AW-hsK">
-                                <rect key="frame" x="32" y="28" width="256" height="33.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="sO4-AW-hsK" secondAttribute="height" multiplier="100:13" id="1fl-jO-lA7"/>
-                                    <constraint firstAttribute="width" secondItem="sO4-AW-hsK" secondAttribute="height" multiplier="5:1" id="MkV-sl-YY0"/>
-                                    <constraint firstAttribute="height" constant="44" id="ZhT-YU-juz"/>
-                                    <constraint firstAttribute="width" constant="195" id="e54-VI-ces"/>
-                                    <constraint firstAttribute="width" secondItem="sO4-AW-hsK" secondAttribute="height" multiplier="15:2" id="hFi-OX-u7I"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="30"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="MkV-sl-YY0"/>
-                                        <exclude reference="ZhT-YU-juz"/>
-                                        <exclude reference="e54-VI-ces"/>
-                                        <exclude reference="hFi-OX-u7I"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=compact">
-                                    <mask key="constraints">
-                                        <exclude reference="1fl-jO-lA7"/>
-                                        <exclude reference="MkV-sl-YY0"/>
-                                        <exclude reference="ZhT-YU-juz"/>
-                                        <exclude reference="e54-VI-ces"/>
-                                        <include reference="hFi-OX-u7I"/>
-                                    </mask>
-                                </variation>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="ArrowUp" translatesAutoresizingMaskIntoConstraints="NO" id="VXM-Te-3ZM">
-                                <rect key="frame" x="156" y="101" width="8" height="11"/>
-                                <color key="tintColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="VXM-Te-3ZM" secondAttribute="height" multiplier="9:13" id="qaR-0T-lv1"/>
-                                </constraints>
-                                <variation key="heightClass=compact" image="ArrowLeft"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe left to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M2h-vO-Z25">
-                                <rect key="frame" x="82.5" y="222.5" width="217.5" height="36.5"/>
-                                <color key="tintColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="M2h-vO-Z25" secondAttribute="height" multiplier="197:33" id="M7a-bm-7fv"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="M7a-bm-7fv"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="M7a-bm-7fv"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=compact-widthClass=compact">
-                                    <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="24"/>
-                                </variation>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

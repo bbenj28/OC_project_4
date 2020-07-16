@@ -169,7 +169,7 @@ extension PickPicViewController {
         return translation
     }
     private func getTranslationsXYBasedOnDeviceOrientation() -> [CGFloat] {
-        if isOriented(.portrait) {
+        if isOriented(.portrait) || isOriented(.portraitUpsideDown) {
             let height = UIScreen.main.bounds.height
             return [0, -height]
         } else {
