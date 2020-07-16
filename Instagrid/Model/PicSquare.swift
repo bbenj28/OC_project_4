@@ -10,39 +10,32 @@ import Foundation
 class PicSquare {
     var pictureIsSelected: Bool = false
     var isHidden: Bool
-    var width: Float {
-        switch disposition {
-        case .topLeft, .topRight, .bottomLeft, .bottomRight:
-            return 127.5
-        case .topAllWidth, .bottomAllWidth:
-            return 270
-        }
-    }
-    let height: Float = 127.5
     var disposition: SquareDisposition
-    init(isHidden: Bool, disposition: SquareDisposition) {
+    let id: Int
+    init(isHidden: Bool, disposition: SquareDisposition, id: Int) {
         self.isHidden = isHidden
         self.disposition = disposition
+        self.id = id
     }
 }
 class TopLeftPicSquare: PicSquare {
     init() {
-        super.init(isHidden: false, disposition: .topLeft)
+        super.init(isHidden: false, disposition: .topLeft, id: 0)
     }
 }
 class TopRightPicSquare: PicSquare {
     init() {
-        super.init(isHidden: false, disposition: .topRight)
+        super.init(isHidden: false, disposition: .topRight, id: 1)
     }
 }
 class BottomLeftPicSquare: PicSquare {
     init() {
-        super.init(isHidden: false, disposition: .bottomAllWidth)
+        super.init(isHidden: false, disposition: .bottomAllWidth, id: 2)
     }
 }
 class BottomRightPicSquare: PicSquare {
     init() {
-        super.init(isHidden: true, disposition: .bottomRight)
+        super.init(isHidden: true, disposition: .bottomRight, id: 3)
     }
 }
 
