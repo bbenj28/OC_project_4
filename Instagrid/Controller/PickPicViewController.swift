@@ -7,6 +7,7 @@
 //
 
 import UIKit
+// CONTROLLER used to choose layouts, picture and share grid
 // MARK: Init
 class PickPicViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
@@ -16,7 +17,6 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
     let grid = Grid()
     
         // MARK: Outlets
-    @IBOutlet weak var swipeInstructionsLabel: UILabel!
     @IBOutlet weak var gridView: GridView!
     @IBOutlet var picSquares: [PicSquaresViews]!
     @IBOutlet var layoutsButtons: [UIImageView]!
@@ -26,31 +26,9 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         updateLayoutAndSquares(0)
-        
-        // Do any additional setup after loading the view.
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        swipeInstructionsLabel.text = swipeInstructionsText()
     }
 }
 
-extension PickPicViewController {
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        swipeInstructionsLabel.text = swipeInstructionsText()
-    }
-    func swipeInstructionsText() -> String {
-        switch UIDevice.current.orientation {
-        case .portrait, .portraitUpsideDown:
-            return "Swipe up to share"
-        case .landscapeLeft, .landscapeRight :
-            return "Swipe left to share"
-        default:
-            return ""
-        }
-    }
-}
 
 // MARK: Choose layout
 extension PickPicViewController {
@@ -73,21 +51,29 @@ extension PickPicViewController {
     }
     
         // MARK: Change disposition
+        // index = nil to update squares without changing layout
     private func updateLayoutAndSquares(_ index: Int?) {
-        grid.changeDisposition(index)
+        grid.changeSelectedLayout(index)
+        updateLayouts()
+        updateSquares()
+    }
+    private func updateLayouts() {
         for i in 0...2 {
+            // hide or show the check mark
             if grid.selectedLayout == i {
                 layoutsSelectedViews[i].isHidden = false
             } else {
                 layoutsSelectedViews[i].isHidden = true
             }
         }
+    }
+    private func updateSquares() {
         for i in 0...3 {
             picSquares[i].setView(grid.picSquares[i])
         }
-        
     }
 }
+
 
 // MARK: Choose pictures
 extension PickPicViewController {
@@ -108,12 +94,12 @@ extension PickPicViewController {
     }
     private func askForChangePictureInPicSquares(_ index: Int) {
         grid.selectedSquare = index
+        // if the photos album is available, ask to pick picture
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
             imagePickerInit()
         } else {
             displayingAlert(title: "Photos album not available", text: "The photos album is not available. The application can not add pictures.")
         }
-        
     }
     
         // MARK: Image picker
@@ -124,7 +110,7 @@ extension PickPicViewController {
         present(imagePicker, animated: true, completion: nil)
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
+        // an image is selected, dismiss picker and display it in the selected PicSquare
         self.dismiss(animated: true, completion: {
             let image = info[UIImagePickerController.InfoKey.originalImage]
             let picSquare = self.grid.picSquares[self.grid.selectedSquare!]
@@ -140,41 +126,58 @@ extension PickPicViewController {
     
     
         // MARK: Swipes
-    @IBAction func swipeUpGestureRecognized(_ sender: UISwipeGestureRecognizer) {
+    @IBAction func swipeLeftGestureRecognized(_ sender: UISwipeGestureRecognizer) {
         if sender.state == .ended {
-            if UIDevice.current.orientation.isPortrait {
-                swipeActions()
-            }
+            checkDeviceAndSwipeOrientation(swipeIsUp: false)
         }
     }
-    private func swipeActions() {
-        if grid.gridIsReadyToShare {
-            moveGridAnimation()
-            generateAndSharePicture()
+    @IBAction func swipeUpGestureRecognized(_ sender: UISwipeGestureRecognizer) {
+        if sender.state == .ended {
+            checkDeviceAndSwipeOrientation(swipeIsUp: true)
+        }
+    }
+    private func checkDeviceAndSwipeOrientation(swipeIsUp: Bool) {
+        if (isOriented(.portrait) && swipeIsUp) || (isOriented(.portraitUpsideDown) && swipeIsUp) || (isOriented(.landscapeLeft) && swipeIsUp == false) || (isOriented(.landscapeRight) && swipeIsUp == false){
+            checkIfGridIsReadyToShare()
+        }
+    }
+    private func checkIfGridIsReadyToShare() {
+        if grid.isReadyToShare {
+            prepareToShare()
         } else {
             displayingAlert(title: "Choose pictures", text: "All squares have to be full in the choosen layout. Please, choose pictures.")
         }
     }
+    private func prepareToShare() {
+        makeGridDisappear()
+        generateAndSharePicture()
+    }
+    
+        // MARK: Device's orientation
+    private func isOriented(_ orientation: UIDeviceOrientation) -> Bool {
+        return UIDevice.current.orientation == orientation
+    }
     
         // MARK: Grid Animations
-    private func moveGridAnimation() {
-        gridAnimation(gridDisparition())
+                // Grid disappearance
+    private func makeGridDisappear() {
+        gridAnimation(gridDisappearance())
     }
-    private func gridDisparition() -> CGAffineTransform {
-        var translationX: CGFloat
-        var translationY: CGFloat
-        if UIDevice.current.orientation.isPortrait {
-            let height = UIScreen.main.bounds.height
-            translationY = -height
-            translationX = 0
-        } else {
-            let width = UIScreen.main.bounds.width
-            translationX = -width
-            translationY = 0
-        }
-        let translation = CGAffineTransform(translationX: translationX, y: translationY)
+    private func gridDisappearance() -> CGAffineTransform {
+        let translations = getTranslationsXYBasedOnDeviceOrientation()
+        let translation = CGAffineTransform(translationX: translations[0], y: translations[1])
         return translation
     }
+    private func getTranslationsXYBasedOnDeviceOrientation() -> [CGFloat] {
+        if isOriented(.portrait) {
+            let height = UIScreen.main.bounds.height
+            return [0, -height]
+        } else {
+            let width = UIScreen.main.bounds.width
+            return [-width, 0]
+        }
+    }
+                // Grid is back
     private func returnDeletedGridAnimation() {
         grid.delete()
         updateLayoutAndSquares(nil)
@@ -183,6 +186,7 @@ extension PickPicViewController {
     private func returnGridAnimation() {
         gridAnimation(.identity)
     }
+                // Animation
     private func gridAnimation(_ transform: CGAffineTransform) {
         UIView.animate(withDuration: 0.3, animations: {
             self.gridView.transform = transform
@@ -209,6 +213,7 @@ extension PickPicViewController {
         present(ac, animated: true)
     }
 }
+
 
 // MARK: Alert
 extension PickPicViewController {

@@ -23,7 +23,7 @@ class Grid {
             return []
         }
     }
-    var gridIsReadyToShare: Bool {
+    var isReadyToShare: Bool {
         if picSquaresToFill.count > 0 {
             for i in 0...picSquaresToFill.count - 1 {
                 let index = picSquaresToFill[i]
@@ -37,9 +37,9 @@ class Grid {
         }
     }
     init() {
-        changeDisposition(0)
+        changeSelectedLayout(0)
     }
-    func changeDisposition(_ index: Int?) {
+    func changeSelectedLayout(_ index: Int?) {
         if let indexOk = index {
             selectedLayout = indexOk
         }
