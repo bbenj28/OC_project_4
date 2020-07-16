@@ -90,6 +90,8 @@
 		03A93EF524B9A519000567B4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				03BA528224BE0609004D75DF /* GridView.swift */,
+				03BA528024BD95C6004D75DF /* PicSquaresViews.swift */,
 				03A93EEB24B9A4FF000567B4 /* LaunchScreen.storyboard */,
 				03A93EE624B9A4FD000567B4 /* Main.storyboard */,
 			);
@@ -100,8 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				03BA527A24BD8EFF004D75DF /* PickPicViewController.swift */,
-				03BA528024BD95C6004D75DF /* PicSquaresViews.swift */,
-				03BA528224BE0609004D75DF /* GridView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

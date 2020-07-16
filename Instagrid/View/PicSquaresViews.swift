@@ -25,19 +25,11 @@ class PicSquaresViews: UIView {
             picture.isHidden = false
         } else {
             picture.isHidden = true
-            plusPosition()
+            plus.isHidden = false
+            
         }
     }
-    private func plusPosition() {
-        plus.transform = .identity
-        let positionX = frame.width / 2 - 20
-        let positionY = frame.height / 2 - 20
-        let translationX = positionX - plus.frame.minX
-        let translationY = positionY - plus.frame.minY
-        let translation = CGAffineTransform(translationX: translationX, y: translationY)
-        plus.transform = translation
-        plus.isHidden = false
-    }
+
     func changePicture(_ image: UIImage) {
         
         plus.isHidden = true
