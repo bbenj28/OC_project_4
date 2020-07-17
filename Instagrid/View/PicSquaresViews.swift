@@ -16,7 +16,7 @@ class PicSquaresViews: UIView {
 
 // MARK: Set view
 extension PicSquaresViews {
-    ///Set PicSquare's layout based on user's choice and then change picture if necessary
+    ///Set PicSquare's layout based on user's choice and then change picture if necessary.
     ///
     /// Usage:
     ///

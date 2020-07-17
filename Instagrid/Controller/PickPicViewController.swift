@@ -55,10 +55,12 @@ extension PickPicViewController {
     
         // MARK: Change disposition
     /// Update grid based on choosen layout, and update squares based on choosen layout and pictures.
-    /// - Parameter index: Index of the choosen layout. *nil* to update squares without changing layout
+    /// - Parameter index: Index of the choosen layout (0...2). *nil* to update squares without changing layout
     private func updateLayoutAndSquares(_ index: Int?) {
-        grid.changeSelectedLayout(index)
-        updateLayouts()
+        if let indexOk = index {
+            grid.changeSelectedLayout(indexOk)
+            updateLayouts()
+        }
         updateSquares()
     }
     private func updateLayouts() {
@@ -125,7 +127,7 @@ extension PickPicViewController {
 }
 
 
-// MARK: Swipe to share
+// MARK: Swipe and share
 extension PickPicViewController {
     
     
