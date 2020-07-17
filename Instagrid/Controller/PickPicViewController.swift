@@ -26,6 +26,7 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         updateLayoutAndSquares(0)
+        swipesCreation()
     }
 }
 
@@ -44,6 +45,8 @@ extension PickPicViewController {
     @IBAction func layout3IsSelected(_ sender: Any) {
         layoutIsSelected(2)
     }
+    /// Update grid based on choosen layout.
+    /// - Parameter index: Index of the choosen layout.
     private func layoutIsSelected(_ index: Int) {
         if index != grid.selectedLayout {
             updateLayoutAndSquares(index)
@@ -51,7 +54,8 @@ extension PickPicViewController {
     }
     
         // MARK: Change disposition
-        // index = nil to update squares without changing layout
+    /// Update grid based on choosen layout, and update squares based on choosen layout and pictures.
+    /// - Parameter index: Index of the choosen layout. *nil* to update squares without changing layout
     private func updateLayoutAndSquares(_ index: Int?) {
         grid.changeSelectedLayout(index)
         updateLayouts()
@@ -103,7 +107,7 @@ extension PickPicViewController {
     }
     
         // MARK: Image picker
-    func imagePickerInit() {
+    private func imagePickerInit() {
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = false
@@ -126,21 +130,21 @@ extension PickPicViewController {
     
     
         // MARK: Swipes
-    @IBAction func swipeLeftGestureRecognized(_ sender: UISwipeGestureRecognizer) {
-        if sender.state == .ended {
-            checkDeviceAndSwipeOrientation(swipeIsUp: false)
-        }
+    /// Create an up swipe for portrait oriented device, and a left swipe for landscape oriented device.
+    private func swipesCreation() {
+        let upSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(_:)))
+        upSwipe.direction = .up
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(_:)))
+        leftSwipe.direction = .left
+        view.addGestureRecognizer(upSwipe)
+        view.addGestureRecognizer(leftSwipe)
     }
-    @IBAction func swipeUpGestureRecognized(_ sender: UISwipeGestureRecognizer) {
-        if sender.state == .ended {
-            checkDeviceAndSwipeOrientation(swipeIsUp: true)
-        }
-    }
-    private func checkDeviceAndSwipeOrientation(swipeIsUp: Bool) {
-        if (isOriented(.portrait) && swipeIsUp) || (isOriented(.portraitUpsideDown) && swipeIsUp) || (isOriented(.landscapeLeft) && swipeIsUp == false) || (isOriented(.landscapeRight) && swipeIsUp == false){
+    @objc func swipeAction(_ sender: UISwipeGestureRecognizer) {
+        if sender.direction == swipeDirectionNeeded() {
             checkIfGridIsReadyToShare()
         }
     }
+    /// Check if all squares received a picture, and launch share process.
     private func checkIfGridIsReadyToShare() {
         if grid.isReadyToShare {
             prepareToShare()
@@ -154,12 +158,27 @@ extension PickPicViewController {
     }
     
         // MARK: Device's orientation
-    private func isOriented(_ orientation: UIDeviceOrientation) -> Bool {
+    /// Returns the swipe direction based on device's orientation.
+    /// - Returns: *.up* for a portrait oriented device, *.left* for a landscape oriented device.
+    private func swipeDirectionNeeded() -> UISwipeGestureRecognizer.Direction? {
+        if deviceOrientation(.portraitUpsideDown) || deviceOrientation(.portrait) {
+            return .up
+        }
+        if deviceOrientation(.landscapeLeft) || deviceOrientation(.landscapeRight) {
+            return .left
+        }
+        return nil
+    }
+    /// Check if the needed orientation is the actual device's orientation.
+    /// - Parameter orientation: The needed orientation.
+    /// - Returns: *true* if the needed orientation is the actual device's orientation, *false* otherwise.
+    private func deviceOrientation(_ orientation: UIDeviceOrientation) -> Bool {
         return UIDevice.current.orientation == orientation
     }
     
         // MARK: Grid Animations
                 // Grid disappearance
+    /// Make grid disappear if ready to share.
     private func makeGridDisappear() {
         gridAnimation(gridDisappearance())
     }
@@ -169,7 +188,7 @@ extension PickPicViewController {
         return translation
     }
     private func getTranslationsXYBasedOnDeviceOrientation() -> [CGFloat] {
-        if isOriented(.portrait) || isOriented(.portraitUpsideDown) {
+        if deviceOrientation(.portrait) || deviceOrientation(.portraitUpsideDown) {
             let height = UIScreen.main.bounds.height
             return [0, -height]
         } else {
@@ -178,11 +197,13 @@ extension PickPicViewController {
         }
     }
                 // Grid is back
+    /// Delete grid's pictures and make it come back.
     private func returnDeletedGridAnimation() {
         grid.delete()
         updateLayoutAndSquares(nil)
         returnGridAnimation()
     }
+    /// Make grid come back.
     private func returnGridAnimation() {
         gridAnimation(.identity)
     }
@@ -198,9 +219,13 @@ extension PickPicViewController {
         let image = generatePicture()
         sharePicture(image)
     }
+    /// Ask the grid view to generate a single picture.
+    /// - Returns: The UIImage generated.
     private func generatePicture() -> UIImage {
         return gridView.asImage()
     }
+    /// Launch UIActivityController to share picture.
+    /// - Parameter image: The generated UIImage to share.
     private func sharePicture(_ image: UIImage) {
         let ac = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         ac.completionWithItemsHandler = { (activity, success, items, error) in
@@ -217,6 +242,9 @@ extension PickPicViewController {
 
 // MARK: Alert
 extension PickPicViewController {
+    /// Display an alert with an unique answer: *OK*.
+    /// - Parameter title: Title of the alert.
+    /// - Parameter text : Message to display in the alert's box.
     func displayingAlert(title:String, text:String){
         let alert = UIAlertController(title: title, message: text, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+/// Class of squares which will contain a picture.
 class PicSquare {
     var pictureIsSelected: Bool = false
     var isHidden: Bool

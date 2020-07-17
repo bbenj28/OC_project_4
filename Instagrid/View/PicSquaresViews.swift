@@ -8,43 +8,33 @@
 
 import UIKit
 
+// MARK: Outlets
 class PicSquaresViews: UIView {
     @IBOutlet private var plus: UIImageView!
     @IBOutlet private var picture: UIImageView!
+}
+
+// MARK: Set view
+extension PicSquaresViews {
+    ///Set PicSquare's layout based on user's choice and then change picture if necessary
+    ///
+    /// Usage:
+    ///
+    ///     picSquares[x].setView(grid.picSquares[x])
+    ///
+    /// - Parameter picSquare: The PicSquare in grid.picSquares linked to the choosen PicSquare's outlet in the controller.
     func setView(_ picSquare: PicSquare) {
         isHidden = picSquare.isHidden
         if picSquare.isHidden == false {
-            setAutoLayout(picSquare)
+            setLayout(picSquare)
             squarePicture(picSquare)
         }
     }
-    private func squarePicture(_ picSquare: PicSquare) {
-        if picSquare.pictureIsSelected {
-            plus.isHidden = true
-            checkPictureSize()
-            picture.isHidden = false
-        } else {
-            picture.isHidden = true
-            plus.isHidden = false
-            
-        }
-    }
+}
 
-    func changePicture(_ image: UIImage) {
-        
-        plus.isHidden = true
-        picture.image = image
-        picture.isHidden = false
-        checkPictureSize()
-    }
-    private func checkPictureSize() {
-        // adjust picture size to frame size and to avoid white margins : change origin point to (-1, -1) and add 1 point on each picture's side 
-        let origin = CGPoint(x: -1, y: -1)
-        let size = CGSize(width: frame.size.width + 2, height: frame.size.height + 2)
-        picture.frame = CGRect(origin: origin, size: size)
-    }
-    
-    private func setAutoLayout(_ picSquare: PicSquare) {
+// MARK: Layout
+extension PicSquaresViews {
+    private func setLayout(_ picSquare: PicSquare) {
         searchAndReplaceRatioLayout(picSquare)
         searchAndReplaceHorizontalCenterLayout(picSquare)
         superview!.layoutIfNeeded()
@@ -106,5 +96,30 @@ class PicSquaresViews: UIView {
         removeConstraint(oldConstraint)
         addConstraint(newConstraint)
     }
+}
 
+// MARK: Picture
+extension PicSquaresViews {
+    private func squarePicture(_ picSquare: PicSquare) {
+        if picSquare.pictureIsSelected {
+            plus.isHidden = true
+            checkPictureSize()
+            picture.isHidden = false
+        } else {
+            picture.isHidden = true
+            plus.isHidden = false
+        }
+    }
+    func changePicture(_ image: UIImage) {
+        plus.isHidden = true
+        picture.image = image
+        picture.isHidden = false
+        checkPictureSize()
+    }
+    private func checkPictureSize() {
+        // adjust picture size to frame size and to avoid white margins : change origin point to (-1, -1) and add 1 point on each picture's side 
+        let origin = CGPoint(x: -1, y: -1)
+        let size = CGSize(width: frame.size.width + 2, height: frame.size.height + 2)
+        picture.frame = CGRect(origin: origin, size: size)
+    }
 }
