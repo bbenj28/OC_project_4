@@ -14,31 +14,24 @@ class PicSquaresViews: UIView {
     @IBOutlet private var picture: UIImageView!
 }
 
-// MARK: Set view
+// MARK: Layout
 extension PicSquaresViews {
-    ///Set PicSquare's layout based on user's choice and then change picture if necessary.
+    ///Set PicSquare's layout based on user's choice.
     ///
     /// Usage:
     ///
-    ///     picSquares[x].setView(grid.picSquares[x])
+    ///     picSquares[x].setLayout(grid.picSquares[x])
     ///
     /// - Parameter picSquare: The PicSquare in grid.picSquares linked to the choosen PicSquare's outlet in the controller.
-    func setView(_ picSquare: PicSquare) {
+    func setLayout(_ picSquare: PicSquare) {
         isHidden = picSquare.isHidden
         if picSquare.isHidden == false {
-            setLayout(picSquare)
-            squarePicture(picSquare)
+            searchAndReplaceRatioLayout(picSquare)
+            searchAndReplaceHorizontalCenterLayout(picSquare)
         }
-    }
-}
-
-// MARK: Layout
-extension PicSquaresViews {
-    private func setLayout(_ picSquare: PicSquare) {
-        searchAndReplaceRatioLayout(picSquare)
-        searchAndReplaceHorizontalCenterLayout(picSquare)
-        superview!.layoutIfNeeded()
-        layoutIfNeeded()
+        
+        //superview!.layoutIfNeeded()
+        //layoutIfNeeded()
     }
     private func searchAndReplaceRatioLayout(_ picSquare: PicSquare) {
         for constraint in constraints {
@@ -100,7 +93,14 @@ extension PicSquaresViews {
 
 // MARK: Picture
 extension PicSquaresViews {
-    private func squarePicture(_ picSquare: PicSquare) {
+    ///Set PicSquare's picture based on user's choice.
+    ///
+    /// Usage:
+    ///
+    ///     picSquares[x].setPicture(grid.picSquares[x])
+    ///
+    /// - Parameter picSquare: The PicSquare in grid.picSquares linked to the choosen PicSquare's outlet in the controller.
+    func setPicture(_ picSquare: PicSquare) {
         if picSquare.pictureIsSelected {
             plus.isHidden = true
             checkPictureSize()

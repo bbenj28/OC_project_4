@@ -28,6 +28,26 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
         updateLayoutAndSquares(0)
         swipesCreation()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        reduceSquaresBeforeAppearance()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        resizeSquaresWithAnimation()
+    }
+    private func reduceSquaresBeforeAppearance() {
+        for i in 0...3 {
+            picSquares[i].transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
+        }
+    }
+    private func resizeSquaresWithAnimation() {
+        UIView.animate(withDuration: 0.9, delay: 0.2, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+            for i in 0...3 {
+                self.picSquares[i].transform = .identity
+            }
+        }, completion: nil)
+    }
 }
 
 
@@ -75,8 +95,18 @@ extension PickPicViewController {
     }
     private func updateSquares() {
         for i in 0...3 {
-            picSquares[i].setView(grid.picSquares[i])
+            picSquares[i].setLayout(grid.picSquares[i])
         }
+        updatedSquaresAnimation()
+    }
+    private func updatedSquaresAnimation() {
+        UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+            self.gridView.layoutIfNeeded()
+            for i in 0...3 {
+                self.picSquares[i].layoutIfNeeded()
+                self.picSquares[i].setPicture(self.grid.picSquares[i])
+            }
+        }, completion: nil)
     }
 }
 
