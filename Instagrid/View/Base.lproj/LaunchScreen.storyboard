@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -13,72 +13,32 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="YdV-xz-rfn">
-                                <rect key="frame" x="97.5" y="243.5" width="180" height="180"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Icon no blue" translatesAutoresizingMaskIntoConstraints="NO" id="gvd-9d-20M">
+                                <rect key="frame" x="8.5" y="132.5" width="303" height="303"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="YdV-xz-rfn" secondAttribute="height" multiplier="1:1" id="XMQ-6Q-OW2"/>
-                                </constraints>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Layout1" translatesAutoresizingMaskIntoConstraints="NO" id="IkV-kW-bmU">
-                                <rect key="frame" x="97.5" y="431.5" width="60" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="IkV-kW-bmU" secondAttribute="height" multiplier="1:1" id="Dde-lj-Dy1"/>
-                                </constraints>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Layout2" translatesAutoresizingMaskIntoConstraints="NO" id="5ep-62-0Qh">
-                                <rect key="frame" x="157.5" y="431.5" width="60" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="5ep-62-0Qh" secondAttribute="height" multiplier="1:1" id="Tub-v4-Ie4"/>
-                                </constraints>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Layout3" translatesAutoresizingMaskIntoConstraints="NO" id="S8v-i9-Ef2">
-                                <rect key="frame" x="217.5" y="431.5" width="60" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="S8v-i9-Ef2" secondAttribute="height" multiplier="1:1" id="Ap8-FI-abO"/>
-                                </constraints>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Instagrid" translatesAutoresizingMaskIntoConstraints="NO" id="OgW-Kn-yid">
-                                <rect key="frame" x="97.5" y="189.5" width="180" height="46"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="OgW-Kn-yid" secondAttribute="height" multiplier="90:23" id="vNn-pZ-1l1"/>
+                                    <constraint firstAttribute="width" secondItem="gvd-9d-20M" secondAttribute="height" multiplier="1:1" id="LDS-Hj-epK"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="OgW-Kn-yid" firstAttribute="centerX" secondItem="YdV-xz-rfn" secondAttribute="centerX" id="0Kt-bn-dd7"/>
-                            <constraint firstItem="IkV-kW-bmU" firstAttribute="leading" secondItem="YdV-xz-rfn" secondAttribute="leading" id="B2C-wT-0C6"/>
-                            <constraint firstItem="YdV-xz-rfn" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="GJZ-SS-uaF"/>
-                            <constraint firstItem="S8v-i9-Ef2" firstAttribute="trailing" secondItem="YdV-xz-rfn" secondAttribute="trailing" id="IGR-Pl-m7k"/>
-                            <constraint firstItem="IkV-kW-bmU" firstAttribute="centerY" secondItem="5ep-62-0Qh" secondAttribute="centerY" id="MWZ-y9-cZw"/>
-                            <constraint firstItem="YdV-xz-rfn" firstAttribute="firstBaseline" secondItem="OgW-Kn-yid" secondAttribute="baseline" constant="8" symbolType="layoutAnchor" id="RwA-NR-a8i"/>
-                            <constraint firstItem="IkV-kW-bmU" firstAttribute="width" secondItem="YdV-xz-rfn" secondAttribute="width" multiplier="0.333333" id="S3k-6q-e86"/>
-                            <constraint firstItem="YdV-xz-rfn" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.48" id="Xw2-Lc-sco"/>
-                            <constraint firstItem="5ep-62-0Qh" firstAttribute="width" secondItem="YdV-xz-rfn" secondAttribute="width" multiplier="0.333333" id="bUG-3G-RwM"/>
-                            <constraint firstItem="S8v-i9-Ef2" firstAttribute="width" secondItem="YdV-xz-rfn" secondAttribute="width" multiplier="0.333333" id="c74-LK-Dc3"/>
-                            <constraint firstItem="S8v-i9-Ef2" firstAttribute="centerY" secondItem="5ep-62-0Qh" secondAttribute="centerY" id="dLq-dM-egB"/>
-                            <constraint firstItem="5ep-62-0Qh" firstAttribute="firstBaseline" secondItem="YdV-xz-rfn" secondAttribute="baseline" constant="8" symbolType="layoutAnchor" id="ia8-Kf-yPC"/>
-                            <constraint firstItem="OgW-Kn-yid" firstAttribute="width" secondItem="YdV-xz-rfn" secondAttribute="width" id="kUT-0k-zwI"/>
-                            <constraint firstItem="5ep-62-0Qh" firstAttribute="centerX" secondItem="YdV-xz-rfn" secondAttribute="centerX" id="onL-u8-Caz"/>
-                            <constraint firstItem="YdV-xz-rfn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="z7V-Ap-peJ"/>
+                            <constraint firstItem="gvd-9d-20M" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.94686" id="2PW-CU-Q6y"/>
+                            <constraint firstItem="gvd-9d-20M" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="X60-BO-Owa"/>
+                            <constraint firstItem="gvd-9d-20M" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="l2v-Ar-RZ0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+            <point key="canvasLocation" x="50.724637681159422" y="374.33035714285711"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Icon" width="60" height="60"/>
-        <image name="Instagrid" width="41.5" height="13"/>
-        <image name="Layout1" width="27" height="27"/>
-        <image name="Layout2" width="27" height="27"/>
-        <image name="Layout3" width="27" height="27"/>
+        <image name="Icon no blue" width="392" height="392"/>
     </resources>
 </document>
