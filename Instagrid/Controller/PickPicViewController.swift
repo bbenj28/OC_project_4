@@ -206,15 +206,11 @@ extension PickPicViewController {
     /// Check if all squares received a picture, and launch share process.
     private func checkIfGridIsReadyToShare() {
         if grid.isReadyToShare {
-            prepareToShare()
+            makeGridDisappearAndShareIt()
         } else {
             activityIndicator.stopAnimating()
             displayingAlert(title: "Choose pictures", text: "All squares have to be full in the choosen layout. Please, choose pictures.")
         }
-    }
-    private func prepareToShare() {
-        makeGridDisappear()
-        generateAndSharePicture()
     }
     
         // MARK: Device's orientation
@@ -239,8 +235,14 @@ extension PickPicViewController {
         // MARK: Grid Animations
                 // Grid disappearance
     /// Make grid disappear if ready to share.
-    private func makeGridDisappear() {
-        gridAnimation(gridDisappearance())
+    private func makeGridDisappearAndShareIt() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.gridView.transform = self.gridDisappearance()
+        }, completion: { (finished: Bool) in
+            if finished {
+                self.generateAndSharePicture()
+            }
+        })
     }
     private func gridDisappearance() -> CGAffineTransform {
         let translations = getTranslationsXYBasedOnDeviceOrientation()
