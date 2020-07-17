@@ -10,41 +10,47 @@ import Foundation
 /// Class of squares which will contain a picture.
 class PicSquare {
     var pictureIsSelected: Bool = false
-    var isHidden: Bool
+    var isHidden: Bool {
+        if disposition == .hidden {
+            return true
+        } else {
+            return false
+        }
+    }
     var disposition: SquareDisposition
     let id: Int
-    init(isHidden: Bool, disposition: SquareDisposition, id: Int) {
-        self.isHidden = isHidden
+    init(disposition: SquareDisposition, id: Int) {
         self.disposition = disposition
         self.id = id
     }
 }
 class TopLeftPicSquare: PicSquare {
     init() {
-        super.init(isHidden: false, disposition: .topLeft, id: 0)
+        super.init(disposition: .topAllWidth, id: 0)
     }
 }
 class TopRightPicSquare: PicSquare {
     init() {
-        super.init(isHidden: false, disposition: .topRight, id: 1)
+        super.init(disposition: .hidden, id: 1)
     }
 }
 class BottomLeftPicSquare: PicSquare {
     init() {
-        super.init(isHidden: false, disposition: .bottomAllWidth, id: 2)
+        super.init(disposition: .bottomLeft, id: 2)
     }
 }
 class BottomRightPicSquare: PicSquare {
     init() {
-        super.init(isHidden: true, disposition: .bottomRight, id: 3)
+        super.init(disposition: .bottomRight, id: 3)
     }
 }
 
-enum SquareDisposition {
+enum SquareDisposition: Float {
     case topLeft
     case topRight
     case bottomLeft
     case bottomRight
     case topAllWidth
     case bottomAllWidth
+    case hidden
 }

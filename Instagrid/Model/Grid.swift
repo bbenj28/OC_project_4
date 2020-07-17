@@ -10,7 +10,7 @@ import Foundation
 /// Class of the grid, used to change its disposition when a layout is selected by user, to know which square is choosen for a picture selection, and to know if the grid is ready to share.
 class Grid {
     let picSquares: [PicSquare] = [TopLeftPicSquare(), TopRightPicSquare(), BottomLeftPicSquare(), BottomRightPicSquare()]
-    var selectedLayout: Int = 1
+    var selectedLayout: Int = 0
     var selectedSquare: Int?
     private var displayedPicSquaresInGrid: [Int] {
         switch selectedLayout {
@@ -37,9 +37,6 @@ class Grid {
             return false
         }
     }
-    init() {
-        changeSelectedLayout(0)
-    }
     /// Change selected layout in grid properties, and change picSquares disposition.
     /// - Parameter index: Index of the choosen layout (0...2).
     func changeSelectedLayout(_ index: Int) {
@@ -58,21 +55,21 @@ class Grid {
     }
     private func firstDisposition() {
         picSquares[0].disposition = .topAllWidth
-        picSquares[1].isHidden = true
+        picSquares[1].disposition = .hidden
         picSquares[2].disposition = .bottomLeft
-        picSquares[3].isHidden = false
+        picSquares[3].disposition = .bottomRight
     }
     private func secondDisposition() {
         picSquares[0].disposition = .topLeft
-        picSquares[1].isHidden = false
+        picSquares[1].disposition = .topRight
         picSquares[2].disposition = .bottomAllWidth
-        picSquares[3].isHidden = true
+        picSquares[3].disposition = .hidden
     }
     private func thirdDisposition() {
         picSquares[0].disposition = .topLeft
-        picSquares[1].isHidden = false
+        picSquares[1].disposition = .topRight
         picSquares[2].disposition = .bottomLeft
-        picSquares[3].isHidden = false
+        picSquares[3].disposition = .bottomRight
     }
     /// Delete pictures in all picSquares.
     func delete() {

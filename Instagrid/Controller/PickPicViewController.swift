@@ -26,7 +26,7 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
         // MARK: Viewdidload
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateLayoutAndSquares(0)
+        updateLayoutAndSquares(nil)
         swipesCreation()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -95,12 +95,27 @@ extension PickPicViewController {
         }
     }
     private func updateSquares() {
+        unHideAllSquares()
+        setLayouts()
+        settedLayoutsAnimation()
+        hideSquaresIfNeeded()
+    }
+    private func unHideAllSquares() {
+        for i in 0...3 {
+            picSquares[i].isHidden = false
+        }
+    }
+    private func setLayouts() {
         for i in 0...3 {
             picSquares[i].setLayout(grid.picSquares[i])
         }
-        updatedSquaresAnimation()
     }
-    private func updatedSquaresAnimation() {
+    private func hideSquaresIfNeeded() {
+        for i in 0...3 {
+            picSquares[i].isHidden = grid.picSquares[i].isHidden
+        }
+    }
+    private func settedLayoutsAnimation() {
         UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
             self.gridView.layoutIfNeeded()
             for i in 0...3 {

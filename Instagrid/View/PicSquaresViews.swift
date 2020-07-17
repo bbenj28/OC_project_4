@@ -24,7 +24,7 @@ extension PicSquaresViews {
     ///
     /// - Parameter picSquare: The PicSquare in grid.picSquares linked to the choosen PicSquare's outlet in the controller.
     func setLayout(_ picSquare: PicSquare) {
-        isHidden = picSquare.isHidden
+        //isHidden = picSquare.isHidden
         if picSquare.isHidden == false {
             searchAndReplaceRatioLayout(picSquare)
             searchAndReplaceHorizontalCenterLayout(picSquare)
@@ -50,7 +50,7 @@ extension PicSquaresViews {
         for constraint in superview!.constraints {
             if let identifier = constraint.identifier {
                 if identifier == "Hcenter\(picSquare.id)" {
-                    let multiplier = getNewHorizontalCenterMultiplier(picSquare)
+                    let multiplier = getNewHorizontalCenterMultiplier(picSquare, defaultValue: constraint.multiplier)
                     let newConstraint = getNewConstraint(constraint: constraint, multiplier: multiplier, identifier: "Hcenter\(picSquare.id)")
                     replaceHorizontalCenterLayout(oldConstraint: constraint, newConstraint: newConstraint)
                     break
@@ -62,11 +62,13 @@ extension PicSquaresViews {
         switch picSquare.disposition {
         case .bottomAllWidth, .topAllWidth:
             return 2.118
+        case .hidden:
+            return 0.01
         default:
             return 1
         }
     }
-    private func getNewHorizontalCenterMultiplier(_ picSquare: PicSquare) -> CGFloat {
+    private func getNewHorizontalCenterMultiplier(_ picSquare: PicSquare, defaultValue: CGFloat) -> CGFloat {
         switch picSquare.disposition {
         case .bottomAllWidth, .topAllWidth:
             return 1
@@ -74,6 +76,8 @@ extension PicSquaresViews {
             return 0.525
         case .bottomRight, .topRight:
             return 1.475
+        case .hidden:
+            return defaultValue
         }
     }
     private func getNewConstraint(constraint: NSLayoutConstraint, multiplier: CGFloat, identifier: String) -> NSLayoutConstraint {
