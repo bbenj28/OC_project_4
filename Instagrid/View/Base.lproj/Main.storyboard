@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -21,11 +21,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PickPicViewController" customModule="Instagrid" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcr-jF-lVq">
-                                <rect key="frame" x="37.5" y="144" width="300" height="33"/>
+                                <rect key="frame" x="41.5" y="245.5" width="331" height="36.5"/>
                                 <color key="tintColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mcr-jF-lVq" secondAttribute="height" multiplier="197:33" id="rlq-Ec-W18"/>
@@ -52,7 +52,7 @@
                                 </variation>
                             </label>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" image="Layout1" translatesAutoresizingMaskIntoConstraints="NO" id="Pcv-cc-wFe">
-                                <rect key="frame" x="47.5" y="556" width="80" height="80"/>
+                                <rect key="frame" x="52.5" y="709" width="88" height="88"/>
                                 <color key="tintColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -63,7 +63,7 @@
                                 </connections>
                             </imageView>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" image="Layout2" translatesAutoresizingMaskIntoConstraints="NO" id="Vbp-9L-oTC">
-                                <rect key="frame" x="147.5" y="556" width="80" height="80"/>
+                                <rect key="frame" x="163" y="709" width="88" height="88"/>
                                 <color key="tintColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -74,7 +74,7 @@
                                 </connections>
                             </imageView>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" image="Layout3" translatesAutoresizingMaskIntoConstraints="NO" id="P6Y-qw-cMz">
-                                <rect key="frame" x="247.5" y="556" width="80" height="80"/>
+                                <rect key="frame" x="273.5" y="709" width="88" height="88"/>
                                 <color key="tintColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -85,21 +85,23 @@
                                 </connections>
                             </imageView>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Selected" translatesAutoresizingMaskIntoConstraints="NO" id="6Fg-nc-NhG" userLabel="SelectedLayout1">
-                                <rect key="frame" x="47.5" y="556" width="80" height="80"/>
+                                <rect key="frame" x="52.5" y="709" width="88" height="88"/>
                                 <color key="tintColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Selected" translatesAutoresizingMaskIntoConstraints="NO" id="Fw9-nb-pP3" userLabel="SelectedLayout2">
-                                <rect key="frame" x="147.5" y="556" width="80" height="80"/>
+                                <rect key="frame" x="163" y="709" width="88" height="88"/>
                                 <color key="tintColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Selected" translatesAutoresizingMaskIntoConstraints="NO" id="E0X-xD-9UF" userLabel="SelectedLayout3">
-                                <rect key="frame" x="247.5" y="556" width="80" height="80"/>
+                                <rect key="frame" x="273.5" y="709" width="88" height="88"/>
                                 <color key="tintColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sO4-AW-hsK">
-                                <rect key="frame" x="37.5" y="28" width="300" height="39"/>
+                                <rect key="frame" x="41.5" y="72" width="331" height="50.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="sO4-AW-hsK" secondAttribute="height" multiplier="100:13" id="1fl-jO-lA7"/>
+                                    <constraint firstAttribute="width" secondItem="sO4-AW-hsK" secondAttribute="height" multiplier="256:39" id="TWe-W2-FzF"/>
+                                    <constraint firstAttribute="width" secondItem="sO4-AW-hsK" secondAttribute="height" multiplier="256:39" id="V2i-y0-PxU"/>
                                     <constraint firstAttribute="width" secondItem="sO4-AW-hsK" secondAttribute="height" multiplier="15:2" id="hFi-OX-u7I"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="30"/>
@@ -107,18 +109,27 @@
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="TWe-W2-FzF"/>
+                                        <exclude reference="V2i-y0-PxU"/>
                                         <exclude reference="hFi-OX-u7I"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=compact">
                                     <mask key="constraints">
                                         <exclude reference="1fl-jO-lA7"/>
-                                        <include reference="hFi-OX-u7I"/>
+                                        <include reference="V2i-y0-PxU"/>
+                                        <exclude reference="hFi-OX-u7I"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="1fl-jO-lA7"/>
+                                        <include reference="TWe-W2-FzF"/>
                                     </mask>
                                 </variation>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="ArrowUp" translatesAutoresizingMaskIntoConstraints="NO" id="VXM-Te-3ZM">
-                                <rect key="frame" x="183" y="122" width="9" height="13"/>
+                                <rect key="frame" x="202" y="222.5" width="10" height="14"/>
                                 <color key="tintColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="VXM-Te-3ZM" secondAttribute="height" multiplier="9:13" id="qaR-0T-lv1"/>
@@ -126,7 +137,7 @@
                                 <variation key="heightClass=compact" image="ArrowLeft"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe left to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M2h-vO-Z25">
-                                <rect key="frame" x="0.0" y="213.5" width="197" height="33"/>
+                                <rect key="frame" x="-0.5" y="182" width="168" height="28"/>
                                 <color key="tintColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="M2h-vO-Z25" secondAttribute="height" multiplier="197:33" id="M7a-bm-7fv"/>
@@ -149,13 +160,13 @@
                                 </variation>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pds-FJ-qSn" userLabel="Grid" customClass="GridView" customModule="Instagrid" customModuleProvider="target">
-                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
+                                <rect key="frame" x="41.5" y="287.5" width="331" height="331"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wNM-yX-3xg" userLabel="PicSquare2View" customClass="PicSquaresViews" customModule="Instagrid" customModuleProvider="target">
-                                        <rect key="frame" x="15" y="157.5" width="127.5" height="127.5"/>
+                                        <rect key="frame" x="16.5" y="174" width="140.5" height="140.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="KeP-cC-CY2">
-                                                <rect key="frame" x="44" y="44" width="40" height="40"/>
+                                                <rect key="frame" x="48.5" y="48" width="44" height="44"/>
                                                 <color key="tintColor" red="0.15834364300000001" green="0.40798074010000002" blue="0.57901817560000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="KeP-cC-CY2" secondAttribute="height" multiplier="1:1" id="qnj-mw-KPZ"/>
@@ -182,17 +193,17 @@
                                         </connections>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aob-ZP-WWS" userLabel="PicSquare0View" customClass="PicSquaresViews" customModule="Instagrid" customModuleProvider="target">
-                                        <rect key="frame" x="15" y="15" width="127.5" height="127.5"/>
+                                        <rect key="frame" x="16.5" y="16.5" width="140.5" height="140.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="bA7-Ur-Keq">
-                                                <rect key="frame" x="44" y="44" width="40" height="40"/>
+                                                <rect key="frame" x="48.5" y="48.5" width="44" height="44"/>
                                                 <color key="tintColor" red="0.15834364300000001" green="0.40798074010000002" blue="0.57901817560000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="bA7-Ur-Keq" secondAttribute="height" multiplier="1:1" id="YjW-W2-n3y"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SCV-Fz-Uzh">
-                                                <rect key="frame" x="-1" y="-2" width="40" height="40"/>
+                                                <rect key="frame" x="-1" y="-3" width="40" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>
@@ -212,17 +223,17 @@
                                         </connections>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="65R-iw-8mh" userLabel="PicSquare1View" customClass="PicSquaresViews" customModule="Instagrid" customModuleProvider="target">
-                                        <rect key="frame" x="157.5" y="15" width="127.5" height="127.5"/>
+                                        <rect key="frame" x="174" y="16.5" width="140.5" height="140.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="FhB-9L-aX6">
-                                                <rect key="frame" x="44" y="44" width="40" height="40"/>
+                                                <rect key="frame" x="48" y="48.5" width="44" height="44"/>
                                                 <color key="tintColor" red="0.15834364300000001" green="0.40798074010000002" blue="0.57901817560000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="FhB-9L-aX6" secondAttribute="height" multiplier="1:1" id="oRB-UU-cMs"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qas-fP-nD2">
-                                                <rect key="frame" x="-2" y="-2" width="40" height="40"/>
+                                                <rect key="frame" x="-3" y="-3" width="40" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>
@@ -242,17 +253,17 @@
                                         </connections>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nT3-g1-1Pl" userLabel="PicSquare3View" customClass="PicSquaresViews" customModule="Instagrid" customModuleProvider="target">
-                                        <rect key="frame" x="157.5" y="157.5" width="127.5" height="127.5"/>
+                                        <rect key="frame" x="174" y="174" width="140.5" height="140.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Plus" translatesAutoresizingMaskIntoConstraints="NO" id="gZ4-oe-wtr">
-                                                <rect key="frame" x="44" y="44" width="40" height="40"/>
+                                                <rect key="frame" x="48" y="48" width="44" height="44"/>
                                                 <color key="tintColor" red="0.15834364300000001" green="0.40798074010000002" blue="0.57901817560000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="gZ4-oe-wtr" secondAttribute="height" multiplier="1:1" id="4Yz-ZO-qyn"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SEZ-Oi-6uY">
-                                                <rect key="frame" x="-2" y="-1" width="40" height="40"/>
+                                                <rect key="frame" x="-3" y="-1" width="40" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>
@@ -290,6 +301,13 @@
                                     <constraint firstItem="aob-ZP-WWS" firstAttribute="height" secondItem="Pds-FJ-qSn" secondAttribute="height" multiplier="0.425" id="ym7-8J-pA1"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="kB8-ex-yfy">
+                                <rect key="frame" x="188.5" y="185.5" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="kCv-H4-SrH"/>
+                                    <constraint firstAttribute="width" constant="37" id="o5h-Sa-wqK"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -298,11 +316,13 @@
                             <constraint firstItem="mcr-jF-lVq" firstAttribute="top" secondItem="Pds-FJ-qSn" secondAttribute="top" multiplier="4" id="5AC-KG-Xp7"/>
                             <constraint firstItem="VXM-Te-3ZM" firstAttribute="height" secondItem="Pds-FJ-qSn" secondAttribute="height" multiplier="0.0433333" id="5Sg-mL-JIL"/>
                             <constraint firstItem="Vbp-9L-oTC" firstAttribute="firstBaseline" secondItem="Pds-FJ-qSn" secondAttribute="baseline" multiplier="1.133" constant="8" symbolType="layoutAnchor" id="5o6-PR-oGQ"/>
+                            <constraint firstItem="VXM-Te-3ZM" firstAttribute="top" secondItem="kB8-ex-yfy" secondAttribute="bottom" id="81D-3a-53S"/>
                             <constraint firstItem="Pcv-cc-wFe" firstAttribute="width" secondItem="Pds-FJ-qSn" secondAttribute="width" multiplier="0.266667" id="8oD-bk-QWc"/>
                             <constraint firstItem="sO4-AW-hsK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="28" id="Aij-tZ-TWo"/>
                             <constraint firstItem="Vbp-9L-oTC" firstAttribute="width" secondItem="Pds-FJ-qSn" secondAttribute="width" multiplier="0.266667" id="B1R-yB-bN9"/>
                             <constraint firstItem="mcr-jF-lVq" firstAttribute="centerX" secondItem="Pds-FJ-qSn" secondAttribute="centerX" id="BuY-mI-pDM"/>
                             <constraint firstItem="P6Y-qw-cMz" firstAttribute="trailing" secondItem="Pds-FJ-qSn" secondAttribute="trailing" multiplier="0.9706" id="CBA-Vs-US0"/>
+                            <constraint firstItem="kB8-ex-yfy" firstAttribute="centerX" secondItem="VXM-Te-3ZM" secondAttribute="centerX" id="D27-zO-8bF"/>
                             <constraint firstItem="E0X-xD-9UF" firstAttribute="width" secondItem="P6Y-qw-cMz" secondAttribute="width" id="EBM-QX-QrH"/>
                             <constraint firstItem="sO4-AW-hsK" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.155" id="EFv-wN-IGH"/>
                             <constraint firstItem="Pcv-cc-wFe" firstAttribute="leading" secondItem="Pds-FJ-qSn" secondAttribute="leading" multiplier="1.2625" id="EMF-xR-RVt"/>
@@ -472,6 +492,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="kB8-ex-yfy" id="Ch6-fC-uKA"/>
                         <outlet property="gridView" destination="Pds-FJ-qSn" id="nTF-Qr-4jw"/>
                         <outletCollection property="layoutsButtons" destination="Pcv-cc-wFe" collectionClass="NSMutableArray" id="hv7-yy-3ph"/>
                         <outletCollection property="layoutsButtons" destination="Vbp-9L-oTC" collectionClass="NSMutableArray" id="dES-kt-Y7C"/>

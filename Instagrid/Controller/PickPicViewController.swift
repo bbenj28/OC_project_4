@@ -17,6 +17,7 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
     let grid = Grid()
     
         // MARK: Outlets
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var gridView: GridView!
     @IBOutlet var picSquares: [PicSquaresViews]!
     @IBOutlet var layoutsButtons: [UIImageView]!
@@ -132,6 +133,7 @@ extension PickPicViewController {
         grid.selectedSquare = index
         // if the photos album is available, ask to pick picture
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
+            activityIndicator.startAnimating()
             imagePickerInit()
         } else {
             displayingAlert(title: "Photos album not available", text: "The photos album is not available. The application can not add pictures.")
@@ -143,6 +145,8 @@ extension PickPicViewController {
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = false
+        imagePicker.isModalInPopover = true
+        imagePicker.modalPresentationStyle = .fullScreen
         present(imagePicker, animated: true, completion: nil)
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -152,8 +156,15 @@ extension PickPicViewController {
             let picSquare = self.grid.picSquares[self.grid.selectedSquare!]
             picSquare.pictureIsSelected = true
             self.picSquares[self.grid.selectedSquare!].changePicture(image as! UIImage)
+            self.activityIndicator.stopAnimating()
         })
     }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: {
+            self.activityIndicator.stopAnimating()
+        })
+    }
+    
 }
 
 
@@ -173,6 +184,7 @@ extension PickPicViewController {
     }
     @objc func swipeAction(_ sender: UISwipeGestureRecognizer) {
         if sender.direction == swipeDirectionNeeded() {
+            activityIndicator.startAnimating()
             checkIfGridIsReadyToShare()
         }
     }
@@ -181,6 +193,7 @@ extension PickPicViewController {
         if grid.isReadyToShare {
             prepareToShare()
         } else {
+            activityIndicator.stopAnimating()
             displayingAlert(title: "Choose pictures", text: "All squares have to be full in the choosen layout. Please, choose pictures.")
         }
     }
@@ -266,6 +279,7 @@ extension PickPicViewController {
             } else {
                 self.returnGridAnimation()
             }
+            self.activityIndicator.stopAnimating()
         }
         present(ac, animated: true)
     }
