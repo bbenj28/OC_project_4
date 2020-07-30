@@ -23,31 +23,48 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet var layoutsButtons: [UIImageView]!
     @IBOutlet var layoutsSelectedViews: [UIImageView]!
     
-        // MARK: Viewdidload
+        // MARK: View appearance
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateLayoutAndSquares(nil)
+        updateLayoutAndSquares(0)
         swipesCreation()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        reduceSquaresBeforeAppearance()
+        prepareAppearance()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        resizeSquaresWithAnimation()
+        appearanceAnimation()
     }
-    private func reduceSquaresBeforeAppearance() {
+    private func prepareAppearance() {
         for i in 0...3 {
-            picSquares[i].transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
+            picSquares[i].transform = transformForAppearance()
+        }
+        for i in 0...2 {
+            layoutsButtons[i].transform = transformForAppearance()
+            layoutsSelectedViews[i].transform = transformForAppearance()
         }
     }
-    private func resizeSquaresWithAnimation() {
+    private func transformForAppearance() -> CGAffineTransform {
+        return CGAffineTransform(scaleX: 0.2, y: 0.2)
+    }
+    private func appearanceAnimation() {
         UIView.animate(withDuration: 0.9, delay: 0.2, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
-            for i in 0...3 {
-                self.picSquares[i].transform = .identity
-            }
+            self.picSquaresAppearance()
+            self.layoutsButtonsAppearance()
         }, completion: nil)
+    }
+    private func picSquaresAppearance() {
+        for i in 0...3 {
+            picSquares[i].transform = .identity
+        }
+    }
+    private func layoutsButtonsAppearance() {
+        for i in 0...2 {
+            self.layoutsButtons[i].transform = .identity
+            self.layoutsSelectedViews[i].transform = .identity
+        }
     }
 }
 
@@ -168,9 +185,8 @@ extension PickPicViewController {
         // an image is selected, dismiss picker and display it in the selected PicSquare
         self.dismiss(animated: true, completion: {
             let image = info[UIImagePickerController.InfoKey.originalImage]
-            let picSquare = self.grid.picSquares[self.grid.selectedSquare!]
-            picSquare.pictureIsSelected = true
-            self.picSquares[self.grid.selectedSquare!].changePicture(image as! UIImage)
+            let index = self.grid.pictureIsSelectedForPicSquare()
+            self.picSquares[index].changePicture(image as! UIImage)
             self.activityIndicator.stopAnimating()
         })
     }
@@ -179,7 +195,6 @@ extension PickPicViewController {
             self.activityIndicator.stopAnimating()
         })
     }
-    
 }
 
 
@@ -289,8 +304,8 @@ extension PickPicViewController {
     /// Launch UIActivityController to share picture.
     /// - Parameter image: The generated UIImage to share.
     private func sharePicture(_ image: UIImage) {
-        let ac = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-        ac.completionWithItemsHandler = { (activity, success, items, error) in
+        let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        activityController.completionWithItemsHandler = { (activity, success, items, error) in
             if success {
                 self.returnDeletedGridAnimation()
             } else {
@@ -298,7 +313,7 @@ extension PickPicViewController {
             }
             self.activityIndicator.stopAnimating()
         }
-        present(ac, animated: true)
+        present(activityController, animated: true)
     }
 }
 

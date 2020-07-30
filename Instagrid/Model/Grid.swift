@@ -77,4 +77,9 @@ class Grid {
             picSquares[i].pictureIsSelected = false
         }
     }
+    func pictureIsSelectedForPicSquare() -> Int {
+        let picSquare = picSquares[selectedSquare!]
+        picSquare.pictureIsSelected = true
+        return selectedSquare!
+    }
 }
