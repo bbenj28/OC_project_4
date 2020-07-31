@@ -9,10 +9,10 @@
 import Foundation
 /// Class of the grid, used to change its disposition when a layout is selected by user, to know which square is choosen for a picture selection, and to know if the grid is ready to share.
 class Grid {
-    let picSquares: [PicSquare] = [TopLeftPicSquare(), TopRightPicSquare(), BottomLeftPicSquare(), BottomRightPicSquare()]
-    var selectedLayout: Int = 0
-    var selectedSquare: Int?
-    private var displayedPicSquaresInGrid: [Int] {
+    static let picSquares: [PicSquare] = [TopLeftPicSquare(), TopRightPicSquare(), BottomLeftPicSquare(), BottomRightPicSquare()]
+    static var selectedLayout: Int = 0
+    static var selectedSquare: Int?
+    static private var displayedPicSquaresInGrid: [Int] {
         switch selectedLayout {
         case 0:
             return [0, 2, 3]
@@ -24,7 +24,7 @@ class Grid {
             return []
         }
     }
-    var isReadyToShare: Bool {
+    static var isReadyToShare: Bool {
         if displayedPicSquaresInGrid.count > 0 {
             for i in 0...displayedPicSquaresInGrid.count - 1 {
                 let index = displayedPicSquaresInGrid[i]
@@ -39,7 +39,7 @@ class Grid {
     }
     /// Change selected layout in grid properties, and change picSquares disposition.
     /// - Parameter index: Index of the choosen layout (0...2).
-    func changeSelectedLayout(_ index: Int) {
+    static func changeSelectedLayout(_ index: Int) {
         selectedLayout = index
         selectedSquare = nil
         switch selectedLayout {
@@ -53,31 +53,31 @@ class Grid {
             break
         }
     }
-    private func firstDisposition() {
+    static private func firstDisposition() {
         picSquares[0].disposition = .topAllWidth
         picSquares[1].disposition = .hidden
         picSquares[2].disposition = .bottomLeft
         picSquares[3].disposition = .bottomRight
     }
-    private func secondDisposition() {
+    static private func secondDisposition() {
         picSquares[0].disposition = .topLeft
         picSquares[1].disposition = .topRight
         picSquares[2].disposition = .bottomAllWidth
         picSquares[3].disposition = .hidden
     }
-    private func thirdDisposition() {
+    static private func thirdDisposition() {
         picSquares[0].disposition = .topLeft
         picSquares[1].disposition = .topRight
         picSquares[2].disposition = .bottomLeft
         picSquares[3].disposition = .bottomRight
     }
     /// Delete pictures in all picSquares.
-    func delete() {
+    static func delete() {
         for i in 0...3 {
             picSquares[i].pictureIsSelected = false
         }
     }
-    func pictureIsSelectedForPicSquare() -> Int {
+    static func pictureIsSelectedForPicSquare() -> Int {
         let picSquare = picSquares[selectedSquare!]
         picSquare.pictureIsSelected = true
         return selectedSquare!

@@ -14,14 +14,17 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
     
         // MARK: Properties
     var imagePicker = UIImagePickerController()
-    let grid = Grid()
+    
     
         // MARK: Outlets
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    @IBOutlet var picSquareButton: [PicSquareView]!
+    
     @IBOutlet weak var gridView: GridView!
-    @IBOutlet var picSquares: [PicSquaresViews]!
-    @IBOutlet var layoutsButtons: [UIImageView]!
-    @IBOutlet var layoutsSelectedViews: [UIImageView]!
+    
+    @IBOutlet var layoutButton: [UIButton]!
+    
     
         // MARK: View appearance
     override func viewDidLoad() {
@@ -31,12 +34,20 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        prepareAppearance()
+        //prepareAppearance()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        appearanceAnimation()
+        //appearanceAnimation()
     }
+    
+    
+    
+    
+    
+    
+    
+    /*
     private func prepareAppearance() {
         for i in 0...3 {
             picSquares[i].transform = transformForAppearance()
@@ -66,6 +77,7 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
             self.layoutsSelectedViews[i].transform = .identity
         }
     }
+ */
 }
 
 
@@ -74,19 +86,20 @@ extension PickPicViewController {
     
     
         // MARK: Layouts buttons
-    @IBAction func layout1IsSelected(_ sender: Any) {
-        layoutIsSelected(0)
+    
+    @IBAction func layoutSelection(_ sender: UIButton) {
+        for i in 0...2 {
+            if sender == layoutButton[i] {
+                layoutIsSelected(i)
+            }
+        }
     }
-    @IBAction func layout2IsSelected(_ sender: Any) {
-        layoutIsSelected(1)
-    }
-    @IBAction func layout3IsSelected(_ sender: Any) {
-        layoutIsSelected(2)
-    }
+    
+
     /// Update grid based on choosen layout.
     /// - Parameter index: Index of the choosen layout.
     private func layoutIsSelected(_ index: Int) {
-        if index != grid.selectedLayout {
+        if index != Grid.selectedLayout {
             updateLayoutAndSquares(index)
         }
     }
@@ -95,51 +108,28 @@ extension PickPicViewController {
     /// Update grid based on choosen layout, and update squares based on choosen layout and pictures.
     /// - Parameter index: Index of the choosen layout (0...2). *nil* to update squares without changing layout
     private func updateLayoutAndSquares(_ index: Int?) {
-        if let indexOk = index {
-            grid.changeSelectedLayout(indexOk)
-            updateLayouts()
-        }
-        updateSquares()
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, animations: {
+            if let indexOk = index {
+                Grid.changeSelectedLayout(indexOk)
+                self.updateLayoutsButtons()
+            }
+            self.updateSquaresButtons()
+        }, completion: nil)
     }
-    private func updateLayouts() {
+    private func updateLayoutsButtons() {
         for i in 0...2 {
             // hide or show the check mark
-            if grid.selectedLayout == i {
-                layoutsSelectedViews[i].isHidden = false
+            if Grid.selectedLayout == i {
+                layoutButton[i].isSelected = true
             } else {
-                layoutsSelectedViews[i].isHidden = true
+                layoutButton[i].isSelected = false
             }
         }
     }
-    private func updateSquares() {
-        unHideAllSquares()
-        setLayouts()
-        settedLayoutsAnimation()
-        hideSquaresIfNeeded()
-    }
-    private func unHideAllSquares() {
+    private func updateSquaresButtons() {
         for i in 0...3 {
-            picSquares[i].isHidden = false
+            picSquareButton[i].setView(Grid.picSquares[i])
         }
-    }
-    private func setLayouts() {
-        for i in 0...3 {
-            picSquares[i].setLayout(grid.picSquares[i])
-        }
-    }
-    private func hideSquaresIfNeeded() {
-        for i in 0...3 {
-            picSquares[i].isHidden = grid.picSquares[i].isHidden
-        }
-    }
-    private func settedLayoutsAnimation() {
-        UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
-            self.gridView.layoutIfNeeded()
-            for i in 0...3 {
-                self.picSquares[i].layoutIfNeeded()
-                self.picSquares[i].setPicture(self.grid.picSquares[i])
-            }
-        }, completion: nil)
     }
 }
 
@@ -147,7 +137,7 @@ extension PickPicViewController {
 // MARK: Choose pictures
 extension PickPicViewController {
     
-    
+    /*
         // MARK: Squares buttons
     @IBAction func askForChangePictureInPicSquare0(_ sender: Any) {
         askForChangePictureInPicSquares(0)
@@ -195,6 +185,7 @@ extension PickPicViewController {
             self.activityIndicator.stopAnimating()
         })
     }
+ */
 }
 
 
@@ -220,7 +211,7 @@ extension PickPicViewController {
     }
     /// Check if all squares received a picture, and launch share process.
     private func checkIfGridIsReadyToShare() {
-        if grid.isReadyToShare {
+        if Grid.isReadyToShare {
             makeGridDisappearAndShareIt()
         } else {
             activityIndicator.stopAnimating()
@@ -276,7 +267,7 @@ extension PickPicViewController {
                 // Grid is back
     /// Delete grid's pictures and make it come back.
     private func returnDeletedGridAnimation() {
-        grid.delete()
+        Grid.delete()
         updateLayoutAndSquares(nil)
         returnGridAnimation()
     }

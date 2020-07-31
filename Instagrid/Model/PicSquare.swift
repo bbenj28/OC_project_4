@@ -44,13 +44,3 @@ class BottomRightPicSquare: PicSquare {
         super.init(disposition: .bottomRight, id: 3)
     }
 }
-
-enum SquareDisposition: Float {
-    case topLeft
-    case topRight
-    case bottomLeft
-    case bottomRight
-    case topAllWidth
-    case bottomAllWidth
-    case hidden
-}

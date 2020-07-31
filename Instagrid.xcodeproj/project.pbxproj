@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0341E3C324D42ADE00A2219B /* PicSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0341E3C224D42ADE00A2219B /* PicSquareView.swift */; };
+		0341E3C524D42B6F00A2219B /* SquareDisposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0341E3C424D42B6F00A2219B /* SquareDisposition.swift */; };
 		0380DD2D24BCE14A00589571 /* PicSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380DD2C24BCE14A00589571 /* PicSquare.swift */; };
 		0380DD2F24BCE3FA00589571 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380DD2E24BCE3FA00589571 /* Grid.swift */; };
 		03A93EE124B9A4FD000567B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A93EE024B9A4FD000567B4 /* AppDelegate.swift */; };
@@ -16,12 +18,14 @@
 		03A93EED24B9A4FF000567B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03A93EEB24B9A4FF000567B4 /* LaunchScreen.storyboard */; };
 		03A93EF924B9A6AE000567B4 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 03A93EF824B9A6AE000567B4 /* Delm-Medium.otf */; };
 		03A93EFB24B9A6EE000567B4 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 03A93EFA24B9A6EE000567B4 /* ThirstySoftRegular.otf */; };
+		03A9D2DC24D317D100403C25 /* UIStackViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A9D2DB24D317D100403C25 /* UIStackViewExtension.swift */; };
 		03BA527B24BD8EFF004D75DF /* PickPicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA527A24BD8EFF004D75DF /* PickPicViewController.swift */; };
-		03BA528124BD95C6004D75DF /* PicSquaresViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA528024BD95C6004D75DF /* PicSquaresViews.swift */; };
 		03BA528324BE0609004D75DF /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BA528224BE0609004D75DF /* GridView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0341E3C224D42ADE00A2219B /* PicSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicSquareView.swift; sourceTree = "<group>"; };
+		0341E3C424D42B6F00A2219B /* SquareDisposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareDisposition.swift; sourceTree = "<group>"; };
 		0380DD2C24BCE14A00589571 /* PicSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicSquare.swift; sourceTree = "<group>"; };
 		0380DD2E24BCE3FA00589571 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		03A93EDD24B9A4FD000567B4 /* Instagrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,8 +37,8 @@
 		03A93EEE24B9A4FF000567B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03A93EF824B9A6AE000567B4 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
 		03A93EFA24B9A6EE000567B4 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
+		03A9D2DB24D317D100403C25 /* UIStackViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExtension.swift; sourceTree = "<group>"; };
 		03BA527A24BD8EFF004D75DF /* PickPicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickPicViewController.swift; sourceTree = "<group>"; };
-		03BA528024BD95C6004D75DF /* PicSquaresViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicSquaresViews.swift; sourceTree = "<group>"; };
 		03BA528224BE0609004D75DF /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +87,7 @@
 			children = (
 				0380DD2C24BCE14A00589571 /* PicSquare.swift */,
 				0380DD2E24BCE3FA00589571 /* Grid.swift */,
+				0341E3C424D42B6F00A2219B /* SquareDisposition.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -91,9 +96,10 @@
 			isa = PBXGroup;
 			children = (
 				03BA528224BE0609004D75DF /* GridView.swift */,
-				03BA528024BD95C6004D75DF /* PicSquaresViews.swift */,
 				03A93EEB24B9A4FF000567B4 /* LaunchScreen.storyboard */,
 				03A93EE624B9A4FD000567B4 /* Main.storyboard */,
+				03A9D2DB24D317D100403C25 /* UIStackViewExtension.swift */,
+				0341E3C224D42ADE00A2219B /* PicSquareView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -190,12 +196,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03BA528124BD95C6004D75DF /* PicSquaresViews.swift in Sources */,
+				03A9D2DC24D317D100403C25 /* UIStackViewExtension.swift in Sources */,
+				0341E3C524D42B6F00A2219B /* SquareDisposition.swift in Sources */,
 				0380DD2F24BCE3FA00589571 /* Grid.swift in Sources */,
 				0380DD2D24BCE14A00589571 /* PicSquare.swift in Sources */,
 				03BA528324BE0609004D75DF /* GridView.swift in Sources */,
 				03A93EE124B9A4FD000567B4 /* AppDelegate.swift in Sources */,
 				03BA527B24BD8EFF004D75DF /* PickPicViewController.swift in Sources */,
+				0341E3C324D42ADE00A2219B /* PicSquareView.swift in Sources */,
 				03A93EE324B9A4FD000567B4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
