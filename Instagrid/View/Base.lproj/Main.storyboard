@@ -41,7 +41,16 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vQv-8M-HgZ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe left to share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3I-B2-Eex">
+                                <rect key="frame" x="17.5" y="210" width="158" height="27"/>
+                                <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="24"/>
+                                </variation>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vQv-8M-HgZ" userLabel="Layouts Stack View">
                                 <rect key="frame" x="47.5" y="555" width="280" height="80"/>
                                 <subviews>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" selected="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r3V-Or-DBF">
@@ -78,11 +87,12 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <variation key="heightClass=compact" axis="vertical" spacing="30"/>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XsJ-le-W5j" customClass="GridView" customModule="Instagrid" customModuleProvider="target">
                                 <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
                                 <subviews>
-                                    <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Zbq-SO-MMQ">
+                                    <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Zbq-SO-MMQ" userLabel="PicSquares Stack View">
                                         <rect key="frame" x="15.5" y="15" width="269" height="270"/>
                                         <subviews>
                                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="QIn-qm-vyy">
@@ -154,22 +164,65 @@
                         <color key="tintColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="kB8-ex-yfy" firstAttribute="centerY" secondItem="XsJ-le-W5j" secondAttribute="centerY" id="0Lc-4W-jmN"/>
+                            <constraint firstItem="XsJ-le-W5j" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="1.1135" id="0ax-h5-CpS"/>
                             <constraint firstItem="sO4-AW-hsK" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.142" id="47g-cz-inA"/>
+                            <constraint firstItem="F3I-B2-Eex" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" multiplier="0.29" id="5dz-wI-1No"/>
+                            <constraint firstItem="VXM-Te-3ZM" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="6tJ-gK-b31"/>
                             <constraint firstItem="vQv-8M-HgZ" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="1.7845" id="7Li-2i-EQJ"/>
+                            <constraint firstItem="vQv-8M-HgZ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.8" id="84n-Kw-t6j"/>
+                            <constraint firstItem="vQv-8M-HgZ" firstAttribute="centerY" secondItem="XsJ-le-W5j" secondAttribute="centerY" id="E2d-6g-f1j"/>
                             <constraint firstItem="b67-7C-dq7" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.475" id="ENM-nY-EMT"/>
+                            <constraint firstItem="XsJ-le-W5j" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" multiplier="1.0373" id="Efh-Tm-sVK"/>
+                            <constraint firstItem="vQv-8M-HgZ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" multiplier="1.754" id="HgZ-tZ-NQc"/>
                             <constraint firstItem="VXM-Te-3ZM" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="LQX-Ok-lkK"/>
-                            <constraint firstItem="kB8-ex-yfy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QeH-Ef-NN6"/>
                             <constraint firstItem="vQv-8M-HgZ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.746667" id="QsK-a5-Uv8"/>
+                            <constraint firstItem="kB8-ex-yfy" firstAttribute="centerX" secondItem="XsJ-le-W5j" secondAttribute="centerX" id="RRN-EL-BgP"/>
                             <constraint firstItem="XsJ-le-W5j" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="WAz-Au-QNp"/>
-                            <constraint firstItem="kB8-ex-yfy" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="b4x-p6-6v5"/>
+                            <constraint firstItem="sO4-AW-hsK" firstAttribute="centerX" secondItem="XsJ-le-W5j" secondAttribute="centerX" id="cIZ-Er-vSv"/>
                             <constraint firstItem="XsJ-le-W5j" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="eut-Kb-Q7w"/>
+                            <constraint firstItem="sO4-AW-hsK" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.162" id="fJW-16-dxf"/>
                             <constraint firstItem="XsJ-le-W5j" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hcY-LI-tck"/>
                             <constraint firstItem="VXM-Te-3ZM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.38" id="mQY-XJ-tfM"/>
                             <constraint firstItem="b67-7C-dq7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="p6J-RH-aNc"/>
-                            <constraint firstItem="sO4-AW-hsK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="r2q-9C-YAT"/>
+                            <constraint firstItem="XsJ-le-W5j" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.8" id="pUu-LT-hIi"/>
+                            <constraint firstItem="VXM-Te-3ZM" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" multiplier="0.29" id="rbZ-RM-DaL"/>
                             <constraint firstItem="vQv-8M-HgZ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="tj6-h4-8d9"/>
+                            <constraint firstItem="F3I-B2-Eex" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="1.193" id="xQf-9H-iZB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="heightClass=compact">
+                            <mask key="subviews">
+                                <exclude reference="b67-7C-dq7"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="LQX-Ok-lkK"/>
+                                <exclude reference="mQY-XJ-tfM"/>
+                                <exclude reference="WAz-Au-QNp"/>
+                                <exclude reference="eut-Kb-Q7w"/>
+                                <exclude reference="hcY-LI-tck"/>
+                                <exclude reference="47g-cz-inA"/>
+                                <exclude reference="7Li-2i-EQJ"/>
+                                <exclude reference="QsK-a5-Uv8"/>
+                                <exclude reference="tj6-h4-8d9"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="subviews">
+                                <exclude reference="F3I-B2-Eex"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="6tJ-gK-b31"/>
+                                <exclude reference="rbZ-RM-DaL"/>
+                                <exclude reference="0ax-h5-CpS"/>
+                                <exclude reference="Efh-Tm-sVK"/>
+                                <exclude reference="pUu-LT-hIi"/>
+                                <exclude reference="fJW-16-dxf"/>
+                                <exclude reference="84n-Kw-t6j"/>
+                                <exclude reference="E2d-6g-f1j"/>
+                                <exclude reference="HgZ-tZ-NQc"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="kB8-ex-yfy" id="Ch6-fC-uKA"/>
