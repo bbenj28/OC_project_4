@@ -12,7 +12,6 @@ class PicSquareView: UIButton {
     /// Change picSquare regarding selected layout and picture.
     func setView(_ picSquare: PicSquare) {
         isHidden = picSquare.isHidden
-        
         if let _ = picSquare.pictureUrl {
             imageTransformation(true)
         } else {

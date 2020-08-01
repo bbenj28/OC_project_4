@@ -107,11 +107,14 @@ extension PickPicViewController {
     /// Update grid based on choosen layout, and update squares based on choosen layout and pictures.
     /// - Parameter index: Index of the choosen layout (0...2). *nil* to update squares without changing layout
     private func updateLayoutAndSquares(_ index: Int?) {
-        if let indexOk = index {
-            Grid.changeSelectedLayout(indexOk)
-            updateLayoutsButtons()
-        }
-        updateSquaresButtons()
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, animations: {
+            if let indexOk = index {
+                Grid.changeSelectedLayout(indexOk)
+                self.updateLayoutsButtons()
+            }
+            self.updateSquaresButtons()
+        }, completion: nil)
+        
     }
     private func updateLayoutsButtons() {
         for i in 0...2 {
