@@ -175,20 +175,21 @@ extension PickPicViewController {
         // an image is selected, dismiss picker and display it in the selected PicSquare
         self.dismiss(animated: true, completion: {
             if let link = info[UIImagePickerController.InfoKey.imageURL] as? URL {
-                if let index = Grid.pictureIsSelectedForPicSquare(link) {
-                    self.picSquareButton[index].setImage(Grid.picSquares[index].imageButton())
-                }
+                self.updatePicSquareWithSelection(link)
             }
             self.activityIndicator.stopAnimating()
         })
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: {
-            if let index = Grid.pictureIsSelectedForPicSquare(nil) {
-                self.picSquareButton[index].setView(Grid.picSquares[index])
-            }
+            self.updatePicSquareWithSelection(nil)
             self.activityIndicator.stopAnimating()
         })
+    }
+    private func updatePicSquareWithSelection(_ link: URL?) {
+        if let index = Grid.pictureIsSelectedForPicSquare(link) {
+            self.picSquareButton[index].setImage(Grid.picSquares[index].imageButton())
+        }
     }
     
 }

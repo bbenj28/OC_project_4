@@ -102,7 +102,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="127.5" height="127.5"/>
                                                         <state key="normal" image="Plus" backgroundImage="Square Background"/>
                                                         <state key="selected" image="Plus Selected" backgroundImage="Square Background Selected"/>
-                                                        <state key="highlighted" image="Plus Selected" backgroundImage="Square Background Selected"/>
+                                                        <state key="highlighted" image="Plus" backgroundImage="Square Background Highlighted"/>
                                                         <connections>
                                                             <action selector="picSquareSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dJ6-HX-X6p"/>
                                                         </connections>
@@ -111,7 +111,7 @@
                                                         <rect key="frame" x="141.5" y="0.0" width="127.5" height="127.5"/>
                                                         <state key="normal" image="Plus" backgroundImage="Square Background"/>
                                                         <state key="selected" image="Plus Selected" backgroundImage="Square Background Selected"/>
-                                                        <state key="highlighted" image="Plus Selected" backgroundImage="Square Background Selected"/>
+                                                        <state key="highlighted" image="Plus" backgroundImage="Square Background Highlighted"/>
                                                         <connections>
                                                             <action selector="picSquareSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XIZ-bm-uTB"/>
                                                         </connections>
@@ -125,7 +125,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="127.5" height="127.5"/>
                                                         <state key="normal" image="Plus" backgroundImage="Square Background"/>
                                                         <state key="selected" image="Plus Selected" backgroundImage="Square Background Selected"/>
-                                                        <state key="highlighted" image="Plus Selected" backgroundImage="Square Background Selected"/>
+                                                        <state key="highlighted" image="Plus" backgroundImage="Square Background Highlighted"/>
                                                         <connections>
                                                             <action selector="picSquareSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WoI-Zd-kow"/>
                                                         </connections>
@@ -134,7 +134,7 @@
                                                         <rect key="frame" x="141.5" y="0.0" width="127.5" height="127.5"/>
                                                         <state key="normal" image="Plus" backgroundImage="Square Background"/>
                                                         <state key="selected" image="Plus Selected" backgroundImage="Square Background Selected"/>
-                                                        <state key="highlighted" image="Plus Selected" backgroundImage="Square Background Selected"/>
+                                                        <state key="highlighted" image="Plus" backgroundImage="Square Background Highlighted"/>
                                                         <connections>
                                                             <action selector="picSquareSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TPq-xi-xur"/>
                                                         </connections>
@@ -250,6 +250,7 @@
         <image name="Plus Selected" width="40" height="40"/>
         <image name="Selected" width="80" height="80"/>
         <image name="Square Background" width="127.5" height="127.5"/>
+        <image name="Square Background Highlighted" width="128" height="128"/>
         <image name="Square Background Selected" width="127.5" height="127.5"/>
     </resources>
 </document>

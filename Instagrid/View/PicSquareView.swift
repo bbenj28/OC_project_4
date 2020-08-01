@@ -17,6 +17,7 @@ class PicSquareView: UIButton {
         } else {
             imagePlus()
         }
+        isSelected = false
     }
 
     
