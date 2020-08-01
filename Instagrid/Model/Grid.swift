@@ -36,7 +36,7 @@ class Grid {
     /// Check if pictures have been selected for all displayed picSquares in grid. Returns *true* if they have, *false* otherwise.
     static var isReadyToShare: Bool {
         for i in 0...3 {
-            if picSquaresHiddenDisposition[i] == false && picSquares[i].pictureUrl == nil {
+            if picSquaresHiddenDisposition[i] == false && picSquares[i].hasPicture == false {
                 return false
             }
         }
@@ -58,17 +58,15 @@ class Grid {
     /// Delete pictures in all picSquares.
     static func delete() {
         for i in 0...3 {
-            picSquares[i].pictureUrl = nil
+            picSquares[i].hasPicture = false
         }
     }
     
     /// Add selected picture's link in the selected picSquare's property, and return its index.
     /// - returns: Selected picSquare's index, *nil* if there's no selected picSquare.
-    static func pictureIsSelectedForPicSquare(_ link: URL?) -> Int? {
+    static func pictureIsSelectedForPicSquare() -> Int? {
         if let index = selectedSquare {
-            if let verifiedLink = link {
-                picSquares[index].pictureUrl = verifiedLink
-            }
+            picSquares[index].hasPicture = true
             return index
         } else {
             return nil

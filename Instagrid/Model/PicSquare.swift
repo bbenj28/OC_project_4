@@ -16,28 +16,13 @@ class PicSquare {
     // MARK: - Properties
     
     var isHidden: Bool
-    
-    var pictureUrl: URL?
+    var hasPicture: Bool
     
     // MARK: - Init
     
     init() {
         self.isHidden = false
+        self.hasPicture = false
     }
     
-    // MARK: - Picture's data
-    
-    /// Ask for button's image's data.
-    /// - returns: Button's image's data if a picture is selected, *nil* otherwise.
-    func imageButton() -> Data? {
-        if let verifiedUrl = pictureUrl {
-            if let data = NSData(contentsOf: verifiedUrl) as Data? {
-                return data
-            } else {
-                return nil
-            }
-        } else {
-            return nil
-        }
-    }
 }

@@ -12,7 +12,7 @@ class PicSquareView: UIButton {
     /// Change picSquare regarding selected layout and picture.
     func setView(_ picSquare: PicSquare) {
         isHidden = picSquare.isHidden
-        if let _ = picSquare.pictureUrl {
+        if picSquare.hasPicture {
             imageTransformation(true)
         } else {
             imagePlus()
@@ -22,26 +22,19 @@ class PicSquareView: UIButton {
 
     
     /// Change picSquare's image regarding selected picture.
-    func setImage(_ data: Data?) {
-        if let verifiedData = data {
-            if let verifiedImage = UIImage(data: verifiedData) {
-                displayImage(verifiedImage)
-            } else {
-                imagePlus()
-            }
-        } else {
-            imagePlus()
+    func displayImage(_ image: UIImage?) {
+        if let verifiedImage = image {
+            setImage(verifiedImage, for: .normal)
+            imageTransformation(true)
         }
         isSelected = false
     }
-    private func displayImage(_ image: UIImage) {
-        setImage(image, for: .normal)
-        imageTransformation(true)
-    }
+    
     private func imagePlus() {
         let image = UIImage(imageLiteralResourceName: "Plus")
         setImage(image, for: .normal)
         imageTransformation(false)
+        isSelected = false
     }
     private func imageTransformation(_ imageIsSelected: Bool) {
         if imageIsSelected {
