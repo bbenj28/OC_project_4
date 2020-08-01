@@ -12,15 +12,15 @@ import Foundation
 
 /// Class of squares which will contain a picture.
 class PicSquare {
-
+    
     // MARK: - Properties
-
+    
     var isHidden: Bool
-
+    
     var pictureUrl: URL?
-
+    
     // MARK: - Init
-
+    
     init() {
         self.isHidden = false
     }

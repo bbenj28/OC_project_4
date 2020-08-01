@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -21,22 +21,22 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PickPicViewController" customModule="Instagrid" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="ArrowUp" translatesAutoresizingMaskIntoConstraints="NO" id="VXM-Te-3ZM">
-                                <rect key="frame" x="181" y="122" width="13.5" height="9.5"/>
+                                <rect key="frame" x="153.5" y="103" width="13.5" height="9.5"/>
                                 <color key="tintColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <variation key="heightClass=compact" image="ArrowLeft"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sO4-AW-hsK">
-                                <rect key="frame" x="128.5" y="28" width="118.5" height="39"/>
+                                <rect key="frame" x="101" y="21" width="118.5" height="39"/>
                                 <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b67-7C-dq7">
-                                <rect key="frame" x="107.5" y="144" width="160.5" height="29"/>
+                                <rect key="frame" x="80" y="120.5" width="160.5" height="29"/>
                                 <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -51,10 +51,10 @@
                                 </variation>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vQv-8M-HgZ" userLabel="Layouts Stack View">
-                                <rect key="frame" x="47.5" y="555" width="280" height="80"/>
+                                <rect key="frame" x="40.5" y="473.5" width="239" height="66.5"/>
                                 <subviews>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" selected="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r3V-Or-DBF">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="66.5" height="66.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="r3V-Or-DBF" secondAttribute="height" multiplier="1:1" id="zuz-bw-2hp"/>
                                         </constraints>
@@ -65,7 +65,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JRZ-DR-oNE">
-                                        <rect key="frame" x="100" y="0.0" width="80" height="80"/>
+                                        <rect key="frame" x="86.5" y="0.0" width="66" height="66.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="JRZ-DR-oNE" secondAttribute="height" multiplier="1:1" id="Otw-zZ-FC6"/>
                                         </constraints>
@@ -76,7 +76,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KsH-ZB-wRs">
-                                        <rect key="frame" x="200" y="0.0" width="80" height="80"/>
+                                        <rect key="frame" x="172.5" y="0.0" width="66.5" height="66.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="KsH-ZB-wRs" secondAttribute="height" multiplier="1:1" id="T1j-fS-y6J"/>
                                         </constraints>
@@ -90,16 +90,16 @@
                                 <variation key="heightClass=compact" axis="vertical" spacing="30"/>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XsJ-le-W5j" customClass="GridView" customModule="Instagrid" customModuleProvider="target">
-                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
+                                <rect key="frame" x="32" y="156" width="256" height="256"/>
                                 <subviews>
                                     <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Zbq-SO-MMQ" userLabel="PicSquares Stack View">
-                                        <rect key="frame" x="15.5" y="15" width="269" height="270"/>
+                                        <rect key="frame" x="13" y="13" width="230" height="230"/>
                                         <subviews>
                                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="QIn-qm-vyy">
-                                                <rect key="frame" x="0.0" y="0.0" width="269" height="127.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="230" height="107.5"/>
                                                 <subviews>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQc-Yl-8Vz" customClass="PicSquareView" customModule="Instagrid" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="127.5" height="127.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="108" height="107.5"/>
                                                         <state key="normal" image="Plus" backgroundImage="Square Background"/>
                                                         <state key="selected" image="Plus Selected" backgroundImage="Square Background Selected"/>
                                                         <state key="highlighted" image="Plus Selected" backgroundImage="Square Background Selected"/>
@@ -108,7 +108,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSR-dq-XXP" customClass="PicSquareView" customModule="Instagrid" customModuleProvider="target">
-                                                        <rect key="frame" x="141.5" y="0.0" width="127.5" height="127.5"/>
+                                                        <rect key="frame" x="122" y="0.0" width="108" height="107.5"/>
                                                         <state key="normal" image="Plus" backgroundImage="Square Background"/>
                                                         <state key="selected" image="Plus Selected" backgroundImage="Square Background Selected"/>
                                                         <state key="highlighted" image="Plus Selected" backgroundImage="Square Background Selected"/>
@@ -119,10 +119,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="k4R-VB-u1E">
-                                                <rect key="frame" x="0.0" y="142.5" width="269" height="127.5"/>
+                                                <rect key="frame" x="0.0" y="122.5" width="230" height="107.5"/>
                                                 <subviews>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pO-Ap-a4a" customClass="PicSquareView" customModule="Instagrid" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="127.5" height="127.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="108" height="107.5"/>
                                                         <state key="normal" image="Plus" backgroundImage="Square Background"/>
                                                         <state key="selected" image="Plus Selected" backgroundImage="Square Background Selected"/>
                                                         <state key="highlighted" image="Plus Selected" backgroundImage="Square Background Selected"/>
@@ -131,7 +131,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZY-0F-Qfd" customClass="PicSquareView" customModule="Instagrid" customModuleProvider="target">
-                                                        <rect key="frame" x="141.5" y="0.0" width="127.5" height="127.5"/>
+                                                        <rect key="frame" x="122" y="0.0" width="108" height="107.5"/>
                                                         <state key="normal" image="Plus" backgroundImage="Square Background"/>
                                                         <state key="selected" image="Plus Selected" backgroundImage="Square Background Selected"/>
                                                         <state key="highlighted" image="Plus Selected" backgroundImage="Square Background Selected"/>
@@ -154,7 +154,7 @@
                                 </constraints>
                             </view>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="kB8-ex-yfy">
-                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <rect key="frame" x="141.5" y="265.5" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
