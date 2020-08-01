@@ -139,6 +139,7 @@ extension PickPicViewController {
     /// Action when a picSquare's Button is hitten.
     /// - Parameter sender: The picSquare's Button.
     @IBAction func picSquareSelection(_ sender: PicSquareView) {
+        sender.isSelected = true
         for i in 0...3 {
             if picSquareButton[i] == sender {
                 askForChangePictureInPicSquares(i)
@@ -180,6 +181,9 @@ extension PickPicViewController {
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: {
+            if let index = Grid.pictureIsSelectedForPicSquare(nil) {
+                self.picSquareButton[index].setView(Grid.picSquares[index])
+            }
             self.activityIndicator.stopAnimating()
         })
     }

@@ -11,18 +11,22 @@ import UIKit
 class PicSquareView: UIButton {
     /// Change picSquare regarding selected layout and picture.
     func setView(_ picSquare: PicSquare) {
-        self.isHidden = picSquare.isHidden
-        let background = UIImage(imageLiteralResourceName: "\(picSquare.disposition.backgroundName()) Square Background")
-        self.setBackgroundImage(background, for: .normal)
+        isHidden = picSquare.isHidden
+        let backgroundNormal = UIImage(imageLiteralResourceName: "\(picSquare.disposition.backgroundName()) Square Background")
+        let backgroundSelected = UIImage(imageLiteralResourceName: "\(picSquare.disposition.backgroundName()) Square Background Selected")
+        setBackgroundImage(backgroundNormal, for: .normal)
+        setBackgroundImage(backgroundSelected, for: .selected )
         changeRatio(CGFloat(picSquare.disposition.ratio()))
         imageButton(picSquare.imageButton())
+        isSelected = false
     }
     
     /// Change picSquare's image regarding selected picture.
     private func imageButton(_ data: Data?) {
         if let verifiedData = data {
             if let verifiedImage = UIImage(data: verifiedData) {
-                self.setImage(verifiedImage, for: .normal)
+                imageView?.contentMode = .scaleAspectFill
+                setImage(verifiedImage, for: .normal)
             } else {
                 imagePlus()
             }
@@ -33,8 +37,11 @@ class PicSquareView: UIButton {
     private func imagePlus() {
         //self.contentVerticalAlignment = .center
         //self.contentHorizontalAlignment = .center
+        imageView?.contentMode = .center
         let image = UIImage(imageLiteralResourceName: "Plus")
-        self.setImage(image, for: .normal)
+        let imageSelected = UIImage(imageLiteralResourceName: "Plus Selected")
+        setImage(image, for: .normal)
+        setImage(imageSelected, for: .selected)
     }
     
     /// Change picSquare's ratio regarding selected layout.
@@ -49,5 +56,8 @@ class PicSquareView: UIButton {
                 }
             }
         }
+        
+        layoutIfNeeded()
+        imageView?.layoutIfNeeded()
     }
 }

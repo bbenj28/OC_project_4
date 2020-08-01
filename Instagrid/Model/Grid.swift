@@ -70,9 +70,11 @@ class Grid {
     
     /// Add selected picture's link in the selected picSquare's property, and return its index.
     /// - returns: Selected picSquare's index, *nil* if there's no selected picSquare.
-    static func pictureIsSelectedForPicSquare(_ link: URL) -> Int? {
+    static func pictureIsSelectedForPicSquare(_ link: URL?) -> Int? {
         if let index = selectedSquare {
-            picSquares[index].pictureUrl = link
+            if let verifiedLink = link {
+                picSquares[index].pictureUrl = verifiedLink
+            }
             return index
         } else {
             return nil
