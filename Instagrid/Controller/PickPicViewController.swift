@@ -173,7 +173,7 @@ extension PickPicViewController {
         self.dismiss(animated: true, completion: {
             if let link = info[UIImagePickerController.InfoKey.imageURL] as? URL {
                 if let index = Grid.pictureIsSelectedForPicSquare(link) {
-                    self.picSquareButton[index].setView(Grid.picSquares[index])
+                    self.picSquareButton[index].setImage(Grid.picSquares[index].imageButton())
                 }
             }
             self.activityIndicator.stopAnimating()

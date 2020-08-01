@@ -17,31 +17,8 @@ class PicSquareView: UIButton {
         //setBackgroundImage(backgroundNormal, for: .normal)
         //setBackgroundImage(backgroundSelected, for: .selected )
         changeRatio(CGFloat(picSquare.disposition.ratio()))
-        imageButton(picSquare.imageButton())
         isSelected = false
     }
-    
-    /// Change picSquare's image regarding selected picture.
-    private func imageButton(_ data: Data?) {
-        if let verifiedData = data {
-            if let verifiedImage = UIImage(data: verifiedData) {
-                imageView?.contentMode = .scaleAspectFill
-                setImage(verifiedImage, for: .normal)
-            } else {
-                imagePlus()
-            }
-        } else {
-            imagePlus()
-        }
-    }
-    private func imagePlus() {
-        //self.contentVerticalAlignment = .center
-        //self.contentHorizontalAlignment = .center
-        imageView?.contentMode = .center
-        let image = UIImage(imageLiteralResourceName: "Plus")
-        setImage(image, for: .normal)
-    }
-    
     /// Change picSquare's ratio regarding selected layout.
     private func changeRatio(_ multiplier: CGFloat) {
         for constraint in constraints {
@@ -54,8 +31,27 @@ class PicSquareView: UIButton {
                 }
             }
         }
-        
         layoutIfNeeded()
         imageView?.layoutIfNeeded()
+    }
+    
+    /// Change picSquare's image regarding selected picture.
+    func setImage(_ data: Data?) {
+        if let verifiedData = data {
+            if let verifiedImage = UIImage(data: verifiedData) {
+                imageView?.contentMode = .scaleAspectFill
+                setImage(verifiedImage, for: .normal)
+            } else {
+                imagePlus()
+            }
+        } else {
+            imagePlus()
+        }
+        isSelected = false
+    }
+    private func imagePlus() {
+        imageView?.contentMode = .center
+        let image = UIImage(imageLiteralResourceName: "Plus")
+        setImage(image, for: .normal)
     }
 }
