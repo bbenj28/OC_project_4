@@ -12,11 +12,11 @@ import UIKit
 class PickPicViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     
-        // MARK: Properties
+    // MARK: Properties
     var imagePicker = UIImagePickerController()
     
     
-        // MARK: Outlets
+    // MARK: Outlets
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet var picSquareButton: [PicSquareView]!
@@ -26,7 +26,7 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet var layoutButton: [UIButton]!
     
     
-        // MARK: View appearance
+    // MARK: View appearance
     override func viewDidLoad() {
         super.viewDidLoad()
         //checkHiddenPicSquares()
@@ -35,28 +35,19 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //prepareAppearance()
+        prepareAppearance()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //appearanceAnimation()
+        appearanceAnimation()
     }
     
-    
-    
-    
-
-    
-    
-    
-    /*
     private func prepareAppearance() {
         for i in 0...3 {
-            picSquares[i].transform = transformForAppearance()
+            picSquareButton[i].transform = transformForAppearance()
         }
         for i in 0...2 {
-            layoutsButtons[i].transform = transformForAppearance()
-            layoutsSelectedViews[i].transform = transformForAppearance()
+            layoutButton[i].transform = transformForAppearance()
         }
     }
     private func transformForAppearance() -> CGAffineTransform {
@@ -70,16 +61,15 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
     }
     private func picSquaresAppearance() {
         for i in 0...3 {
-            picSquares[i].transform = .identity
+            picSquareButton[i].transform = .identity
         }
     }
     private func layoutsButtonsAppearance() {
         for i in 0...2 {
-            self.layoutsButtons[i].transform = .identity
-            self.layoutsSelectedViews[i].transform = .identity
+            self.layoutButton[i].transform = .identity
         }
     }
- */
+    
 }
 
 
@@ -87,7 +77,7 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
 extension PickPicViewController {
     
     
-        // MARK: Layouts buttons
+    // MARK: Layouts buttons
     
     @IBAction func layoutSelection(_ sender: UIButton) {
         for i in 0...2 {
@@ -97,7 +87,7 @@ extension PickPicViewController {
         }
     }
     
-
+    
     /// Update grid based on choosen layout.
     /// - Parameter index: Index of the choosen layout.
     private func layoutIsSelected(_ index: Int) {
@@ -106,7 +96,7 @@ extension PickPicViewController {
         }
     }
     
-        // MARK: Change disposition
+    // MARK: Change disposition
     /// Update grid based on choosen layout, and update squares based on choosen layout and pictures.
     /// - Parameter index: Index of the choosen layout (0...2). *nil* to update squares without changing layout
     private func updateLayoutAndSquares(_ index: Int?) {
@@ -138,7 +128,7 @@ extension PickPicViewController {
 extension PickPicViewController {
     
     
-        // MARK: Squares buttons
+    // MARK: Squares buttons
     
     
     
@@ -149,7 +139,7 @@ extension PickPicViewController {
             }
         }
     }
-
+    
     private func askForChangePictureInPicSquares(_ index: Int) {
         Grid.selectedSquare = index
         // if the photos album is available, ask to pick picture
@@ -161,7 +151,7 @@ extension PickPicViewController {
         }
     }
     
-        // MARK: Image picker
+    // MARK: Image picker
     private func imagePickerInit() {
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
@@ -187,7 +177,7 @@ extension PickPicViewController {
             self.activityIndicator.stopAnimating()
         })
     }
- 
+    
 }
 
 
@@ -195,7 +185,7 @@ extension PickPicViewController {
 extension PickPicViewController {
     
     
-        // MARK: Swipes
+    // MARK: Swipes
     /// Create an up swipe for portrait oriented device, and a left swipe for landscape oriented device.
     private func swipesCreation() {
         let upSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction(_:)))
@@ -221,7 +211,7 @@ extension PickPicViewController {
         }
     }
     
-        // MARK: Device's orientation
+    // MARK: Device's orientation
     /// Returns the swipe direction based on device's orientation.
     /// - Returns: *.up* for a portrait oriented device, *.left* for a landscape oriented device.
     private func swipeDirectionNeeded() -> UISwipeGestureRecognizer.Direction? {
@@ -240,8 +230,8 @@ extension PickPicViewController {
         return UIDevice.current.orientation == orientation
     }
     
-        // MARK: Grid Animations
-                // Grid disappearance
+    // MARK: Grid Animations
+    // Grid disappearance
     /// Make grid disappear if ready to share.
     private func makeGridDisappearAndShareIt() {
         UIView.animate(withDuration: 0.3, animations: {
@@ -266,7 +256,7 @@ extension PickPicViewController {
             return [-width, 0]
         }
     }
-                // Grid is back
+    // Grid is back
     /// Delete grid's pictures and make it come back.
     private func returnDeletedGridAnimation() {
         Grid.delete()
@@ -277,14 +267,14 @@ extension PickPicViewController {
     private func returnGridAnimation() {
         gridAnimation(.identity)
     }
-                // Animation
+    // Animation
     private func gridAnimation(_ transform: CGAffineTransform) {
         UIView.animate(withDuration: 0.3, animations: {
             self.gridView.transform = transform
         })
     }
     
-        // MARK: Generate and share
+    // MARK: Generate and share
     private func generateAndSharePicture() {
         let image = generatePicture()
         sharePicture(image)
