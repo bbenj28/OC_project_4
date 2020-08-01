@@ -15,7 +15,7 @@ class PicSquareView: UIButton {
         if let _ = picSquare.pictureUrl {
             imageTransformation(true)
         } else {
-            imageTransformation(false)
+            imagePlus()
         }
     }
 
