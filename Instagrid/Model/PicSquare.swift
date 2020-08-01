@@ -7,16 +7,32 @@
 //
 
 import Foundation
+
+// MARK: - Mother class
+
 /// Class of squares which will contain a picture.
 class PicSquare {
+
+    // MARK: - Properties
+
     var isHidden: Bool {
         return disposition == .hidden
     }
+
     var disposition: SquareDisposition
+
     var pictureUrl: URL?
+
+    // MARK: - Init
+
     init(disposition: SquareDisposition) {
         self.disposition = disposition
     }
+    
+    // MARK: - Picture's data
+    
+    /// Ask for button's image's data.
+    /// - returns: Button's image's data if a picture is selected, *nil* otherwise.
     func imageButton() -> Data? {
         if let verifiedUrl = pictureUrl {
             if let data = NSData(contentsOf: verifiedUrl) as Data? {
@@ -29,6 +45,9 @@ class PicSquare {
         }
     }
 }
+
+// MARK: - Inheritance
+
 class TopLeftPicSquare: PicSquare {
     init() {
         super.init(disposition: .topAllWidth)

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+/// Disposition's possibilities for a PicSquare.
 enum SquareDisposition: Float {
     case topLeft
     case topRight
@@ -16,6 +17,8 @@ enum SquareDisposition: Float {
     case bottomAllWidth
     case hidden
     
+    /// Return first word of the background's filename of a picSquare regarding its disposition.
+    /// - returns: Background's filename's first word.
     func backgroundName() -> String {
         switch self {
         case .bottomAllWidth, .topAllWidth:
@@ -25,6 +28,8 @@ enum SquareDisposition: Float {
         }
     }
     
+    /// Return muliplier of the ratio of a picSquare regarding its disposition.
+    /// - returns: Ratio's multiplier.
     func ratio() -> Float {
         switch self {
         case .bottomAllWidth, .topAllWidth:
