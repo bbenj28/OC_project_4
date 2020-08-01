@@ -15,18 +15,14 @@ class PicSquare {
 
     // MARK: - Properties
 
-    var isHidden: Bool {
-        return disposition == .hidden
-    }
-
-    var disposition: SquareDisposition
+    var isHidden: Bool
 
     var pictureUrl: URL?
 
     // MARK: - Init
 
-    init(disposition: SquareDisposition) {
-        self.disposition = disposition
+    init() {
+        self.isHidden = false
     }
     
     // MARK: - Picture's data
@@ -43,28 +39,5 @@ class PicSquare {
         } else {
             return nil
         }
-    }
-}
-
-// MARK: - Inheritance
-
-class TopLeftPicSquare: PicSquare {
-    init() {
-        super.init(disposition: .topAllWidth)
-    }
-}
-class TopRightPicSquare: PicSquare {
-    init() {
-        super.init(disposition: .hidden)
-    }
-}
-class BottomLeftPicSquare: PicSquare {
-    init() {
-        super.init(disposition: .bottomLeft)
-    }
-}
-class BottomRightPicSquare: PicSquare {
-    init() {
-        super.init(disposition: .bottomRight)
     }
 }

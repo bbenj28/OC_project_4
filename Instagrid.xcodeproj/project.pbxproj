@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0341E3C324D42ADE00A2219B /* PicSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0341E3C224D42ADE00A2219B /* PicSquareView.swift */; };
-		0341E3C524D42B6F00A2219B /* SquareDisposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0341E3C424D42B6F00A2219B /* SquareDisposition.swift */; };
 		0380DD2D24BCE14A00589571 /* PicSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380DD2C24BCE14A00589571 /* PicSquare.swift */; };
 		0380DD2F24BCE3FA00589571 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380DD2E24BCE3FA00589571 /* Grid.swift */; };
 		03A93EE124B9A4FD000567B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A93EE024B9A4FD000567B4 /* AppDelegate.swift */; };
@@ -24,7 +23,6 @@
 
 /* Begin PBXFileReference section */
 		0341E3C224D42ADE00A2219B /* PicSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicSquareView.swift; sourceTree = "<group>"; };
-		0341E3C424D42B6F00A2219B /* SquareDisposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareDisposition.swift; sourceTree = "<group>"; };
 		0380DD2C24BCE14A00589571 /* PicSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicSquare.swift; sourceTree = "<group>"; };
 		0380DD2E24BCE3FA00589571 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		03A93EDD24B9A4FD000567B4 /* Instagrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,7 +83,6 @@
 			children = (
 				0380DD2C24BCE14A00589571 /* PicSquare.swift */,
 				0380DD2E24BCE3FA00589571 /* Grid.swift */,
-				0341E3C424D42B6F00A2219B /* SquareDisposition.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -193,7 +190,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0341E3C524D42B6F00A2219B /* SquareDisposition.swift in Sources */,
 				0380DD2F24BCE3FA00589571 /* Grid.swift in Sources */,
 				0380DD2D24BCE14A00589571 /* PicSquare.swift in Sources */,
 				03BA528324BE0609004D75DF /* GridView.swift in Sources */,

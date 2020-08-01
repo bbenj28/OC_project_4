@@ -10,7 +10,7 @@ import UIKit
 
 class GridView: UIView {
     ///Generate a single picture based on the actual pictures disposition on the grid.
-    /// - Returns:The UIImage generated.
+    /// - Returns:The generated UIImage.
     func asImage() -> UIImage {
         let renderer = UIGraphicsImageRenderer(bounds: bounds)
         return renderer.image { rendererContext in

@@ -13,7 +13,7 @@ class Grid {
     // MARK: - Properties
 
     /// PicSquares contained by the grid.
-    static let picSquares: [PicSquare] = [TopLeftPicSquare(), TopRightPicSquare(), BottomLeftPicSquare(), BottomRightPicSquare()]
+    static let picSquares: [PicSquare] = [PicSquare(), PicSquare(), PicSquare(), PicSquare()]
 
     /// Layout which is actually displayed
     static var selectedLayout: Int = 0
@@ -22,31 +22,25 @@ class Grid {
     static var selectedSquare: Int?
 
     /// Returns picSquares dispositions regarding selected layout.
-    static private var picSquaresDisposition: [SquareDisposition] {
+    static private var picSquaresDisposition: [Bool] {
         switch selectedLayout {
         case 0:
-            return [.topAllWidth, .hidden, .bottomLeft, .bottomRight]
+            return [false, true, false, false]
         case 1:
-            return [.topLeft, .topRight, .bottomAllWidth, .hidden]
-        case 2:
-            return [.topLeft, .topRight, .bottomLeft, .bottomRight]
+            return [false, false, false, true]
         default:
-            return []
+            return [false, false, false, false]
         }
     }
 
     /// Check if pictures have been selected for all displayed picSquares in grid. Returns *true* if they have, *false* otherwise.
     static var isReadyToShare: Bool {
-        if picSquaresDisposition.count > 0 {
             for i in 0...3 {
-                if picSquaresDisposition[i] != .hidden && picSquares[i].pictureUrl == nil {
+                if picSquaresDisposition[i] == false && picSquares[i].pictureUrl == nil {
                     return false
                 }
             }
             return true
-        } else {
-            return false
-        }
     }
 
     // MARK: - Methods
@@ -57,7 +51,7 @@ class Grid {
         selectedLayout = index
         selectedSquare = nil
         for i in 0...3 {
-            picSquares[i].disposition = picSquaresDisposition[i]
+            picSquares[i].isHidden = picSquaresDisposition[i]
         }
     }
 
