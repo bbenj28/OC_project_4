@@ -13,11 +13,9 @@ class PicSquare {
         return disposition == .hidden
     }
     var disposition: SquareDisposition
-    let id: Int
     var pictureUrl: URL?
-    init(disposition: SquareDisposition, id: Int) {
+    init(disposition: SquareDisposition) {
         self.disposition = disposition
-        self.id = id
     }
     func imageButton() -> Data? {
         if let verifiedUrl = pictureUrl {
@@ -33,21 +31,21 @@ class PicSquare {
 }
 class TopLeftPicSquare: PicSquare {
     init() {
-        super.init(disposition: .topAllWidth, id: 0)
+        super.init(disposition: .topAllWidth)
     }
 }
 class TopRightPicSquare: PicSquare {
     init() {
-        super.init(disposition: .hidden, id: 1)
+        super.init(disposition: .hidden)
     }
 }
 class BottomLeftPicSquare: PicSquare {
     init() {
-        super.init(disposition: .bottomLeft, id: 2)
+        super.init(disposition: .bottomLeft)
     }
 }
 class BottomRightPicSquare: PicSquare {
     init() {
-        super.init(disposition: .bottomRight, id: 3)
+        super.init(disposition: .bottomRight)
     }
 }
