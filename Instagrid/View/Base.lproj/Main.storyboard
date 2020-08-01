@@ -103,7 +103,9 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="PQc-Yl-8Vz" secondAttribute="height" multiplier="1:1" identifier="PicSquareRatio" id="DYj-HB-U7y"/>
                                                         </constraints>
-                                                        <state key="normal" image="Plus" backgroundImage="Little Square Background"/>
+                                                        <state key="normal" image="Plus" backgroundImage="Square Background"/>
+                                                        <state key="selected" image="Plus Selected" backgroundImage="Square Background Selected"/>
+                                                        <state key="highlighted" image="Plus Selected" backgroundImage="Square Background Selected"/>
                                                         <connections>
                                                             <action selector="picSquareSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dJ6-HX-X6p"/>
                                                         </connections>
@@ -113,7 +115,9 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="MSR-dq-XXP" secondAttribute="height" multiplier="1:1" identifier="PicSquareRatio" id="YIf-Nn-z1a"/>
                                                         </constraints>
-                                                        <state key="normal" image="Plus" backgroundImage="Little Square Background"/>
+                                                        <state key="normal" image="Plus" backgroundImage="Square Background"/>
+                                                        <state key="selected" image="Plus Selected" backgroundImage="Square Background Selected"/>
+                                                        <state key="highlighted" image="Plus Selected" backgroundImage="Square Background Selected"/>
                                                         <connections>
                                                             <action selector="picSquareSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XIZ-bm-uTB"/>
                                                         </connections>
@@ -128,7 +132,9 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="8pO-Ap-a4a" secondAttribute="height" multiplier="1:1" identifier="PicSquareRatio" id="Iq8-Zm-hXH"/>
                                                         </constraints>
-                                                        <state key="normal" image="Plus" backgroundImage="Little Square Background"/>
+                                                        <state key="normal" image="Plus" backgroundImage="Square Background"/>
+                                                        <state key="selected" image="Plus Selected" backgroundImage="Square Background Selected"/>
+                                                        <state key="highlighted" image="Plus Selected" backgroundImage="Square Background Selected"/>
                                                         <connections>
                                                             <action selector="picSquareSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WoI-Zd-kow"/>
                                                         </connections>
@@ -138,7 +144,9 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="uZY-0F-Qfd" secondAttribute="height" multiplier="1:1" identifier="PicSquareRatio" id="wKd-Qb-jxA"/>
                                                         </constraints>
-                                                        <state key="normal" image="Plus" backgroundImage="Little Square Background"/>
+                                                        <state key="normal" image="Plus" backgroundImage="Square Background"/>
+                                                        <state key="selected" image="Plus Selected" backgroundImage="Square Background Selected"/>
+                                                        <state key="highlighted" image="Plus Selected" backgroundImage="Square Background Selected"/>
                                                         <connections>
                                                             <action selector="picSquareSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TPq-xi-xur"/>
                                                         </connections>
@@ -196,12 +204,12 @@
                                 <exclude reference="b67-7C-dq7"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="LQX-Ok-lkK"/>
-                                <exclude reference="mQY-XJ-tfM"/>
+                                <exclude reference="47g-cz-inA"/>
                                 <exclude reference="WAz-Au-QNp"/>
                                 <exclude reference="eut-Kb-Q7w"/>
                                 <exclude reference="hcY-LI-tck"/>
-                                <exclude reference="47g-cz-inA"/>
+                                <exclude reference="LQX-Ok-lkK"/>
+                                <exclude reference="mQY-XJ-tfM"/>
                                 <exclude reference="7Li-2i-EQJ"/>
                                 <exclude reference="QsK-a5-Uv8"/>
                                 <exclude reference="tj6-h4-8d9"/>
@@ -212,12 +220,12 @@
                                 <exclude reference="F3I-B2-Eex"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="6tJ-gK-b31"/>
-                                <exclude reference="rbZ-RM-DaL"/>
+                                <exclude reference="fJW-16-dxf"/>
                                 <exclude reference="0ax-h5-CpS"/>
                                 <exclude reference="Efh-Tm-sVK"/>
                                 <exclude reference="pUu-LT-hIi"/>
-                                <exclude reference="fJW-16-dxf"/>
+                                <exclude reference="6tJ-gK-b31"/>
+                                <exclude reference="rbZ-RM-DaL"/>
                                 <exclude reference="84n-Kw-t6j"/>
                                 <exclude reference="E2d-6g-f1j"/>
                                 <exclude reference="HgZ-tZ-NQc"/>
@@ -247,8 +255,10 @@
         <image name="Layout1" width="80" height="80"/>
         <image name="Layout2" width="80" height="80"/>
         <image name="Layout3" width="80" height="80"/>
-        <image name="Little Square Background" width="127.5" height="127.5"/>
         <image name="Plus" width="40" height="40"/>
+        <image name="Plus Selected" width="40" height="40"/>
         <image name="Selected" width="80" height="80"/>
+        <image name="Square Background" width="127.5" height="127.5"/>
+        <image name="Square Background Selected" width="127.5" height="127.5"/>
     </resources>
 </document>
