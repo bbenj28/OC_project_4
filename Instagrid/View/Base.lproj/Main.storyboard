@@ -8,6 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Delm-Medium.otf">
+            <string>Delm-Medium</string>
+        </array>
         <array key="ThirstySoftRegular.otf">
             <string>ThirstySoftRegular</string>
         </array>
@@ -21,93 +24,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sO4-AW-hsK">
-                                <rect key="frame" x="37.5" y="28" width="300" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="ArrowUp" translatesAutoresizingMaskIntoConstraints="NO" id="VXM-Te-3ZM">
+                                <rect key="frame" x="181" y="122" width="13.5" height="9.5"/>
+                                <color key="tintColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <variation key="heightClass=compact" image="ArrowLeft"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sO4-AW-hsK">
+                                <rect key="frame" x="128.5" y="28" width="118.5" height="39"/>
                                 <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="ArrowUp" translatesAutoresizingMaskIntoConstraints="NO" id="VXM-Te-3ZM">
-                                <rect key="frame" x="183" y="122" width="9" height="13"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <variation key="heightClass=compact" image="ArrowLeft"/>
-                            </imageView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="kB8-ex-yfy">
-                                <rect key="frame" x="169" y="85" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XsJ-le-W5j" customClass="GridView" customModule="Instagrid" customModuleProvider="target">
-                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
-                                <subviews>
-                                    <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Zbq-SO-MMQ">
-                                        <rect key="frame" x="15.5" y="15" width="269" height="270"/>
-                                        <subviews>
-                                            <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="QIn-qm-vyy">
-                                                <rect key="frame" x="0.0" y="0.0" width="269" height="127.5"/>
-                                                <subviews>
-                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQc-Yl-8Vz" customClass="PicSquareView" customModule="Instagrid" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="127.5" height="127.5"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="PQc-Yl-8Vz" secondAttribute="height" multiplier="1:1" identifier="PicSquareRatio" id="DYj-HB-U7y"/>
-                                                        </constraints>
-                                                        <state key="normal" image="Plus" backgroundImage="Little Square Background"/>
-                                                        <connections>
-                                                            <action selector="picSquareSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dJ6-HX-X6p"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSR-dq-XXP" customClass="PicSquareView" customModule="Instagrid" customModuleProvider="target">
-                                                        <rect key="frame" x="141.5" y="0.0" width="127.5" height="127.5"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="MSR-dq-XXP" secondAttribute="height" multiplier="1:1" identifier="PicSquareRatio" id="YIf-Nn-z1a"/>
-                                                        </constraints>
-                                                        <state key="normal" image="Plus" backgroundImage="Little Square Background"/>
-                                                        <connections>
-                                                            <action selector="picSquareSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XIZ-bm-uTB"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="k4R-VB-u1E">
-                                                <rect key="frame" x="0.0" y="142.5" width="269" height="127.5"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pO-Ap-a4a" customClass="PicSquareView" customModule="Instagrid" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="127.5" height="127.5"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="8pO-Ap-a4a" secondAttribute="height" multiplier="1:1" identifier="PicSquareRatio" id="Iq8-Zm-hXH"/>
-                                                        </constraints>
-                                                        <state key="normal" image="Plus" backgroundImage="Little Square Background"/>
-                                                        <connections>
-                                                            <action selector="picSquareSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WoI-Zd-kow"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZY-0F-Qfd" customClass="PicSquareView" customModule="Instagrid" customModuleProvider="target">
-                                                        <rect key="frame" x="141.5" y="0.0" width="127.5" height="127.5"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="uZY-0F-Qfd" secondAttribute="height" multiplier="1:1" identifier="PicSquareRatio" id="wKd-Qb-jxA"/>
-                                                        </constraints>
-                                                        <state key="normal" image="Plus" backgroundImage="Little Square Background"/>
-                                                        <connections>
-                                                            <action selector="picSquareSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TPq-xi-xur"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="Zbq-SO-MMQ" secondAttribute="height" multiplier="269:270" id="PXZ-qW-N0j"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.15834364300000001" green="0.40798074010000002" blue="0.57901817560000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="XsJ-le-W5j" secondAttribute="height" multiplier="1:1" id="FzY-23-7jU"/>
-                                    <constraint firstItem="Zbq-SO-MMQ" firstAttribute="centerX" secondItem="XsJ-le-W5j" secondAttribute="centerX" id="LZU-j7-5gX"/>
-                                    <constraint firstItem="Zbq-SO-MMQ" firstAttribute="centerY" secondItem="XsJ-le-W5j" secondAttribute="centerY" id="OIH-wW-Jae"/>
-                                    <constraint firstItem="Zbq-SO-MMQ" firstAttribute="width" secondItem="XsJ-le-W5j" secondAttribute="width" multiplier="0.896667" id="csg-Hn-hke"/>
-                                </constraints>
-                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b67-7C-dq7">
+                                <rect key="frame" x="107.5" y="144" width="160.5" height="29"/>
+                                <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vQv-8M-HgZ">
                                 <rect key="frame" x="47.5" y="555" width="280" height="80"/>
                                 <subviews>
@@ -146,16 +79,97 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XsJ-le-W5j" customClass="GridView" customModule="Instagrid" customModuleProvider="target">
+                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
+                                <subviews>
+                                    <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Zbq-SO-MMQ">
+                                        <rect key="frame" x="15.5" y="15" width="269" height="270"/>
+                                        <subviews>
+                                            <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="QIn-qm-vyy">
+                                                <rect key="frame" x="0.0" y="0.0" width="269" height="127.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQc-Yl-8Vz" customClass="PicSquareView" customModule="Instagrid" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="127.5" height="127.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="PQc-Yl-8Vz" secondAttribute="height" multiplier="1:1" identifier="PicSquareRatio" id="DYj-HB-U7y"/>
+                                                        </constraints>
+                                                        <state key="normal" image="Plus" backgroundImage="Little Square Background"/>
+                                                        <connections>
+                                                            <action selector="picSquareSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dJ6-HX-X6p"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSR-dq-XXP" customClass="PicSquareView" customModule="Instagrid" customModuleProvider="target">
+                                                        <rect key="frame" x="141.5" y="0.0" width="127.5" height="127.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="MSR-dq-XXP" secondAttribute="height" multiplier="1:1" identifier="PicSquareRatio" id="YIf-Nn-z1a"/>
+                                                        </constraints>
+                                                        <state key="normal" image="Plus" backgroundImage="Little Square Background"/>
+                                                        <connections>
+                                                            <action selector="picSquareSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XIZ-bm-uTB"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="k4R-VB-u1E">
+                                                <rect key="frame" x="0.0" y="142.5" width="269" height="127.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pO-Ap-a4a" customClass="PicSquareView" customModule="Instagrid" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="127.5" height="127.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="8pO-Ap-a4a" secondAttribute="height" multiplier="1:1" identifier="PicSquareRatio" id="Iq8-Zm-hXH"/>
+                                                        </constraints>
+                                                        <state key="normal" image="Plus" backgroundImage="Little Square Background"/>
+                                                        <connections>
+                                                            <action selector="picSquareSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WoI-Zd-kow"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZY-0F-Qfd" customClass="PicSquareView" customModule="Instagrid" customModuleProvider="target">
+                                                        <rect key="frame" x="141.5" y="0.0" width="127.5" height="127.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="uZY-0F-Qfd" secondAttribute="height" multiplier="1:1" identifier="PicSquareRatio" id="wKd-Qb-jxA"/>
+                                                        </constraints>
+                                                        <state key="normal" image="Plus" backgroundImage="Little Square Background"/>
+                                                        <connections>
+                                                            <action selector="picSquareSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TPq-xi-xur"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Zbq-SO-MMQ" secondAttribute="height" multiplier="269:270" id="PXZ-qW-N0j"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.15834364300000001" green="0.40798074010000002" blue="0.57901817560000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="XsJ-le-W5j" secondAttribute="height" multiplier="1:1" id="FzY-23-7jU"/>
+                                    <constraint firstItem="Zbq-SO-MMQ" firstAttribute="centerX" secondItem="XsJ-le-W5j" secondAttribute="centerX" id="LZU-j7-5gX"/>
+                                    <constraint firstItem="Zbq-SO-MMQ" firstAttribute="centerY" secondItem="XsJ-le-W5j" secondAttribute="centerY" id="OIH-wW-Jae"/>
+                                    <constraint firstItem="Zbq-SO-MMQ" firstAttribute="width" secondItem="XsJ-le-W5j" secondAttribute="width" multiplier="0.896667" id="csg-Hn-hke"/>
+                                </constraints>
+                            </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="kB8-ex-yfy">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.73751354219999998" green="0.84208106989999998" blue="0.89006882909999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="sO4-AW-hsK" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.142" id="47g-cz-inA"/>
                             <constraint firstItem="vQv-8M-HgZ" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="1.7845" id="7Li-2i-EQJ"/>
+                            <constraint firstItem="b67-7C-dq7" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.475" id="ENM-nY-EMT"/>
+                            <constraint firstItem="VXM-Te-3ZM" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="LQX-Ok-lkK"/>
+                            <constraint firstItem="kB8-ex-yfy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QeH-Ef-NN6"/>
                             <constraint firstItem="vQv-8M-HgZ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.746667" id="QsK-a5-Uv8"/>
                             <constraint firstItem="XsJ-le-W5j" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="WAz-Au-QNp"/>
+                            <constraint firstItem="kB8-ex-yfy" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="b4x-p6-6v5"/>
                             <constraint firstItem="XsJ-le-W5j" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="eut-Kb-Q7w"/>
                             <constraint firstItem="XsJ-le-W5j" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hcY-LI-tck"/>
+                            <constraint firstItem="VXM-Te-3ZM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.38" id="mQY-XJ-tfM"/>
+                            <constraint firstItem="b67-7C-dq7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="p6J-RH-aNc"/>
+                            <constraint firstItem="sO4-AW-hsK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="r2q-9C-YAT"/>
                             <constraint firstItem="vQv-8M-HgZ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="tj6-h4-8d9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -178,8 +192,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ArrowLeft" width="3.5" height="4.5"/>
-        <image name="ArrowUp" width="4.5" height="3.5"/>
+        <image name="ArrowLeft" width="9.5" height="13.5"/>
+        <image name="ArrowUp" width="13.5" height="9.5"/>
         <image name="Layout1" width="80" height="80"/>
         <image name="Layout2" width="80" height="80"/>
         <image name="Layout3" width="80" height="80"/>
