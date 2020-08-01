@@ -24,4 +24,13 @@ enum SquareDisposition: Float {
             return "Little"
         }
     }
+    
+    func ratio() -> Float {
+        switch self {
+        case .bottomAllWidth, .topAllWidth:
+            return 2.0
+        default:
+            return 1.0
+        }
+    }
 }

@@ -13,12 +13,47 @@ class PicSquareView: UIButton {
         self.isHidden = picSquare.isHidden
         let background = UIImage(imageLiteralResourceName: "\(picSquare.disposition.backgroundName()) Square Background")
         self.setBackgroundImage(background, for: .normal)
-        let image: UIImage
-        if picSquare.pictureIsSelected {
-            image = UIImage(imageLiteralResourceName: "Plus")
+        changeRatio(CGFloat(picSquare.disposition.ratio()))
+        imageButton(picSquare.imageButton())
+    }
+    private func imageButton(_ data: Data?) {
+        
+        if let verifiedData = data {
+            if let verifiedImage = UIImage(data: verifiedData) {
+                
+                //self.contentVerticalAlignment = .fill
+                //self.contentHorizontalAlignment = .fill
+ 
+                self.setImage(verifiedImage, for: .normal)
+            } else {
+                
+                imagePlus()
+            }
         } else {
-            image = UIImage(imageLiteralResourceName: "Plus")
+            imagePlus()
         }
+        
+    }
+    private func imagePlus() {
+        
+        //self.contentVerticalAlignment = .center
+        //self.contentHorizontalAlignment = .center
+ 
+        let image = UIImage(imageLiteralResourceName: "Plus")
         self.setImage(image, for: .normal)
     }
+    
+    private func changeRatio(_ multiplier: CGFloat) {
+        for constraint in constraints {
+            if constraint.identifier == "PicSquareRatio" {
+                if let firstItem = constraint.firstItem {
+                    let newConstraint = NSLayoutConstraint(item: firstItem, attribute: constraint.firstAttribute, relatedBy: constraint.relation, toItem: constraint.secondItem, attribute: constraint.secondAttribute, multiplier: multiplier, constant: constraint.constant)
+                    newConstraint.identifier = "PicSquareRatio"
+                    removeConstraint(constraint)
+                    addConstraint(newConstraint)
+                }
+            }
+        }
+    }
+
 }

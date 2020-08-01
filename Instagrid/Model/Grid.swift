@@ -28,7 +28,7 @@ class Grid {
         if displayedPicSquaresInGrid.count > 0 {
             for i in 0...displayedPicSquaresInGrid.count - 1 {
                 let index = displayedPicSquaresInGrid[i]
-                if picSquares[index].pictureIsSelected == false {
+                if picSquares[index].pictureUrl == nil {
                     return false
                 }
             }
@@ -74,12 +74,15 @@ class Grid {
     /// Delete pictures in all picSquares.
     static func delete() {
         for i in 0...3 {
-            picSquares[i].pictureIsSelected = false
+            picSquares[i].pictureUrl = nil
         }
     }
-    static func pictureIsSelectedForPicSquare() -> Int {
-        let picSquare = picSquares[selectedSquare!]
-        picSquare.pictureIsSelected = true
-        return selectedSquare!
+    static func pictureIsSelectedForPicSquare(_ link: URL) -> Int? {
+        if let index = selectedSquare {
+            picSquares[index].pictureUrl = link
+            return index
+        } else {
+            return nil
+        }
     }
 }

@@ -9,19 +9,26 @@
 import Foundation
 /// Class of squares which will contain a picture.
 class PicSquare {
-    var pictureIsSelected: Bool = false
     var isHidden: Bool {
-        if disposition == .hidden {
-            return true
-        } else {
-            return false
-        }
+        return disposition == .hidden
     }
     var disposition: SquareDisposition
     let id: Int
+    var pictureUrl: URL?
     init(disposition: SquareDisposition, id: Int) {
         self.disposition = disposition
         self.id = id
+    }
+    func imageButton() -> Data? {
+        if let verifiedUrl = pictureUrl {
+            if let data = NSData(contentsOf: verifiedUrl) as Data? {
+                return data
+            } else {
+                return nil
+            }
+        } else {
+            return nil
+        }
     }
 }
 class TopLeftPicSquare: PicSquare {
