@@ -42,40 +42,44 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // launch appearance animation
-        appearanceAnimation()
+        picSquaresAnimation(.identity, next: nil)
     }
     
     /// For each button, change its size with a 0.2 scale.
     private func prepareAppearance() {
         for i in 0...3 {
-            picSquareButton[i].transform = transformForAppearance()
+            picSquareButton[i].transform = picSquaresReduction()
         }
-        for i in 0...2 {
-            layoutButton[i].transform = transformForAppearance()
-        }
-    }
-    private func transformForAppearance() -> CGAffineTransform {
-        return CGAffineTransform(scaleX: 0.2, y: 0.2)
     }
     
-    /// Animate buttons appearance from a 0.2 scale to identity.
-    private func appearanceAnimation() {
-        UIView.animate(withDuration: 0.9, delay: 0.2, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
-            self.picSquaresAppearance()
-            self.layoutsButtonsAppearance()
-        }, completion: nil)
-    }
-    private func picSquaresAppearance() {
-        for i in 0...3 {
-            picSquareButton[i].transform = .identity
-        }
-    }
-    private func layoutsButtonsAppearance() {
-        for i in 0...2 {
-            self.layoutButton[i].transform = .identity
-        }
-    }
+    
+    
+}
 
+// MARK: - picSquares Animation
+
+extension PickPicViewController {
+    /// Return the button's rescaling constants when a picture has to be choosen.
+    /// - returns: The button's rescaling contants.
+    private func picSquaresReduction() -> CGAffineTransform {
+        return CGAffineTransform(scaleX: 0.2, y: 0.2)
+    }
+    /// Animate buttons for picture selection and picSquares appearance.
+    private func picSquaresAnimation(_ transform: CGAffineTransform, next handler: (() -> Void)?) {
+        UIView.animate(withDuration: 0.9, delay: 0.2, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+            self.picSquaresTransformation(transform)
+        }, completion: { _ in
+            if let next = handler {
+                next()
+            }
+        })
+    }
+    private func picSquaresTransformation(_ transform: CGAffineTransform) {
+        for i in 0...3 {
+            picSquareButton[i].transform = transform
+        }
+    }
+    
 }
 
 // MARK: - Choose layout
@@ -154,8 +158,12 @@ extension PickPicViewController {
         // if the photos album is available, ask to pick picture
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
             activityIndicator.startAnimating()
-            imagePickerInit()
+            picSquaresAnimation(picSquaresReduction(), next: {
+                self.imagePickerInit()
+            })
+            
         } else {
+            picSquareButton[index].isSelected = false
             displayingAlert(title: "Photos album not available", text: "The photos album is not available. The application can not add pictures.")
         }
     }

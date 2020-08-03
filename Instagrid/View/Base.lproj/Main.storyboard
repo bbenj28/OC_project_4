@@ -210,11 +210,11 @@
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="fJW-16-dxf"/>
+                                <exclude reference="5dz-wI-1No"/>
+                                <exclude reference="xQf-9H-iZB"/>
                                 <exclude reference="0ax-h5-CpS"/>
                                 <exclude reference="Efh-Tm-sVK"/>
                                 <exclude reference="pUu-LT-hIi"/>
-                                <exclude reference="5dz-wI-1No"/>
-                                <exclude reference="xQf-9H-iZB"/>
                                 <exclude reference="6tJ-gK-b31"/>
                                 <exclude reference="rbZ-RM-DaL"/>
                                 <exclude reference="84n-Kw-t6j"/>
@@ -250,7 +250,7 @@
         <image name="Plus Selected" width="40" height="40"/>
         <image name="Selected" width="80" height="80"/>
         <image name="Square Background" width="127.5" height="127.5"/>
-        <image name="Square Background Highlighted" width="128" height="128"/>
+        <image name="Square Background Highlighted" width="127.5" height="127.5"/>
         <image name="Square Background Selected" width="127.5" height="127.5"/>
     </resources>
 </document>
