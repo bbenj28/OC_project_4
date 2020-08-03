@@ -10,40 +10,51 @@ import UIKit
 
 class PicSquareView: UIButton {
     /// Change picSquare regarding selected layout and picture.
-    func setView(_ picSquare: PicSquare) {
+    func setView(_ picSquare: PicSquare) -> Bool {
         isHidden = picSquare.isHidden
+        let bool: Bool
         if picSquare.hasPicture {
-            imageTransformation(true)
+            bool = imageTransformation(true)
         } else {
-            imagePlus()
+            bool = imagePlus()
         }
         isSelected = false
+        return bool
     }
 
     
     /// Change picSquare's image regarding selected picture.
-    func displayImage(_ image: UIImage?) {
+    func displayImage(_ image: UIImage?) -> Bool {
+        let bool: Bool
         if let verifiedImage = image {
             setImage(verifiedImage, for: .normal)
-            imageTransformation(true)
+            bool = imageTransformation(true)
+        } else {
+            bool = true
         }
         isSelected = false
+        return bool
     }
     
-    private func imagePlus() {
+    private func imagePlus() -> Bool {
         let image = UIImage(imageLiteralResourceName: "Plus")
         setImage(image, for: .normal)
-        imageTransformation(false)
+        let bool = imageTransformation(false)
         isSelected = false
+        return bool
     }
-    private func imageTransformation(_ imageIsSelected: Bool) {
-        if imageIsSelected {
-            imageView?.contentMode = .scaleAspectFill
-            let scale = CGAffineTransform(scaleX: 0.5, y: 0.5)
-            imageView?.transform = scale
-        } else {
-            imageView?.transform = .identity
-            imageView?.contentMode = .center
+    private func imageTransformation(_ imageIsSelected: Bool) -> Bool {
+        guard let picView = imageView else {
+            return false
         }
+        if imageIsSelected {
+            picView.contentMode = .scaleAspectFill
+            let scale = CGAffineTransform(scaleX: 0.5, y: 0.5)
+            picView.transform = scale
+        } else {
+            picView.transform = .identity
+            picView.contentMode = .center
+        }
+        return true
     }
 }

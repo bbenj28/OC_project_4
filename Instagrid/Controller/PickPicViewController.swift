@@ -132,7 +132,9 @@ extension PickPicViewController {
     }
     private func updateSquaresButtons() {
         for i in 0...3 {
-            picSquareButton[i].setView(Grid.picSquares[i])
+            if picSquareButton[i].setView(Grid.picSquares[i]) == false {
+                imageViewInPicSquareButtonError()
+            }
         }
     }
 }
@@ -198,7 +200,9 @@ extension PickPicViewController {
     }
     private func updatePicSquareWithSelection(_ image: UIImage?) {
         if let index = Grid.pictureIsSelectedForPicSquare() {
-            self.picSquareButton[index].displayImage(image)
+            if self.picSquareButton[index].displayImage(image) == false {
+                self.imageViewInPicSquareButtonError()
+            }
         }
     }
     
@@ -340,9 +344,13 @@ extension PickPicViewController {
     /// Display an alert with an unique answer: *OK*.
     /// - Parameter title: Title of the alert.
     /// - Parameter text : Message to display in the alert's box.
-    func displayingAlert(title:String, text:String){
+    private func displayingAlert(title:String, text:String){
         let alert = UIAlertController(title: title, message: text, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
+    private func imageViewInPicSquareButtonError() {
+        displayingAlert(title: "ERROR", text: "One or several picSquares buttons imageView return nil.")
+    }
+    
 }
