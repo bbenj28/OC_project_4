@@ -60,6 +60,7 @@
                                         </constraints>
                                         <state key="normal" backgroundImage="Layout1"/>
                                         <state key="selected" image="Selected" backgroundImage="Layout1"/>
+                                        <state key="highlighted" image="Layout highlighted" backgroundImage="Layout1"/>
                                         <connections>
                                             <action selector="layoutSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C6l-1K-bvP"/>
                                         </connections>
@@ -71,6 +72,7 @@
                                         </constraints>
                                         <state key="normal" backgroundImage="Layout2"/>
                                         <state key="selected" image="Selected" backgroundImage="Layout2"/>
+                                        <state key="highlighted" image="Layout highlighted" backgroundImage="Layout2"/>
                                         <connections>
                                             <action selector="layoutSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cXd-1O-GT8"/>
                                         </connections>
@@ -82,6 +84,7 @@
                                         </constraints>
                                         <state key="normal" backgroundImage="Layout3"/>
                                         <state key="selected" image="Selected" backgroundImage="Layout3"/>
+                                        <state key="highlighted" image="Layout highlighted" backgroundImage="Layout3"/>
                                         <connections>
                                             <action selector="layoutSelection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dF4-mf-Ry5"/>
                                         </connections>
@@ -243,6 +246,7 @@
     <resources>
         <image name="ArrowLeft" width="9.5" height="13.5"/>
         <image name="ArrowUp" width="13.5" height="9.5"/>
+        <image name="Layout highlighted" width="80" height="80"/>
         <image name="Layout1" width="80" height="80"/>
         <image name="Layout2" width="80" height="80"/>
         <image name="Layout3" width="80" height="80"/>
