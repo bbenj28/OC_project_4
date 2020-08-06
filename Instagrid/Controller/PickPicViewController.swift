@@ -13,7 +13,7 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
 
     // MARK: - Properties
 
-    var imagePicker = UIImagePickerController()
+    let imagePicker = UIImagePickerController()
 
     // MARK: - Outlets
 
@@ -21,7 +21,7 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
     
     @IBOutlet var picSquareButton: [PicSquareView]!
     
-    @IBOutlet weak var gridView: GridView!
+    @IBOutlet weak var gridView: UIView!
     
     @IBOutlet var layoutButton: [UIButton]!
 
@@ -320,7 +320,7 @@ extension PickPicViewController {
     /// Ask the grid view to generate a single picture.
     /// - Returns: The UIImage generated.
     private func generatePicture() -> UIImage {
-        return gridView.asImage()
+        return gridView.image
     }
     /// Launch UIActivityController to share picture.
     /// - Parameter image: The generated UIImage to share.
