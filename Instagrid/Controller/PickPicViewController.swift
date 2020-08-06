@@ -17,8 +17,8 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
     
     let grid = Grid()
     
-    @IBOutlet var swipe: UISwipeGestureRecognizer!
-    
+    var selectedSquareForPicture: Int?
+
     var swipeDirection: UISwipeGestureRecognizer.Direction {
         if UIDevice.current.orientation == .portrait || UIDevice.current.orientation == .portraitUpsideDown {
             return .up
@@ -28,6 +28,8 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
     }
     
     // MARK: - Outlets
+    
+    @IBOutlet var swipe: UISwipeGestureRecognizer!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -42,7 +44,7 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         // select first layout's button and change layout
-        updateLayoutAndSquares(0)
+        layoutSelection(layoutButton[0])
         // change swipe direction regarding UIScreen's bounds
         if UIScreen.main.bounds.width > UIScreen.main.bounds.height {
             swipe.direction = .left
@@ -81,11 +83,10 @@ extension PickPicViewController {
     /// - Parameter sender: The layout's button.
     @IBAction func layoutSelection(_ sender: UIButton) {
         for i in 0...2 {
+            layoutButton[i].isSelected = false
             if sender == layoutButton[i] {
                 sender.isSelected = true
                 layoutIsSelected(i)
-            } else {
-                sender.isSelected = false
             }
         }
     }
@@ -93,23 +94,14 @@ extension PickPicViewController {
     /// Update grid based on choosen layout.
     /// - Parameter index: Index of the choosen layout.
     private func layoutIsSelected(_ index: Int) {
-        if index != grid.selectedLayout {
-            updateLayoutAndSquares(index)
+        if grid.changeSelectedLayout(index) {
+            animationWithSpring({
+                self.updateSquaresButtons()
+            }, next: nil)
+            //updateSquaresButtons()
         }
     }
     
-    // MARK: - Change disposition
-    
-    /// Update grid based on choosen layout, and update squares based on choosen layout and pictures.
-    /// - Parameter index: Index of the choosen layout (0...2). *nil* to update squares without changing layout
-    private func updateLayoutAndSquares(_ index: Int?) {
-        animationWithSpring({
-            if let indexOk = index {
-                self.grid.changeSelectedLayout(indexOk)
-            }
-            self.updateSquaresButtons()
-        }, next: nil)
-    }
     private func updateSquaresButtons() {
         for i in 0...3 {
             if picSquareButton[i].setView(grid.picSquares[i]) == false {
@@ -136,9 +128,9 @@ extension PickPicViewController {
         }
     }
     private func askForChangePictureInPicSquares(_ index: Int) {
-        grid.selectedSquare = index
         // if the photos album is available, ask to pick picture
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
+            selectedSquareForPicture = index
             activityIndicator.startAnimating()
             reductionTransformation(picSquareButton, animation: true, completion: { _ in
                 self.imagePickerInit()
@@ -178,9 +170,11 @@ extension PickPicViewController {
         })
     }
     private func updatePicSquareWithSelection(_ image: UIImage?) {
-        if let index = grid.pictureIsSelectedForPicSquare() {
+        if let index = selectedSquareForPicture {
             if self.picSquareButton[index].displayImage(image) == false {
                 self.imageViewInPicSquareButtonError()
+            } else {
+                grid.picSquares[index].hasPicture = true
             }
         }
     }
@@ -223,7 +217,6 @@ extension PickPicViewController {
     /// Delete grid's pictures and make it come back.
     private func returnDeletedGridAnimation() {
         grid.delete()
-        updateLayoutAndSquares(nil)
         identityTransformation([gridView], animation: true, completion: nil)
     }
     /// Make grid come back.
