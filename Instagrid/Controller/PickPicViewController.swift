@@ -250,20 +250,3 @@ extension PickPicViewController {
         present(activityController, animated: true)
     }
 }
-
-// MARK: - Alert
-
-extension PickPicViewController {
-    /// Display an alert with an unique answer: *OK*.
-    /// - Parameter title: Title of the alert.
-    /// - Parameter text : Message to display in the alert's box.
-    private func displayingAlert(title:String, text:String){
-        let alert = UIAlertController(title: title, message: text, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        self.present(alert, animated: true)
-    }
-    private func imageViewInPicSquareButtonError() {
-        displayingAlert(title: "ERROR", text: "One or several picSquares buttons imageView return nil.")
-    }
-    
-}
