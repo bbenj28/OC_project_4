@@ -13,16 +13,16 @@ class Grid {
     // MARK: - Properties
     
     /// PicSquares contained by the grid.
-    static let picSquares: [PicSquare] = [PicSquare(), PicSquare(), PicSquare(), PicSquare()]
+    let picSquares: [PicSquare] = [PicSquare(), PicSquare(), PicSquare(), PicSquare()]
     
     /// Layout which is actually displayed
-    static var selectedLayout: Int = 0
+    var selectedLayout: Int = 0
     
     /// PicSquare's index which is selected for a picture to add.
-    static var selectedSquare: Int?
+    var selectedSquare: Int?
     
     /// Returns picSquares dispositions regarding selected layout.
-    static private var picSquaresHiddenDisposition: [Bool] {
+    private var picSquaresHiddenDisposition: [Bool] {
         switch selectedLayout {
         case 0:
             return [false, true, false, false]
@@ -34,7 +34,7 @@ class Grid {
     }
     
     /// Check if pictures have been selected for all displayed picSquares in grid. Returns *true* if they have, *false* otherwise.
-    static var isReadyToShare: Bool {
+    var isReadyToShare: Bool {
         for i in 0...3 {
             if picSquaresHiddenDisposition[i] == false && picSquares[i].hasPicture == false {
                 return false
@@ -47,7 +47,7 @@ class Grid {
     
     /// Change selected layout in grid properties, and change picSquares disposition.
     /// - Parameter index: Index of the choosen layout (0...2).
-    static func changeSelectedLayout(_ index: Int) {
+    func changeSelectedLayout(_ index: Int) {
         selectedLayout = index
         selectedSquare = nil
         for i in 0...3 {
@@ -56,7 +56,7 @@ class Grid {
     }
     
     /// Delete pictures in all picSquares.
-    static func delete() {
+    func delete() {
         for i in 0...3 {
             picSquares[i].hasPicture = false
         }
@@ -64,7 +64,7 @@ class Grid {
     
     /// Add selected picture's link in the selected picSquare's property, and return its index.
     /// - returns: Selected picSquare's index, *nil* if there's no selected picSquare.
-    static func pictureIsSelectedForPicSquare() -> Int? {
+    func pictureIsSelectedForPicSquare() -> Int? {
         if let index = selectedSquare {
             picSquares[index].hasPicture = true
             return index

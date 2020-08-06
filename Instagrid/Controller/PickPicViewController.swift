@@ -14,6 +14,8 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
     // MARK: - Properties
 
     let imagePicker = UIImagePickerController()
+    
+    let grid = Grid()
 
     // MARK: - Outlets
 
@@ -101,7 +103,7 @@ extension PickPicViewController {
     /// Update grid based on choosen layout.
     /// - Parameter index: Index of the choosen layout.
     private func layoutIsSelected(_ index: Int) {
-        if index != Grid.selectedLayout {
+        if index != grid.selectedLayout {
             updateLayoutAndSquares(index)
         }
     }
@@ -113,7 +115,7 @@ extension PickPicViewController {
     private func updateLayoutAndSquares(_ index: Int?) {
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, animations: {
             if let indexOk = index {
-                Grid.changeSelectedLayout(indexOk)
+                self.grid.changeSelectedLayout(indexOk)
                 self.updateLayoutsButtons()
             }
             self.updateSquaresButtons()
@@ -123,7 +125,7 @@ extension PickPicViewController {
     private func updateLayoutsButtons() {
         for i in 0...2 {
             // hide or show the check mark
-            if Grid.selectedLayout == i {
+            if grid.selectedLayout == i {
                 layoutButton[i].isSelected = true
             } else {
                 layoutButton[i].isSelected = false
@@ -132,7 +134,7 @@ extension PickPicViewController {
     }
     private func updateSquaresButtons() {
         for i in 0...3 {
-            if picSquareButton[i].setView(Grid.picSquares[i]) == false {
+            if picSquareButton[i].setView(grid.picSquares[i]) == false {
                 imageViewInPicSquareButtonError()
             }
         }
@@ -156,7 +158,7 @@ extension PickPicViewController {
         }
     }
     private func askForChangePictureInPicSquares(_ index: Int) {
-        Grid.selectedSquare = index
+        grid.selectedSquare = index
         // if the photos album is available, ask to pick picture
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
             activityIndicator.startAnimating()
@@ -199,7 +201,7 @@ extension PickPicViewController {
         })
     }
     private func updatePicSquareWithSelection(_ image: UIImage?) {
-        if let index = Grid.pictureIsSelectedForPicSquare() {
+        if let index = grid.pictureIsSelectedForPicSquare() {
             if self.picSquareButton[index].displayImage(image) == false {
                 self.imageViewInPicSquareButtonError()
             }
@@ -228,7 +230,7 @@ extension PickPicViewController {
         if let swipeDirectionNeeded = swipeDirectionNeeded() {
             if sender.direction == swipeDirectionNeeded {
                 activityIndicator.startAnimating()
-                if Grid.isReadyToShare {
+                if grid.isReadyToShare {
                     makeGridDisappearAndShareIt()
                 } else {
                     stopSharing()
@@ -293,7 +295,7 @@ extension PickPicViewController {
 
     /// Delete grid's pictures and make it come back.
     private func returnDeletedGridAnimation() {
-        Grid.delete()
+        grid.delete()
         updateLayoutAndSquares(nil)
         returnGridAnimation()
     }
