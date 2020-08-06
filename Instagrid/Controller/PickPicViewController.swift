@@ -39,49 +39,13 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // prepare appearance animation
-        prepareAppearance()
+        reductionTransformation(picSquareButton, animation: false, completion: nil)
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // launch appearance animation
-        picSquaresAnimation(.identity, next: nil)
+        identityTransformation(picSquareButton, animation: true, completion: nil)
     }
-    
-    /// For each button, change its size with a 0.2 scale.
-    private func prepareAppearance() {
-        for i in 0...3 {
-            picSquareButton[i].transform = picSquaresReduction()
-        }
-    }
-    
-    
-    
-}
-
-// MARK: - picSquares Animation
-
-extension PickPicViewController {
-    /// Return the button's rescaling constants when a picture has to be choosen.
-    /// - returns: The button's rescaling contants.
-    private func picSquaresReduction() -> CGAffineTransform {
-        return CGAffineTransform(scaleX: 0.2, y: 0.2)
-    }
-    /// Animate buttons for picture selection and picSquares appearance.
-    private func picSquaresAnimation(_ transform: CGAffineTransform, next handler: (() -> Void)?) {
-        UIView.animate(withDuration: 0.9, delay: 0.2, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
-            self.picSquaresTransformation(transform)
-        }, completion: { _ in
-            if let next = handler {
-                next()
-            }
-        })
-    }
-    private func picSquaresTransformation(_ transform: CGAffineTransform) {
-        for i in 0...3 {
-            picSquareButton[i].transform = transform
-        }
-    }
-    
 }
 
 // MARK: - Choose layout
@@ -95,7 +59,10 @@ extension PickPicViewController {
     @IBAction func layoutSelection(_ sender: UIButton) {
         for i in 0...2 {
             if sender == layoutButton[i] {
+                sender.isSelected = true
                 layoutIsSelected(i)
+            } else {
+                sender.isSelected = false
             }
         }
     }
@@ -113,24 +80,12 @@ extension PickPicViewController {
     /// Update grid based on choosen layout, and update squares based on choosen layout and pictures.
     /// - Parameter index: Index of the choosen layout (0...2). *nil* to update squares without changing layout
     private func updateLayoutAndSquares(_ index: Int?) {
-        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, animations: {
+        animationWithSpring({
             if let indexOk = index {
                 self.grid.changeSelectedLayout(indexOk)
-                self.updateLayoutsButtons()
             }
             self.updateSquaresButtons()
-        }, completion: nil)
-        
-    }
-    private func updateLayoutsButtons() {
-        for i in 0...2 {
-            // hide or show the check mark
-            if grid.selectedLayout == i {
-                layoutButton[i].isSelected = true
-            } else {
-                layoutButton[i].isSelected = false
-            }
-        }
+        }, next: nil)
     }
     private func updateSquaresButtons() {
         for i in 0...3 {
@@ -162,10 +117,9 @@ extension PickPicViewController {
         // if the photos album is available, ask to pick picture
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
             activityIndicator.startAnimating()
-            picSquaresAnimation(picSquaresReduction(), next: {
+            reductionTransformation(picSquareButton, animation: true, completion: { _ in
                 self.imagePickerInit()
             })
-            
         } else {
             picSquareButton[index].isSelected = false
             displayingAlert(title: "Photos album not available", text: "The photos album is not available. The application can not add pictures.")
@@ -268,27 +222,11 @@ extension PickPicViewController {
 
     /// Make grid disappear if ready to share.
     private func makeGridDisappearAndShareIt() {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.gridView.transform = self.gridDisappearance()
-        }, completion: { (finished: Bool) in
+        gridDisappearance(gridView, completion: { (finished: Bool) in
             if finished {
-                self.generateAndSharePicture()
+                self.sharePicture(self.gridView.image)
             }
         })
-    }
-    private func gridDisappearance() -> CGAffineTransform {
-        let translations = getTranslationsXYBasedOnDeviceOrientation()
-        let translation = CGAffineTransform(translationX: translations[0], y: translations[1])
-        return translation
-    }
-    private func getTranslationsXYBasedOnDeviceOrientation() -> [CGFloat] {
-        if deviceOrientation(.portrait) || deviceOrientation(.portraitUpsideDown) {
-            let height = UIScreen.main.bounds.height
-            return [0, -height]
-        } else {
-            let width = UIScreen.main.bounds.width
-            return [-width, 0]
-        }
     }
 
     // MARK: - Grid reappearance
@@ -297,11 +235,11 @@ extension PickPicViewController {
     private func returnDeletedGridAnimation() {
         grid.delete()
         updateLayoutAndSquares(nil)
-        returnGridAnimation()
+        identityTransformation([gridView], animation: true, completion: nil)
     }
     /// Make grid come back.
     private func returnGridAnimation() {
-        gridAnimation(.identity)
+        identityTransformation([gridView], animation: true, completion: nil)
     }
 
     // MARK: - Grid animation
@@ -313,17 +251,8 @@ extension PickPicViewController {
         })
     }
 
-    // MARK: - Generate and share
+    // MARK: - Share
 
-    private func generateAndSharePicture() {
-        let image = generatePicture()
-        sharePicture(image)
-    }
-    /// Ask the grid view to generate a single picture.
-    /// - Returns: The UIImage generated.
-    private func generatePicture() -> UIImage {
-        return gridView.image
-    }
     /// Launch UIActivityController to share picture.
     /// - Parameter image: The generated UIImage to share.
     private func sharePicture(_ image: UIImage) {
