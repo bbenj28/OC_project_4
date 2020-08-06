@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -13,11 +13,11 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Icon no blue" translatesAutoresizingMaskIntoConstraints="NO" id="gvd-9d-20M">
-                                <rect key="frame" x="8.5" y="132.5" width="303" height="303"/>
+                                <rect key="frame" x="11" y="257" width="392" height="392"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="gvd-9d-20M" secondAttribute="height" multiplier="1:1" id="LDS-Hj-epK"/>
                                 </constraints>
@@ -28,14 +28,25 @@
                         <constraints>
                             <constraint firstItem="gvd-9d-20M" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.94686" id="2PW-CU-Q6y"/>
                             <constraint firstItem="gvd-9d-20M" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="X60-BO-Owa"/>
+                            <constraint firstItem="gvd-9d-20M" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="0.934375" id="khs-bb-mDg"/>
                             <constraint firstItem="gvd-9d-20M" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="l2v-Ar-RZ0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="2PW-CU-Q6y"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="constraints">
+                                <exclude reference="khs-bb-mDg"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="50.724637681159422" y="374.33035714285711"/>
+            <point key="canvasLocation" x="50.70422535211268" y="373.125"/>
         </scene>
     </scenes>
     <resources>

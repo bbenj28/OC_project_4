@@ -213,11 +213,11 @@
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="fJW-16-dxf"/>
-                                <exclude reference="5dz-wI-1No"/>
-                                <exclude reference="xQf-9H-iZB"/>
                                 <exclude reference="0ax-h5-CpS"/>
                                 <exclude reference="Efh-Tm-sVK"/>
                                 <exclude reference="pUu-LT-hIi"/>
+                                <exclude reference="5dz-wI-1No"/>
+                                <exclude reference="xQf-9H-iZB"/>
                                 <exclude reference="6tJ-gK-b31"/>
                                 <exclude reference="rbZ-RM-DaL"/>
                                 <exclude reference="84n-Kw-t6j"/>
@@ -225,10 +225,14 @@
                                 <exclude reference="HgZ-tZ-NQc"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="D3B-GG-5F1" appends="YES" id="oQ5-hi-SbM"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="kB8-ex-yfy" id="Ch6-fC-uKA"/>
                         <outlet property="gridView" destination="XsJ-le-W5j" id="M0p-aJ-Mu6"/>
+                        <outlet property="swipe" destination="D3B-GG-5F1" id="rVt-Uh-Exe"/>
                         <outletCollection property="picSquareButton" destination="PQc-Yl-8Vz" collectionClass="NSMutableArray" id="Gqr-Bh-FfG"/>
                         <outletCollection property="picSquareButton" destination="MSR-dq-XXP" collectionClass="NSMutableArray" id="d8k-jw-99w"/>
                         <outletCollection property="picSquareButton" destination="8pO-Ap-a4a" collectionClass="NSMutableArray" id="vF0-II-PF7"/>
@@ -239,6 +243,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="D3B-GG-5F1">
+                    <connections>
+                        <action selector="swipeActionBis:" destination="BYZ-38-t0r" id="qH0-Y9-prd"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="132" y="111.0944527736132"/>
         </scene>
