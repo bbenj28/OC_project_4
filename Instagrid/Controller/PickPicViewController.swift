@@ -8,8 +8,7 @@
 
 import UIKit
 
-// MARK: - Init
-class PickPicViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class PickPicViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -39,7 +38,7 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
     
     @IBOutlet var layoutButton: [UIButton]!
     
-    // MARK: - View appearance
+    // MARK: - viewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,26 +57,22 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
         reductionTransformation(picSquareButton, animation: false, completion: nil)
     }
     
+    // MARK: - viewDidAppear
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // launch appearance animation
         identityTransformation(picSquareButton, animation: true, completion: nil)
     }
     
+    // MARK: - swipe transition
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         swipe.direction = swipeDirection
     }
- 
- 
- 
-}
-
-// MARK: - Choose layout
-
-extension PickPicViewController {
     
-    // MARK: - Layouts buttons
+    // MARK: - Choose layout
     
     /// Action when a layout's button is hitten.
     /// - Parameter sender: The layout's button.
@@ -109,13 +104,9 @@ extension PickPicViewController {
             }
         }
     }
-}
-
-// MARK: - Choose pictures
-
-extension PickPicViewController {
     
-    // MARK: - Squares buttons
+    
+    // MARK: - Choose Picture
     
     /// Action when a picSquare's Button is hitten.
     /// - Parameter sender: The picSquare's Button.
@@ -124,6 +115,7 @@ extension PickPicViewController {
         for i in 0...3 {
             if picSquareButton[i] == sender {
                 askForChangePictureInPicSquares(i)
+                break
             }
         }
     }
@@ -133,7 +125,7 @@ extension PickPicViewController {
             selectedSquareForPicture = index
             activityIndicator.startAnimating()
             reductionTransformation(picSquareButton, animation: true, completion: { _ in
-                self.imagePickerInit()
+                self.launchImagePicker()
             })
         } else {
             picSquareButton[index].isSelected = false
@@ -141,35 +133,7 @@ extension PickPicViewController {
         }
     }
     
-    // MARK: - Image picker
-    
-    private func imagePickerInit() {
-        imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.allowsEditing = false
-        imagePicker.isModalInPopover = true
-        imagePicker.modalPresentationStyle = .fullScreen
-        present(imagePicker, animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        // an image is selected, dismiss picker and display it in the selected PicSquare
-        self.dismiss(animated: true, completion: {
-            if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                self.updatePicSquareWithSelection(image)
-            } else {
-                self.updatePicSquareWithSelection(nil)
-            }
-            self.activityIndicator.stopAnimating()
-        })
-    }
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        self.dismiss(animated: true, completion: {
-            self.updatePicSquareWithSelection(nil)
-            self.activityIndicator.stopAnimating()
-        })
-    }
-    private func updatePicSquareWithSelection(_ image: UIImage?) {
+    func updatePicSquareWithSelection(_ image: UIImage?) {
         if let index = selectedSquareForPicture {
             if self.picSquareButton[index].displayImage(image) == false {
                 self.imageViewInPicSquareButtonError()
@@ -179,13 +143,12 @@ extension PickPicViewController {
         }
     }
     
-}
-
-// MARK: - Swipe and share
-
-extension PickPicViewController {
     
-
+    
+    
+    
+    // MARK: - Swipe and share
+    
     /// Action to do when a left or up swipe is recognized.
     @IBAction func swipeAction(_ sender: UISwipeGestureRecognizer) {
         if grid.isReadyToShare {
@@ -212,4 +175,7 @@ extension PickPicViewController {
         identityTransformation([gridView], animation: true, completion: nil)
     }
     
+    
 }
+
+
