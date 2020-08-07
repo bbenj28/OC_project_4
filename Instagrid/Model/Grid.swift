@@ -36,7 +36,7 @@ class Grid {
     
     /// Change selected layout in grid properties, and change picSquares disposition.
     /// - Parameter index: Index of the choosen layout (0...2).
-    func changeSelectedLayout(_ index: Int) -> Bool {
+    func changedSelectedLayout(to index: Int) -> Bool {
         if selectedLayout == layouts[index] {
             return false
         } else {

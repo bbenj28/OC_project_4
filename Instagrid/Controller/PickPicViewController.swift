@@ -51,15 +51,13 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
         } else {
             swipe.direction = .up
         }
+        // add observers for share notifications
         NotificationCenter.default.addObserver(self, selector: #selector(returnDeletedGridAnimation), name: Notification.Name(rawValue: "ShareTrue"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(returnGridAnimation), name: Notification.Name(rawValue: "ShareFalse"), object: nil)
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         // prepare appearance animation
         reductionTransformation(picSquareButton, animation: false, completion: nil)
-        
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // launch appearance animation
@@ -96,11 +94,11 @@ extension PickPicViewController {
     /// Update grid based on choosen layout.
     /// - Parameter index: Index of the choosen layout.
     private func layoutIsSelected(_ index: Int) {
-        if grid.changeSelectedLayout(index) {
+        if grid.changedSelectedLayout(to: index) {
             animationWithSpring({
+                //updateSquaresButtons()
                 self.updateSquaresButtons()
             }, next: nil)
-            //updateSquaresButtons()
         }
     }
     

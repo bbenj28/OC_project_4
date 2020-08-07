@@ -9,7 +9,10 @@
 import UIKit
 
 class PicSquareView: UIButton {
-    /// Change picSquare regarding selected layout and picture.
+    
+    /// Change view regarding layout's and picture's selections.
+    /// - parameter picSquare: The target grid's square.
+    /// - returns: *true* if the button's imageView exists (when unwrapping it), *false* otherwise.
     func setView(_ picSquare: PicSquare) -> Bool {
         isHidden = picSquare.isHidden
         let bool: Bool
@@ -24,6 +27,8 @@ class PicSquareView: UIButton {
 
     
     /// Change picSquare's image regarding selected picture.
+    /// - parameter image: The picSquare's picture.
+    /// - returns: *true* if the button's imageView exists (when unwrapping it), *false*
     func displayImage(_ image: UIImage?) -> Bool {
         let bool: Bool
         if let verifiedImage = image {
@@ -36,6 +41,8 @@ class PicSquareView: UIButton {
         return bool
     }
     
+    /// Change empty picSquare's image with a plus.
+    /// - returns: *true* if the button's imageView exists (when unwrapping it), *false*
     private func imagePlus() -> Bool {
         let image = UIImage(imageLiteralResourceName: "Plus")
         setImage(image, for: .normal)
@@ -43,6 +50,9 @@ class PicSquareView: UIButton {
         isSelected = false
         return bool
     }
+    
+    /// Change picSquare's imageView properties regarding if a picture has been selected or not.
+    /// - returns: *true* if the button's imageView exists (when unwrapping it), *false*
     private func imageTransformation(_ imageIsSelected: Bool) -> Bool {
         guard let picView = imageView else {
             return false
