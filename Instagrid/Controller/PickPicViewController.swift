@@ -51,6 +51,8 @@ class PickPicViewController: UIViewController, UINavigationControllerDelegate, U
         } else {
             swipe.direction = .up
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(returnDeletedGridAnimation), name: Notification.Name(rawValue: "ShareTrue"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(returnGridAnimation), name: Notification.Name(rawValue: "ShareFalse"), object: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -184,69 +186,32 @@ extension PickPicViewController {
 // MARK: - Swipe and share
 
 extension PickPicViewController {
+    
 
     /// Action to do when a left or up swipe is recognized.
-    @IBAction func swipeActionBis(_ sender: UISwipeGestureRecognizer) {
-        activityIndicator.startAnimating()
+    @IBAction func swipeAction(_ sender: UISwipeGestureRecognizer) {
         if grid.isReadyToShare {
-            makeGridDisappearAndShareIt()
+            activityIndicator.startAnimating()
+            gridDisappearance(gridView, completion: { (finished: Bool) in
+                if finished {
+                    self.sharePicture(self.gridView.image)
+                }
+            })
         } else {
-            stopSharing()
+            displayingAlert(title: "Choose pictures", text: "All squares have to be full in the choosen layout. Please, choose pictures.")
         }
     }
-        
-    /// Grid is not ready to share : display alert and stop sharing.
-    private func stopSharing() {
-        activityIndicator.stopAnimating()
-        displayingAlert(title: "Choose pictures", text: "All squares have to be full in the choosen layout. Please, choose pictures.")
-    }
-
-    // MARK: - Grid disappearance
-    
-    /// Make grid disappear if ready to share.
-    private func makeGridDisappearAndShareIt() {
-        gridDisappearance(gridView, completion: { (finished: Bool) in
-            if finished {
-                self.sharePicture(self.gridView.image)
-            }
-        })
-    }
-    
-    // MARK: - Grid reappearance
     
     /// Delete grid's pictures and make it come back.
-    private func returnDeletedGridAnimation() {
+    @objc private func returnDeletedGridAnimation() {
         grid.delete()
-        identityTransformation([gridView], animation: true, completion: nil)
+        updateSquaresButtons()
+        returnGridAnimation()
     }
     /// Make grid come back.
-    private func returnGridAnimation() {
+    @objc private func returnGridAnimation() {
+        activityIndicator.stopAnimating()
         identityTransformation([gridView], animation: true, completion: nil)
     }
     
-    // MARK: - Grid animation
-    
-    /// Animate grid appearance and disappearance.
-    private func gridAnimation(_ transform: CGAffineTransform) {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.gridView.transform = transform
-        })
-    }
-    
-    // MARK: - Share
-    
-    /// Launch UIActivityController to share picture.
-    /// - Parameter image: The generated UIImage to share.
-    private func sharePicture(_ image: UIImage) {
-        let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-        activityController.completionWithItemsHandler = { (activity, success, items, error) in
-            if success {
-                self.returnDeletedGridAnimation()
-            } else {
-                self.returnGridAnimation()
-            }
-            self.activityIndicator.stopAnimating()
-        }
-        present(activityController, animated: true)
-    }
 }
