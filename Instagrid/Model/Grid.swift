@@ -7,20 +7,18 @@
 //
 
 import Foundation
-/// Class of the grid, used to change its disposition when a layout is selected by user, to know which square is choosen for a picture selection, and to know if the grid is ready to share.
+/// Class of the grid, used to change its disposition when a layout is selected by user, to get its picSquare's informations,  and to know if the grid is ready to share.
 class Grid {
     
     // MARK: - Properties
     
-    /// PicSquares contained by the grid.
+    /// Squares contained by the grid.
     let picSquares: [PicSquare] = [PicSquare(), PicSquare(), PicSquare(), PicSquare()]
     
-    /// Layout which is actually displayed
+    /// Layout which is actually displayed.
     var selectedLayout: Layout = .layout2
+    /// All possible layouts.
     let layouts: [Layout] = [.layout0, .layout1, .layout2]
-    
-    
-    
     
     /// Check if pictures have been selected for all displayed picSquares in grid. Returns *true* if they have, *false* otherwise.
     var isReadyToShare: Bool {

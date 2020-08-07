@@ -51,8 +51,8 @@ class PickPicViewController: UIViewController {
             swipe.direction = .up
         }
         // add observers for share notifications
-        NotificationCenter.default.addObserver(self, selector: #selector(returnDeletedGridAnimation), name: Notification.Name(rawValue: "ShareTrue"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(returnGridAnimation), name: Notification.Name(rawValue: "ShareFalse"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(returnDeletedGridAnimation), name: Notification.Name(rawValue: "DeleteGrid"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(returnGridAnimation), name: Notification.Name(rawValue: "KeepGrid"), object: nil)
         // prepare appearance animation
         reductionTransformation(picSquareButton, animation: false, completion: nil)
     }
@@ -79,6 +79,7 @@ class PickPicViewController: UIViewController {
     @IBAction func layoutSelection(_ sender: UIButton) {
         for i in 0...2 {
             layoutButton[i].isSelected = false
+            // check which layout has been selected
             if sender == layoutButton[i] {
                 sender.isSelected = true
                 layoutIsSelected(i)
@@ -89,14 +90,15 @@ class PickPicViewController: UIViewController {
     /// Update grid based on choosen layout.
     /// - Parameter index: Index of the choosen layout.
     private func layoutIsSelected(_ index: Int) {
+        // check if grid changed selected layout to eventually update squares buttons
         if grid.changedSelectedLayout(to: index) {
             animationWithSpring({
-                //updateSquaresButtons()
                 self.updateSquaresButtons()
             }, next: nil)
         }
     }
     
+    /// Layout has been changed, so buttons have to change too.
     private func updateSquaresButtons() {
         for i in 0...3 {
             if picSquareButton[i].setView(grid.picSquares[i]) == false {
@@ -105,13 +107,13 @@ class PickPicViewController: UIViewController {
         }
     }
     
-    
     // MARK: - Choose Picture
     
     /// Action when a picSquare's Button is hitten.
     /// - Parameter sender: The picSquare's Button.
     @IBAction func picSquareSelection(_ sender: PicSquareView) {
         sender.isSelected = true
+        // check which button has been hitten and ask for change picture in this button.
         for i in 0...3 {
             if picSquareButton[i] == sender {
                 askForChangePictureInPicSquares(i)
@@ -119,11 +121,17 @@ class PickPicViewController: UIViewController {
             }
         }
     }
+    
+    /// Ask user to choose an image in the imagePicker.
+    /// - parameter index: Index of the hitten button.
     private func askForChangePictureInPicSquares(_ index: Int) {
         // if the photos album is available, ask to pick picture
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
+            // save the button's index
             selectedSquareForPicture = index
+            // launch activity indicator
             activityIndicator.startAnimating()
+            // animate the view and launch image picker
             reductionTransformation(picSquareButton, animation: true, completion: { _ in
                 self.launchImagePicker()
             })
@@ -133,26 +141,30 @@ class PickPicViewController: UIViewController {
         }
     }
     
+    /// Handle return from imagePicker.
+    /// - parameter image: Image which has been selected by the user. If no image has been selected, returns *nil*.
     func updatePicSquareWithSelection(_ image: UIImage?) {
+        // get selected button's index
         if let index = selectedSquareForPicture {
+            // check if the button's imageView exists and change button's image.
             if self.picSquareButton[index].displayImage(image) == false {
                 self.imageViewInPicSquareButtonError()
             } else {
+                // tell grid that an image has been selected for this button
                 grid.picSquares[index].hasPicture = true
             }
         }
     }
     
-    
-    
-    
-    
     // MARK: - Swipe and share
     
     /// Action to do when a left or up swipe is recognized.
+    /// - parameter sender: The swipe gesture.
     @IBAction func swipeAction(_ sender: UISwipeGestureRecognizer) {
+        // check if all pictures have been selected.
         if grid.isReadyToShare {
             activityIndicator.startAnimating()
+            // grid disappears and launch activity controller
             gridDisappearance(gridView, completion: { (finished: Bool) in
                 if finished {
                     self.sharePicture(self.gridView.image)
@@ -169,13 +181,12 @@ class PickPicViewController: UIViewController {
         updateSquaresButtons()
         returnGridAnimation()
     }
+    
     /// Make grid come back.
     @objc private func returnGridAnimation() {
         activityIndicator.stopAnimating()
         identityTransformation([gridView], animation: true, completion: nil)
     }
-    
-    
 }
 
 

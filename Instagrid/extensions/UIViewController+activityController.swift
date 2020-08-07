@@ -8,22 +8,18 @@
 
 import UIKit
 extension UIViewController {
-    // MARK: - Share
-    
     /// Launch UIActivityController to share picture.
     /// - Parameter image: The generated UIImage to share.
     func sharePicture(_ image: UIImage) {
         let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         activityController.completionWithItemsHandler = { (activity, success, items, error) in
-            let name: Notification.Name
             if success {
-                name = Notification.Name("ShareTrue")
-                
+                self.deleteGridAlert()
             } else {
-                name = Notification.Name("ShareFalse")
+                let name = Notification.Name("KeepGrid")
+                let notification = Notification(name: name)
+                NotificationCenter.default.post(notification)
             }
-            let notification = Notification(name: name)
-            NotificationCenter.default.post(notification)
         }
         present(activityController, animated: true)
     }

@@ -12,6 +12,8 @@ enum Layout {
     case layout1
     case layout2
     
+    /// Check if a square has to be hidden regarding the choosen layout.
+    /// - parameter index: The choosen square's index.
     func isHiddenSquare(_ index: Int) -> Bool {
         switch self {
         case .layout0:

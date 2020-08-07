@@ -7,9 +7,6 @@
 //
 
 import Foundation
-
-// MARK: - Mother class
-
 /// Class of squares which will contain a picture.
 class PicSquare {
     

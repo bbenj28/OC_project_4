@@ -9,9 +9,7 @@
 import UIKit
 
 extension PickPicViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-
-    // MARK: - Image picker
-    
+    /// ImagePicker's parameters modification, and present it.
     func launchImagePicker() {
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
@@ -21,6 +19,7 @@ extension PickPicViewController: UINavigationControllerDelegate, UIImagePickerCo
         present(imagePicker, animated: true, completion: nil)
     }
     
+    /// Actions to do when a picture is selected.
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         // an image is selected, dismiss picker and display it in the selected PicSquare
         self.dismiss(animated: true, completion: {
@@ -32,6 +31,8 @@ extension PickPicViewController: UINavigationControllerDelegate, UIImagePickerCo
             self.activityIndicator.stopAnimating()
         })
     }
+    
+    /// Actions to do when user did hit the cancel button.
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: {
             self.updatePicSquareWithSelection(nil)
