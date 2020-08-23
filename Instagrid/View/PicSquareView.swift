@@ -29,14 +29,9 @@ class PicSquareView: UIButton {
     /// Change picSquare's image regarding selected picture.
     /// - parameter image: The picSquare's picture.
     /// - returns: *true* if the button's imageView exists (when unwrapping it), *false*
-    func displayImage(_ image: UIImage?) -> Bool {
-        let bool: Bool
-        if let verifiedImage = image {
-            setImage(verifiedImage, for: .normal)
-            bool = imageTransformation(true)
-        } else {
-            bool = true
-        }
+    func displayImage(_ image: UIImage) -> Bool {
+        setImage(image, for: .normal)
+        let bool = imageTransformation(true)
         isSelected = false
         return bool
     }

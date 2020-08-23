@@ -17,6 +17,7 @@ class Grid {
     
     /// Layout which is actually displayed.
     var selectedLayout: Layout = .layout2
+    
     /// All possible layouts.
     let layouts: [Layout] = [.layout0, .layout1, .layout2]
     

@@ -8,17 +8,14 @@
 
 import UIKit
 
-class PickPicViewController: UIViewController {
+final class PickPicViewController: UIViewController {
     
     // MARK: - Properties
     
-    let imagePicker = UIImagePickerController()
-    
-    let grid = Grid()
-    
-    var selectedSquareForPicture: Int?
-
-    var swipeDirection: UISwipeGestureRecognizer.Direction {
+    private let imagePicker = UIImagePickerController()
+    private let grid = Grid()
+    private var selectedSquareForPicture: Int?
+    private var swipeDirection: UISwipeGestureRecognizer.Direction {
         if UIDevice.current.orientation == .portrait || UIDevice.current.orientation == .portraitUpsideDown {
             return .up
         } else {
@@ -28,15 +25,11 @@ class PickPicViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet var swipe: UISwipeGestureRecognizer!
-    
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
-    @IBOutlet var picSquareButton: [PicSquareView]!
-    
-    @IBOutlet weak var gridView: UIView!
-    
-    @IBOutlet var layoutButton: [UIButton]!
+    @IBOutlet private var swipe: UISwipeGestureRecognizer!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet private var picSquareButton: [PicSquareView]!
+    @IBOutlet private weak var gridView: UIView!
+    @IBOutlet private var layoutButton: [UIButton]!
     
     // MARK: - viewDidLoad
     
@@ -143,15 +136,20 @@ class PickPicViewController: UIViewController {
     
     /// Handle return from imagePicker.
     /// - parameter image: Image which has been selected by the user. If no image has been selected, returns *nil*.
-    func updatePicSquareWithSelection(_ image: UIImage?) {
+    private func updatePicSquareWithSelection(_ image: UIImage?) {
         // get selected button's index
         if let index = selectedSquareForPicture {
-            // check if the button's imageView exists and change button's image.
-            if self.picSquareButton[index].displayImage(image) == false {
-                self.imageViewInPicSquareButtonError()
+            // check if an image has been selected
+            if let verifiedImage = image {
+                // check if the button's imageView exists and change button's image.
+                if self.picSquareButton[index].displayImage(verifiedImage) == false {
+                    self.imageViewInPicSquareButtonError()
+                } else {
+                    // tell grid that an image has been selected for this button
+                    grid.picSquares[index].hasPicture = true
+                }
             } else {
-                // tell grid that an image has been selected for this button
-                grid.picSquares[index].hasPicture = true
+                picSquareButton[index].isSelected = false
             }
         }
     }
@@ -189,4 +187,35 @@ class PickPicViewController: UIViewController {
     }
 }
 
-
+extension PickPicViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    /// ImagePicker's parameters modification, and present it.
+    private func launchImagePicker() {
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = false
+        imagePicker.isModalInPopover = true
+        imagePicker.modalPresentationStyle = .fullScreen
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    /// Actions to do when a picture is selected.
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // an image is selected, dismiss picker and display it in the selected PicSquare
+        dismiss(animated: true, completion: {
+            if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                self.updatePicSquareWithSelection(image)
+            } else {
+                self.updatePicSquareWithSelection(nil)
+            }
+            self.activityIndicator.stopAnimating()
+        })
+    }
+    
+    /// Actions to do when user did hit the cancel button.
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: {
+            self.updatePicSquareWithSelection(nil)
+            self.activityIndicator.stopAnimating()
+        })
+    }
+}

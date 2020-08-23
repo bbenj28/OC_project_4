@@ -13,7 +13,6 @@
 		0380DD2F24BCE3FA00589571 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380DD2E24BCE3FA00589571 /* Grid.swift */; };
 		0388D09024DC36090092060A /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0388D08F24DC36090092060A /* Layout.swift */; };
 		038A4C5724DD3A30005869FF /* UIViewController+activityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038A4C5624DD3A30005869FF /* UIViewController+activityController.swift */; };
-		038A4C5D24DD556A005869FF /* PickPicViewController+ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038A4C5C24DD556A005869FF /* PickPicViewController+ImagePicker.swift */; };
 		03A5DF6524DC57E400EC1138 /* UIViewController+alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A5DF6424DC57E400EC1138 /* UIViewController+alert.swift */; };
 		03A93EE124B9A4FD000567B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A93EE024B9A4FD000567B4 /* AppDelegate.swift */; };
 		03A93EE324B9A4FD000567B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A93EE224B9A4FD000567B4 /* SceneDelegate.swift */; };
@@ -33,7 +32,6 @@
 		0380DD2E24BCE3FA00589571 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		0388D08F24DC36090092060A /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		038A4C5624DD3A30005869FF /* UIViewController+activityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+activityController.swift"; sourceTree = "<group>"; };
-		038A4C5C24DD556A005869FF /* PickPicViewController+ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PickPicViewController+ImagePicker.swift"; sourceTree = "<group>"; };
 		03A5DF6424DC57E400EC1138 /* UIViewController+alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+alert.swift"; sourceTree = "<group>"; };
 		03A93EDD24B9A4FD000567B4 /* Instagrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03A93EE024B9A4FD000567B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,7 +64,6 @@
 				03C3ADCE24DBE8E2005D8E85 /* UIViewController+animations.swift */,
 				03A5DF6424DC57E400EC1138 /* UIViewController+alert.swift */,
 				038A4C5624DD3A30005869FF /* UIViewController+activityController.swift */,
-				038A4C5C24DD556A005869FF /* PickPicViewController+ImagePicker.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -95,8 +92,6 @@
 				03A93EF624B9A51D000567B4 /* Controller */,
 				03A93EF524B9A519000567B4 /* View */,
 				03A93EF424B9A511000567B4 /* Model */,
-				03A93EE924B9A4FF000567B4 /* Assets.xcassets */,
-				03A93EEE24B9A4FF000567B4 /* Info.plist */,
 			);
 			path = Instagrid;
 			sourceTree = "<group>";
@@ -132,10 +127,12 @@
 		03A93EF724B9A522000567B4 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
-				03A93EE224B9A4FD000567B4 /* SceneDelegate.swift */,
 				03A93EF824B9A6AE000567B4 /* Delm-Medium.otf */,
 				03A93EFA24B9A6EE000567B4 /* ThirstySoftRegular.otf */,
+				03A93EE224B9A4FD000567B4 /* SceneDelegate.swift */,
 				03A93EE024B9A4FD000567B4 /* AppDelegate.swift */,
+				03A93EE924B9A4FF000567B4 /* Assets.xcassets */,
+				03A93EEE24B9A4FF000567B4 /* Info.plist */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -213,7 +210,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				038A4C5D24DD556A005869FF /* PickPicViewController+ImagePicker.swift in Sources */,
 				0380DD2F24BCE3FA00589571 /* Grid.swift in Sources */,
 				0380DD2D24BCE14A00589571 /* PicSquare.swift in Sources */,
 				03A93EE124B9A4FD000567B4 /* AppDelegate.swift in Sources */,
@@ -370,7 +366,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XF9Z2VTWR3;
-				INFOPLIST_FILE = Instagrid/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Instagrid/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -389,7 +385,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XF9Z2VTWR3;
-				INFOPLIST_FILE = Instagrid/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Instagrid/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
