@@ -187,6 +187,8 @@ final class PickPicViewController: UIViewController {
     }
 }
 
+    // MARK: - Image Picker
+
 extension PickPicViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     /// ImagePicker's parameters modification, and present it.
     private func launchImagePicker() {
