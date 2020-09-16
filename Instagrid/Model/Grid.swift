@@ -35,15 +35,15 @@ class Grid {
     
     /// Change selected layout in grid properties, and change picSquares disposition.
     /// - Parameter index: Index of the choosen layout (0...2).
-    func changedSelectedLayout(to index: Int) -> Bool {
-        if selectedLayout == layouts[index] {
-            return false
-        } else {
+    func changedSelectedLayout(to index: Int) {
+        if selectedLayout != layouts[index] {
             selectedLayout = layouts[index]
             for i in 0...3 {
                 picSquares[i].isHidden = selectedLayout.isHiddenSquare(i)
             }
-            return true
+            let notificationName = Notification.Name("newLayout")
+            let notification = Notification(name: notificationName)
+            NotificationCenter.default.post(notification)
         }
     }
     

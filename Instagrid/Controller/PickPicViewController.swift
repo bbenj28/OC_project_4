@@ -35,6 +35,8 @@ final class PickPicViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // add observer for layout's changes notifications
+        NotificationCenter.default.addObserver(self, selector: #selector(changeLayout), name: Notification.Name(rawValue: "newLayout"), object: nil)
         // select first layout's button and change layout
         layoutSelection(layoutButton[0])
         // change swipe direction regarding UIScreen's bounds
@@ -84,11 +86,14 @@ final class PickPicViewController: UIViewController {
     /// - Parameter index: Index of the choosen layout.
     private func layoutIsSelected(_ index: Int) {
         // check if grid changed selected layout to eventually update squares buttons
-        if grid.changedSelectedLayout(to: index) {
-            animationWithSpring({
-                self.updateSquaresButtons()
-            }, next: nil)
-        }
+        grid.changedSelectedLayout(to: index)
+    }
+    
+    /// Update grid's buttons based on choosen layout.
+    @objc private func changeLayout() {
+        animationWithSpring({
+            self.updateSquaresButtons()
+        }, next: nil)
     }
     
     /// Layout has been changed, so buttons have to change too.
